@@ -1,0 +1,23 @@
+<div class="visualClear"><!-- --></div>
+<div i18n:domain="plone"
+     class="documentActions" tal:condition="view/object_actions">
+
+    <span class="hiddenStructure" i18n:translate="simplelayout_actions">SimpleLayou Actions</span>
+
+    <ul class="simplelayout" tal:define="normalizeString nocall: context/@@plone/normalizeString">
+
+    <tal:actions repeat="daction view/object_actions">
+        <li tal:attributes="id python:'document-action-' + normalizeString(daction['id'])">
+            <a href=""
+               tal:attributes="href daction/url;
+                               title daction/description">
+				<img src="" alt=""
+					 tal:attributes="src python: daction.has_key('icon') and daction['icon'] or '';
+					 				 alt daction/title" /></a>
+        </li>
+    </tal:actions>
+
+    </ul>
+
+</div>
+

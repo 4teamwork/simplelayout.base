@@ -1,0 +1,3 @@
+the presence of this file is used to signal the setuphandler whether to continue or not.
+
+see http://maurits.vanrees.org/weblog/archive/2007/06/discovering-genericsetup

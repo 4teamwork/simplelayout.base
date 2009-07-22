@@ -1,0 +1,41 @@
+Changelog
+=========
+
+
+2.0b2
+----------------
+* added technical FAQ to README [mathias.leimgruber]
+* added HowTo to README [arno.blumer]
+* fix error while reinstalling [mathias.leimgruber]
+* added more info to README/HISTORY [mathias.leimgruber]
+* some IE7 JS fixes [mathias.leimgruber]
+
+
+
+2.0b1
+----------------
+* create two columns layout [mathias.leimgruber]
+* fixed dragndrop functionality for two columns [mathias.leimgruber]
+* align two columns layout to grid [mathias.leimgruber]
+  - works great in FF 2.x - 3.x 
+  - There are some display issues in edit-mode with IE 6/7
+  - edit-mode for safari and IE 8 not tested
+* added a tow column view with a one column slot on top [mathias.leimgruber]
+* added design menu [mathias.leimgruber]
+* some fixes in sl-controls ajax reload [victor.baumann]
+* reload block after moving arround [mathias.leimgruber]
+
+
+1.0
+----------------
+
+* Initial release
+* Extracted from plonegov.website 1.0 [mathias.leimgruber]
+* Shipps base function for simplelayout [victore.baumann]
+* simplelayout configlet included [mathias.leimgruber]
+* based on:
+  - simplelayout.types.common
+  - simplelayout.ui.base
+  - simplelayout.ui.dragndrop
+
+

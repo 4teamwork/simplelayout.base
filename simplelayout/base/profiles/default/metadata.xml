@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<metadata>
+    <description>simplelayout</description>
+    <version>2.0</version>
+  <dependencies>
+    <dependency>profile-simplelayout.types.common:default</dependency>
+    <dependency>profile-simplelayout.ui.base:default</dependency>
+    <dependency>profile-simplelayout.ui.dragndrop:default</dependency>
+  </dependencies>
+</metadata>

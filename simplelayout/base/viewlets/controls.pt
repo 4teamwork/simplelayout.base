@@ -1,0 +1,5 @@
+<div class="sl-controls" 
+	 tal:attributes="style python: edit_mode and 'display:block' or ''"
+	 tal:define="current_layout python: view.getCurrentLayout(here);
+	             edit_mode view/checkForEditMode">&nbsp;</div>    
+<span class="visualClear">&nbsp;</span>

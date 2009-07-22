@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<action-icons>
+
+ <action-icon category="sl-actions" action_id="sl-folder"
+              title="Content" priority="2"
+              icon_expr="folder_icon.gif"/>
+ <action-icon category="sl-actions" action_id="sl-edit"
+              title="Edit" priority="2"
+              icon_expr="edit.gif"/>
+  <action-icon category="sl-actions" action_id="sl-delete"
+              title="Delete" priority="2"
+              icon_expr="delete_icon.gif"/>
+  <action-icon category="sl-actions" action_id="sl-moveup"
+              title="Move Up" priority="2"
+              icon_expr="arrowUp.gif"/>
+  <action-icon category="sl-actions" action_id="sl-movedo"
+              title="Move Down" priority="2"
+              icon_expr="arrowDown.gif"/>
+              
+  <action-icon category="sl-layouts" action_id="sl-small"
+              title="Move Down" priority="2"
+              icon_expr="/++resource++sl/icons/sl-layout2.gif"/>
+  <action-icon category="sl-layouts" action_id="sl-middle"
+              title="Move Down" priority="2"
+              icon_expr="/++resource++sl/icons/sl-layout3.gif"/>
+  <action-icon category="sl-layouts" action_id="sl-full"
+              title="Move Down" priority="2"
+              icon_expr="/++resource++sl/icons/sl-layout1.gif"/>
+  <action-icon category="sl-layouts" action_id="sl-no-image"
+              title="Move Down" priority="2"
+              icon_expr="/++resource++sl/icons/sl-layout4.gif"/>
+  <action-icon category="sl-layouts" action_id="sl-small"
+              title="Move Down" priority="2"
+              icon_expr="/++resource++sl/icons/sl-layout2.gif"/>
+  <action-icon category="sl-layouts" action_id="sl-default"
+              title="Move Down" priority="2"
+              icon_expr="/++resource++sl/icons/sl-layout4.gif"/>
+              
+  <action-icon category="sl-layouts" action_id="sl-small-right"
+              title="Move Down" priority="2"
+              icon_expr="/++resource++sl/icons/sl-layout2-right.gif"/>
+  <action-icon category="sl-layouts" action_id="sl-middle-right"
+              title="Move Down" priority="2"
+              icon_expr="/++resource++sl/icons/sl-layout3-right.gif"/>
+</action-icons>

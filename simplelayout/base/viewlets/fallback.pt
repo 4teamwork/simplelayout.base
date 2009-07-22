@@ -1,0 +1,28 @@
+<div class="#" id="#"
+				tal:define="slclass view/getCSSClass;
+				text here/getBlockText|here/getText|nothing;
+				title here/Title | here/pretty_title_or_id;
+				fullblock python: text and ' sl-fullblock' or ''"
+				tal:attributes="id here/id;
+								class string:simplelayout-block-wrapper ${slclass}${fullblock};">
+	<h3 tal:content="here/Title" tal:condition="here/getShowTitle|python:True" />
+	<a tal:attributes="name here/id" ></a>
+	<div class="sl-img-wrapper" tal:condition="view/checkForImage">
+					<a  target="_blank"
+						tal:attributes="
+										rel string:gb_image[${context/UID}];
+										title context/Title;
+										href string:${context/absolute_url}/image
+										"
+										tal:omit-tag="not: here/getImageClickable|nothing"
+					>
+						<img tal:replace="structure view/getImageTag" />
+                        <p tal:define="image_desc context/getImageCaption | context/Description" 
+                           tal:condition="image_desc"
+                           tal:content="context/getImageCaption">Caption</p>
+					</a>
+	</div>
+	<div tal:condition="text" class="sl-text-wrapper" tal:content="structure text"></div>
+
+</div>
+<span class="visualClear">&nbsp;</span>
