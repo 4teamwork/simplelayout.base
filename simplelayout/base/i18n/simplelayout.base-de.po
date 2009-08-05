@@ -12,8 +12,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-"Language-Code: en\n"
-"Language-Name: English\n"
+"Language-Code: de\n"
+"Language-Name: Deutsch\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: simplelayout\n"
 
@@ -124,3 +124,6 @@ msgstr "Alternativ Text"
 
 msgid "plone_help_imageAltText"
 msgstr "Geben Sie den Alternative Text ein."
+
+msgid "warning_causes_whole_page"
+msgstr "Achtung! Hat Auswirkungen auf den ganzen Bereich"

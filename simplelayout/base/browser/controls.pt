@@ -26,7 +26,7 @@
 		</tal:block>
             <li tal:condition="python:here.isPrincipiaFolderish" id="sl-obj-actions">
                 <span>
-                    Achtung! Hat Auswirkungen auf den ganzen Bereich (<span tal:replace="here/Type"/>)
+                    <span i18n:translate="warning_causes_whole_page" i18n:domain="simplelayout">Warning! Causes the whole area</span> (<span tal:replace="here/Type"/>)
                 </span>
             </li>
 

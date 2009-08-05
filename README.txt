@@ -1,8 +1,6 @@
 Introduction
 ============
 
-SimpleLayout is an easy to use package for creating content pages.
-
 SimpleLayout provides an intuitive way of adding and arranging the different 
 elements of a page such as paragraphs, images, files and links using 
 drag-and-drop functionality. 

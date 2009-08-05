@@ -1,11 +1,11 @@
 from setuptools import setup, find_packages
 import os
 
-version = '2.0b2'
+version = '2.0b3'
 
 setup(name='simplelayout.base',
       version=version,
-      description="",
+      description="SimpleLayout is an easy to use plone package for creating content pages",
       long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
@@ -17,7 +17,7 @@ setup(name='simplelayout.base',
       keywords='',
       author='Mathias LEIMGRUBER (4teamwork)',
       author_email='m.leimgruber@4teamwork.ch',
-      url='http://psc.4teamwork.ch/oss/simplelayout/',
+      url='http://plone.org/products/simplelayout.base/',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['simplelayout'],

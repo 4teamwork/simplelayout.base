@@ -2,6 +2,11 @@ Changelog
 =========
 
 
+2.0b3
+----------------
+* Issue #1: fix some Translations [julian.infanger]
+
+
 2.0b2
 ----------------
 * added technical FAQ to README [mathias.leimgruber]
