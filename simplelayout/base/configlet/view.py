@@ -21,8 +21,6 @@ from plone.app.controlpanel.events import ConfigurationChangedEvent
 
 from simplelayout.base.interfaces  import IBlockConfig, IScaleImage
 
-#dummy for refactoring
-#_ = lambda x: x
 
 from simplelayout.base import websiteMessageFactory as _
 
@@ -69,8 +67,6 @@ class SimpleLayoutConfigurationForm(ControlPanelForm):
 
 
     form_fields = FormFieldsets(baseSets,OneColumnSets, TwoColumnsSets)
-
-    #XXX use python super's funtcion
 
     @form.action(_(u'label_save'), name=u'save')
     def handle_edit_action(self, action, data):

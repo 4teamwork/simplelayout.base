@@ -27,4 +27,5 @@ msgstr "Inhaltsseite"
 msgid "label_schema_Classification"
 msgstr "Klassifizierung"
 
-
+msgid "Simplelayout configuration"
+msgstr "Simplelayout Konfiguration"

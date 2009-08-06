@@ -63,8 +63,8 @@ msgid "Two columns one on top"
 msgstr "Zwei Spalten + Eine Spalte oben"
 
 #: ./simplelayout/base/configlet/interfaces.py:14
-msgid "Paragraph has Workflow"
-msgstr "Inhaltsbläcke haben Ihren eigenen Workflow"
+msgid "paragraph has workflow"
+msgstr "Inhaltsblöcke haben ihren eigenen Workflow"
 
 #: ./simplelayout/base/configlet/view.py:97
 msgid "Recalculadted all Images."
@@ -127,3 +127,21 @@ msgstr "Geben Sie den Alternative Text ein."
 
 msgid "warning_causes_whole_page"
 msgstr "Achtung! Hat Auswirkungen auf den ganzen Bereich"
+
+msgid "Small size one column"
+msgstr "Bildgrösse \"Klein\" für 1-Spalten Anordnung"
+
+msgid "Middle size one column"
+msgstr "Bildgrösse \"Mittel\" für 1-Spalten Anordnung"
+
+msgid "Full/big size one column"
+msgstr "Bildgrösse \"Gross\" für 1-Spalten Anordnung"
+
+msgid "Small size two column"
+msgstr "Bildgrösse \"Klein\" für 2-Spalten Anordnung"
+
+msgid "Middle size two column"
+msgstr "Bildgrösse \"Mittel\" für 2-Spalten Anordnung"
+
+msgid "Full/big size two column"
+msgstr "Bildgrösse \"Gross\" für 2-Spalten Anordnung"

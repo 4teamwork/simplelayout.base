@@ -1,19 +1,13 @@
 from zope.interface import Interface
 from zope import schema
-#from zope.i18nmessageid import MessageFactory
-
-#dummy for refactoring
-#_ = lambda x: x
-
-#_ = MessageFactory('some_message_domain')
 
 from simplelayout.base import websiteMessageFactory as _
 
 class ISimplelayoutConfiguration(Interface):
     """This interface defines the configlet with basic configuration."""
 
-                           
-    same_workflow = schema.Bool(title=_(u"Paragraph has Workflow"),
+                                                          
+    same_workflow = schema.Bool(title=_(u'paragraph has workflow'),
                                 description=_(u'Decide if Paragraphs can have their own workflow'),
                                 default=False)
                                 
@@ -24,7 +18,7 @@ class ISimplelayoutConfiguration(Interface):
 
 class ISimplelayoutConfigurationOneColumn(Interface):
     """This interface defines the one column conf."""
-    small_size = schema.Int(title=_(u"Small size one column"),
+    small_size = schema.Int(title=_(u'Small size one column'),
                             description=_(u'enter value (px)'),
                             default= 250,
                             required=True) 
