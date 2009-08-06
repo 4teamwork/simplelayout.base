@@ -62,7 +62,6 @@ msgstr "Zwei Spalten"
 msgid "Two columns one on top"
 msgstr "Zwei Spalten + Eine Spalte oben"
 
-#: ./simplelayout/base/configlet/interfaces.py:14
 msgid "paragraph has workflow"
 msgstr "Inhaltsblöcke haben ihren eigenen Workflow"
 
