@@ -27,7 +27,7 @@ def reorderJS(context):
     js_reg = portal.portal_javascripts
     try:
         js_reg.moveResourceBefore('++resource++simplelayout.ui.base-resources/jq-QueuManagerPlugin-v0.2.js', '++resource++sl/simplelayout.js')
-        js_reg.moveResourceBefore('++resource++simplelayout.ui.dragndrop-resources/jquery-ui-personalized-1.6rc6.min.js', '++resource++sl/simplelayout.js')
+        js_reg.moveResourceBefore('++resource++simplelayout.ui.dragndrop-resources/jquery-ui-current.js', '++resource++sl/simplelayout.js')
         js_reg.moveResourceBefore('++resource++sl/pxem_Jqueryplugin.js', '++resource++sl/simplelayout.js')
         js_reg.moveResourceAfter('++resource++simplelayout.ui.base-resources/sl-base.js', '++resource++sl/simplelayout.js')
         js_reg.moveResourceAfter('sl_ui_variables.js', '++resource++simplelayout.ui.base-resources/sl-base.js')
