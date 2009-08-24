@@ -235,8 +235,6 @@ TODO
 * topic/collection block, with diffrent listings
 * mess up JS
 * collect ajax requests and sent them once
-* better IE 6/7 and Safari JS implementation
-* i18n/l10n (en/de) - better support
 * fix block height, if moving blocks from two to one column. 
 * send feedback if ajax request fails
 
