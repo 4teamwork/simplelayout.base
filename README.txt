@@ -128,6 +128,7 @@ simplelayout.base
 * base JS functions
   - align to grid (for two columns designs only)
   - helper functions
+* New scales for atct image field
 
 For more information check simplelayout dependencies:
 * simplelayout.ui.base
@@ -218,6 +219,10 @@ This FAQ provides some technical information/answers.
     interface. The slot interface tells the block where he should appear. 
     The column interface desides the image scale. 
 
+:Q: Recalculation if all images takes a very long time?
+:A: If you tick the box "Set simplelayout scales as image scales", the recalcultation
+    can take a very long time, because it has to calculate a lot of new scales
+    on every image. 
 
 more info will follow...
 

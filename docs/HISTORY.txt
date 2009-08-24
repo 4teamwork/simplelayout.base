@@ -5,6 +5,8 @@ Changelog
 2.0b3
 ----------------
 * Issue #1: fix some Translations [julian.infanger]
+* Add the possobility to set simplelayout image sizes as atct image scales
+  Now there's no quality issue with IE anymore. [mathias.leimgruber]
 
 
 2.0b2

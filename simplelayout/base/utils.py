@@ -6,7 +6,7 @@ from simplelayout.base.config import BLOCK_INTERFACES,COLUMN_INTERFACES_MAP, \
 from simplelayout.base.interfaces  import IBlockConfig, IScaleImage
 from simplelayout.base.configlet.interfaces import ISimplelayoutConfiguration
 from Products.CMFCore.utils import getToolByName
-from zope.component import getUtility
+from zope.component import getUtility, queryUtility
 
 
 class SlUtils(object):
@@ -123,14 +123,15 @@ class ImageScaler(object):
         #XXX hackish - use properties or try to make just one configlet
         for k in CONFIGLET_INTERFACE_MAP:
             #key is name of utility, value is the iface
-            size_config = getUtility(CONFIGLET_INTERFACE_MAP[k], name=k)
-            try:
-                mapper = {'small': getattr(size_config,SlUtils().getSizeAttributesByInterface(content,'small_size')),
-                          'middle': getattr(size_config,SlUtils().getSizeAttributesByInterface(content,'middle_size')),
-                          'full': getattr(size_config,SlUtils().getSizeAttributesByInterface(content,'full_size')),
-                          'no-image':0}
-            except AttributeError:
-                continue
+            size_config = queryUtility(CONFIGLET_INTERFACE_MAP[k], name=k)
+            if size_config:
+                try:
+                    mapper = {'small': getattr(size_config,SlUtils().getSizeAttributesByInterface(content,'small_size')),
+                              'middle': getattr(size_config,SlUtils().getSizeAttributesByInterface(content,'middle_size')),
+                              'full': getattr(size_config,SlUtils().getSizeAttributesByInterface(content,'full_size')),
+                              'no-image':0}
+                except AttributeError:
+                    continue
                 
         if scale in mapper.keys():
             return mapper[scale]
@@ -166,11 +167,12 @@ class ImageScaler(object):
         
         #dont load full images if possible
         #try to use the best matching scale!
-        scale = None
-        scales = [(s,img_field.sizes[s][0]) for s in img_field.sizes]
+        scale = None  
+        sizes_d = img_field.getAvailableSizes(content)
+        scales = [(s,sizes_d[s][0]) for s in sizes_d]
         scales.sort(lambda x,y: cmp(x[1], y[1]))
         for s in scales:
-            if s[1] > img_width:
+            if s[1] >= img_width:
                 scale = s[0]
                 break
         return scale, (img_width,img_height)

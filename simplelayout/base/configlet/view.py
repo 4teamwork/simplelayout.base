@@ -28,6 +28,8 @@ def recalc_all_images(context):
     catalog = context.portal_catalog
     query = {}
     
+    conf = getUtility(ISimplelayoutConfiguration, name='sl-config')
+    
     #XXX: store types somewhere
     query['portal_type'] = ['Image', 'Paragraph']
     results = catalog(query)
@@ -39,6 +41,13 @@ def recalc_all_images(context):
         
         blockconf.image_scale = scale
         blockconf.image_dimension = dimension
+        
+        if conf.use_atct_scales:
+            field = obj.getField('image')
+            if field is not None:
+                field.removeScales(obj)
+                field.createScales(obj)             
+        
     return 'done'
     
 def getConfigUtil(context):
@@ -108,6 +117,7 @@ class SimpleLayoutConfiguration(Persistent):
     
     same_workflow = FieldProperty(ISimplelayoutConfiguration['same_workflow'])
     show_design_tab = FieldProperty(ISimplelayoutConfiguration['show_design_tab'])
+    use_atct_scales = FieldProperty(ISimplelayoutConfiguration['use_atct_scales'])
     
     small_size = FieldProperty(ISimplelayoutConfigurationOneColumn['small_size'])
     middle_size = FieldProperty(ISimplelayoutConfigurationOneColumn['middle_size'])

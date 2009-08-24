@@ -15,6 +15,10 @@ class ISimplelayoutConfiguration(Interface):
                                 description=_(u'If enabled it is possible to change between 2 or more designs, ex. a two column design'),
                                 default=False)
 
+    use_atct_scales = schema.Bool(title=_(u"Set simplelayout scales as image scales"),
+                                description=_(u'If enabled this option you have to restart zope and push the recalc images button.'),
+                                default=True)
+
 
 class ISimplelayoutConfigurationOneColumn(Interface):
     """This interface defines the one column conf."""
