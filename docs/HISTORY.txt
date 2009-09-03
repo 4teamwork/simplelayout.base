@@ -3,6 +3,8 @@ Changelog
 
 2.0.rc1
 ----------------
+* remove obsolete code [mathias.leimgruber]
+* added permission check befor rendering sl-actions [mathias.leimgruber]
 
 
 2.0b3
