@@ -174,14 +174,23 @@ class SimpleLayoutControlsView(BrowserView):
 
     def getActions(self, category='sl-actions'):
         types_tool = getToolByName(self.context, 'portal_types')
+        m_tool = getToolByName(self.context, 'portal_membership')
         ai_tool = getToolByName(self.context, 'portal_actionicons')
-        actions = types_tool.listActions(object=self.context)   
+        actions = types_tool.listActions(object=self.context)
+        member = m_tool.getAuthenticatedMember()
         for action in actions:
+            has_permissions = True
             if action.category == category:
+                for permission in action.permissions:
+                    if not member.has_permission(permission, self.context):
+                        has_permissions = False
+
+                if not has_permissions:
+                    continue
                 icon = ai_tool.queryActionIcon(action_id=action.id, category=category, context=self.context)
                 econtext = getExprContext(self.context, self.context)
                 action = action.getAction(ec=econtext)
-
+                
                 yield {
                        'id':action['id'],
                        'icon':icon,

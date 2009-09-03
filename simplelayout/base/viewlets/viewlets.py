@@ -129,25 +129,7 @@ class SimpleLayoutListingTwoColumnsOneOnTopViewlet(SimpleLayoutListingViewlet):
 
 class SimpleLayoutControlsViewlet(ViewletBase):
     render = ViewPageTemplateFile('controls.pt')
-    
-    def getActions(self, category='sl-actions'):
-        types_tool = getToolByName(self.context, 'portal_types')
-        ai_tool = getToolByName(self.context, 'portal_actionicons')
-        actions = types_tool.listActions(object=self.context)   
-        for action in actions:
-            if action.category == category:
-                icon = ai_tool.queryActionIcon(action_id=action.id, category=category, context=self.context)
-                econtext = getExprContext(self.context, self.context)
-                action = action.getAction(ec=econtext)
-                
-                yield {
-                       'id':action['id'],
-                       'icon':icon,
-                       'url':action['url']
-                       }
-
-    def getLayouts(self, category='sl-layouts'):
-        return self.getActions(category)
+  
 
     def getCurrentLayout(self,block):
         if ISimpleLayoutBlock.providedBy(block):
@@ -159,9 +141,6 @@ class SimpleLayoutControlsViewlet(ViewletBase):
     def checkForEditMode(self):
         return _checkForEditMode(self.context)
         
-    def isWorkflowEnabled(self):
-        conf = getUtility(ISlUtils, name='simplelayout.utils')
-        return conf.isBlockWorkflowEnabled()        
 
 class SimpleLayoutContentViewlet(ViewletBase):
     

@@ -28,7 +28,7 @@
         manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
         class=".viewlets.SimpleLayoutControlsViewlet"
         for=".interfaces.ISimpleLayoutCapable"
-        permission="cmf.ModifyPortalContent"
+        permission="zope2.View"
         />
 
 
@@ -103,7 +103,7 @@
 	        name="simplelayout.base.block.controls" 
 	        manager=".interfaces.ISimpleViewletProvider"
 	        class=".viewlets.SimpleLayoutControlsViewlet"
-	        permission="cmf.ModifyPortalContent"
+	        permission="zope2.View"
 	        />
 	<!-- ************************************************************ -->
 	
