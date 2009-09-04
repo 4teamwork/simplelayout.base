@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2.0rc2
+----------------
+
+
+
 2.0.rc1
 ----------------
 * remove obsolete code [mathias.leimgruber]
