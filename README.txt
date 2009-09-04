@@ -12,6 +12,9 @@ the general result is content with a uniform look and feel throughout the site.
 How to use SimpleLayout
 =======================
 
+Check out our new video section on plone.org:
+http://plone.org/products/simplelayout.base/documentation
+
 1.) Add a new Page from the "Add new" dropdown.
 
 In this page one can now add the following page elements:
@@ -128,7 +131,7 @@ simplelayout.base
 * base JS functions
   - align to grid (for two columns designs only)
   - helper functions
-* New scales for atct image field
+* New scales for atct image field (requires zope restart)
 
 For more information check simplelayout dependencies:
 * simplelayout.ui.base
@@ -223,6 +226,11 @@ This FAQ provides some technical information/answers.
 :A: If you tick the box "Set simplelayout scales as image scales", the recalcultation
     can take a very long time, because it has to calculate a lot of new scales
     on every image. 
+
+:Q: My images will be resized by CSS?
+:A: Tick the box "Set simplelayout scales as image scales", restart zope an "recalc images". 
+    Don't use atct_tool for this action, because it will ignore paragraphs. 
+
 
 more info will follow...
 

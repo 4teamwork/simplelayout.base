@@ -5,6 +5,8 @@ Changelog
 ----------------
 * remove obsolete code [mathias.leimgruber]
 * added permission check befor rendering sl-actions [mathias.leimgruber]
+* Change required permission to "View" from controls viewlets [mathias.leimgruber]
+* updated readme
 
 
 2.0b3
