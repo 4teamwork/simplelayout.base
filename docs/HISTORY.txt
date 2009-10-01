@@ -3,7 +3,11 @@ Changelog
 
 2.0rc2
 ----------------
-
+* load sl-JS only if we are on a simplayout capable object and if user
+  is logged in. [mathias.leimgruber]
+* simplelayout view provides a function to determin if current object is
+  simplelayout capable or not. [mathias.leimgruber]
+* compress, merged and cache js. [mathias.leimgruber]
 
 
 2.0.rc1
