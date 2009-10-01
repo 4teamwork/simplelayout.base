@@ -38,7 +38,7 @@
         permission="zope2.View"
         class=".views.SimpleLayoutView"
         template="browser/simplelayout.pt"
-        allowed_attributes="toggle_align_to_grid"
+        allowed_attributes="toggle_align_to_grid isSimplelayout"
         />
 
     <browser:page

@@ -17,7 +17,8 @@ from Acquisition import aq_inner
 from plone.app.contentmenu.view import ContentMenuProvider
 from plone.app.contentmenu.interfaces import IContentMenuView
 from zope.app.publisher.interfaces.browser import IBrowserMenu
-from simplelayout.base.interfaces import ISimplelayoutView
+from simplelayout.base.interfaces import ISimplelayoutView, \
+                                         ISimpleLayoutCapable
 from simplelayout.base.config import VIEW_INTERFACES_MAP, \
                                      SLOT_INTERFACES_MAP, \
                                      COLUMN_INTERFACES_MAP, \
@@ -84,7 +85,18 @@ class SimpleLayoutView(BrowserView):
             
         return 1
             
-            
+    @property
+    def isSimplelayout(self):
+        context = self.context
+        m_tool = getToolByName(context, 'portal_membership')
+        capable = ISimpleLayoutCapable.providedBy(context)
+        if m_tool.isAnonymousUser():return False
+        member = m_tool.getAuthenticatedMember()
+        # don't check modify permissions, cause edit is also in use in
+        # other sircumstances
+        return capable and member
+
+
 
 class SimpleLayoutBlockView(BrowserView):  
     pass  

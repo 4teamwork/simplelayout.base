@@ -242,7 +242,6 @@ TODO
 * cache the hole rendered html of a simplelayout page (viewletManager)
 * topic/collection block, with diffrent listings
 * mess up JS
-* collect ajax requests and sent them once
 * fix block height, if moving blocks from two to one column. 
 * send feedback if ajax request fails
 
