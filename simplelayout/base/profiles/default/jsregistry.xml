@@ -3,7 +3,7 @@
    autogroup="False">
  <javascript cacheable="True" compression="safe" cookable="True"
     enabled="True"
-    expression="python: object.restrictedTraverse('@@simplelayout').isSimplelayout"
+    expression="python: object/@@simplelayout/isSimplelayout"
     id="++resource++sl/simplelayout.js" inline="False"/>
  <javascript cacheable="True" compression="safe" cookable="True"
     enabled="True" expression="" id="++resource++sl/pxem_Jqueryplugin.js"

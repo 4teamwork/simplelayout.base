@@ -87,6 +87,8 @@ class SimpleLayoutView(BrowserView):
             
     @property
     def isSimplelayout(self):
+        """returns boolean if sl capable or not
+        """
         context = self.context
         m_tool = getToolByName(context, 'portal_membership')
         capable = ISimpleLayoutCapable.providedBy(context)

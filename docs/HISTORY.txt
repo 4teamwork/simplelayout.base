@@ -3,6 +3,8 @@ Changelog
 
 2.0rc2
 ----------------
+* fix event: change all block states from page [mathias.leimgruber]
+* added simplelayout page to default_page_types [mathias.leimgruber]
 * load sl-JS only if we are on a simplayout capable object and if user
   is logged in. [mathias.leimgruber]
 * simplelayout view provides a function to determin if current object is

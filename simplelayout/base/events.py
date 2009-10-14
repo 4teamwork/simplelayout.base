@@ -40,10 +40,9 @@ def set_initial_layout(object, event):
 def changeBlockStates(obj, event):
     """
     """
-    parent = obj.aq_parent
-    if not ISimpleLayoutCapable.providedBy(parent):
+    if not ISimpleLayoutCapable.providedBy(obj):
         return
-        
+    
     if not isWorkflowEnabled():
         pm = getToolByName(obj, 'portal_membership')
         current_user = pm.getAuthenticatedMember().getId()
