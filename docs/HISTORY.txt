@@ -1,6 +1,10 @@
 Changelog
 =========
 
+2.0rc3
+----------------
+
+
 2.0rc2
 ----------------
 * fix event: change all block states from page [mathias.leimgruber]
