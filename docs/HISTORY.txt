@@ -3,7 +3,8 @@ Changelog
 
 2.0rc3
 ----------------
-
+* don't display the empty sl-control panel <div /> 
+  for anonymous users  [mathias.leimgruber]
 
 2.0rc2
 ----------------
