@@ -182,14 +182,6 @@
              Products.Archetypes.interfaces.IObjectInitializedEvent"
         handler=".events.set_initial_layout"
         />
-        
-    <!-- PloneFlashUpload integration -->
-	<subscriber zcml:condition="installed Products.PloneFlashUpload"
-        for="simplelayout.base.interfaces.ISimpleLayoutBlock
-             z3c.widget.flashupload.interfaces.FlashUploadedEvent" 
-        handler=".events.set_initial_layout" 
-        />
-    <!-- end of PloneFlashUpload integration -->
 
     <!-- PloneFlashUpload integration -->
 	<subscriber zcml:condition="installed Products.PloneFlashUpload"
@@ -204,6 +196,7 @@
         />
     <!-- end of PloneFlashUpload integration -->
 
+    <!-- event handlers -->
 	<subscriber
         for="simplelayout.base.interfaces.ISimpleLayoutCapable
              Products.DCWorkflow.interfaces.IAfterTransitionEvent" 
@@ -227,6 +220,20 @@
              Products.Archetypes.interfaces.IObjectInitializedEvent" 
         handler=".events.setDefaultBlockInterfaces" 
         />
+    
+    <!--
+	<subscriber
+        for="simplelayout.base.interfaces.ISimpleLayoutBlock
+             zope.lifecycleevent.interfaces.IObjectCopiedEvent" 
+        handler=".events.setDefaultBlockInterfaces" 
+        /> 
+      
+   <subscriber
+        for="simplelayout.base.interfaces.ISimpleLayoutBlock
+             zope.lifecycleevent.interfaces.IObjectMovedEvent" 
+        handler=".events.setBlockInterfacesAfterCopy" 
+        />      -->
+    <!-- end of event handlers -->
 
      <browser:menu
         id="simplelayout_contentmenu_design"

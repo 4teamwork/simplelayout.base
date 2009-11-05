@@ -113,3 +113,4 @@ def setDefaultBlockInterfaces(obj,event):
     except ComponentLookupError:
         pass
     converter.update(parent, obj, obj.REQUEST) 
+
