@@ -1,6 +1,10 @@
 Changelog
 =========
 
+2.0rc4
+---------------
+
+
 2.0rc3
 ----------------
 * don't display the empty sl-control panel <div /> 
