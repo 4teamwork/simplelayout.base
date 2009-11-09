@@ -3,12 +3,14 @@ Changelog
 
 2.0rc4
 ---------------
+* mark right and left column by a css class [mathias.leimgruber]
 
 
 2.0rc3
 ----------------
 * don't display the empty sl-control panel <div /> 
   for anonymous users  [mathias.leimgruber]
+
 
 2.0rc2
 ----------------

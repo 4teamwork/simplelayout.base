@@ -1,5 +1,5 @@
 <div class="simplelayout-content two-columns-design">
-    <div id="slotA" class="twocolumn" tal:define="results python:view.getSimpleLayoutContents(slotInterface='slotA')">
+    <div id="slotA" class="twocolumn left" tal:define="results python:view.getSimpleLayoutContents(slotInterface='slotA')">
 		<tal:repeat repeat="result results">
 			<div tal:define="edit_mode view/checkForEditMode;
 			                 specialCSS python: result.Type() in ['Image',] and ' leftFloatable ' or ' blockClear ';
@@ -13,7 +13,7 @@
      </div>
      
      
-    <div id="slotB" class="twocolumn" tal:define="results python:view.getSimpleLayoutContents(slotInterface='slotB')">
+    <div id="slotB" class="twocolumn right" tal:define="results python:view.getSimpleLayoutContents(slotInterface='slotB')">
 		<tal:repeat repeat="result results">
 			<div tal:define="edit_mode view/checkForEditMode;
 			                 specialCSS python: result.Type() in ['Image',] and ' leftFloatable ' or ' blockClear ';

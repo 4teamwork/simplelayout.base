@@ -12,7 +12,7 @@
         <span class="visualClear">&nbsp;</span>	
      </div>
 
-    <div id="slotB" class="twocolumn" tal:define="results python:view.getSimpleLayoutContents(slotInterface='slotB')">
+    <div id="slotB" class="twocolumn left" tal:define="results python:view.getSimpleLayoutContents(slotInterface='slotB')">
 		<tal:repeat repeat="result results">
 			<div tal:define="edit_mode view/checkForEditMode;
 			                 specialCSS python: result.Type() in ['Image',] and ' leftFloatable ' or ' blockClear ';
@@ -25,7 +25,7 @@
         <span class="visualClear">&nbsp;</span>	
      </div>
      
-    <div id="slotC" class="twocolumn" tal:define="results python:view.getSimpleLayoutContents(slotInterface='slotC')">
+    <div id="slotC" class="twocolumn right" tal:define="results python:view.getSimpleLayoutContents(slotInterface='slotC')">
 		<tal:repeat repeat="result results">
 			<div tal:define="edit_mode view/checkForEditMode;
 			                 specialCSS python: result.Type() in ['Image',] and ' leftFloatable ' or ' blockClear ';
