@@ -1,6 +1,10 @@
 Changelog
 =========
 
+2.0rc5
+---------------
+
+
 2.0rc4
 ---------------
 * mark right and left column by a css class [mathias.leimgruber]

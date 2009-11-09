@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '2.0rc4'
+version = '2.0rc5'
 
 setup(name='simplelayout.base',
       version=version,
