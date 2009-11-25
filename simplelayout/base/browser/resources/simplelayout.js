@@ -1,57 +1,6 @@
 var simplelayout = new Object();
-simplelayout.edit_mode = 0
 
-simplelayout.toggleEditMode = function(){
-    
-	var controls = cssQuery('.sl-controls');
-	
-	for(var i=0; i<controls.length; i++) {
-	    var current_display = controls[i].style.display;
-   		current_display == 'block' ? controls[i].style.display = 'none' : controls[i].style.display = 'block';
-        }
-
-    var blocks = jq('.BlockOverallWrapper'); 
-    blocks.toggleClass("blockHighlight");
-    var slots = jq('.simplelayout-content [id*=slot]').toggleClass('highlightBorder');
-
-    var imgblocks = jq('.BlockOverallWrapper.image');
-    for (var b=0;b<imgblocks.length;b++) {
-        var query_wrapper = '#'+imgblocks[b].id + ' .sl-img-wrapper';
-        var width = jq(query_wrapper).width();
-        
-        var query_controls = '#'+imgblocks[b].id + ' .sl-controls';
-        var controls_el = jq(query_controls)[0];
-        controls_el.style.width = width+'px';
-        
-        }
-    
-    
-    
-    var $view = jq('#contentview-view');
-    $view.toggleClass("selected");
-    var $edit = jq('#contentview-edit-toggle');
-    $edit.toggleClass("selected");
-    setTimeout(function(){
-        jq(".simplelayout-content").trigger("toggleeditmode");
-    }, 1);
-}
-
-
-jq(function(){
-   if(simplelayout.force_edit_mode)
-        simplelayout.toggleEditMode()
-});
-
-
-simplelayout.showEditModeButton = function(){
-var sltoggle = document.getElementById('document-action-togglesledit');
-	if (sltoggle){
-		sltoggle.style.display = 'inline';
-	}
-}
-
-
-function alignBlockToGridAction(){
+simplelayout.alignBlockToGridAction = function(){
 
     var containers = jq('.twocolumn');
     var left = jq('.BlockOverallWrapper',containers.get(0))
@@ -122,7 +71,7 @@ jq(function(){
             jq('#alignallblocks').load(getBaseUrl()+'sl_controls/ToggleGridLayoutText');
         });
 
-        alignBlockToGridAction();
+        simplelayout.alignBlockToGridAction();
         });
     });
     

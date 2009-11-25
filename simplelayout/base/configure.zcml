@@ -168,18 +168,24 @@
 	     provides=".interfaces.ISlUtils"
 	     factory=".utils.SlUtils"
 	     name="simplelayout.utils" />
-
-
-
+         
 
    <adapter
         provides=".interfaces.IBlockConfig"
         for=".interfaces.ISimpleLayoutBlock"
         factory=".block_config.BlockConfig" />
 
+
+
     <subscriber
         for="simplelayout.base.interfaces.ISimpleLayoutBlock
              Products.Archetypes.interfaces.IObjectInitializedEvent"
+        handler=".events.set_initial_layout"
+        />
+
+    <subscriber
+        for="simplelayout.base.interfaces.ISimpleLayoutBlock
+             Products.Archetypes.interfaces.IObjectEditedEvent"
         handler=".events.set_initial_layout"
         />
 

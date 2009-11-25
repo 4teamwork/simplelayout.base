@@ -3,6 +3,7 @@ Changelog
 
 2.0rc5
 ---------------
+* fire "set init. layout" on IObjectEditedEvent [mathias.leimgruber]
 
 
 2.0rc4

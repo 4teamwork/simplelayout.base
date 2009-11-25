@@ -18,22 +18,23 @@ def set_initial_layout(object, event):
     
     if not ISimpleLayoutCapable.providedBy(parent):
         return
-        
+    
+    blockconf = IBlockConfig(content)
+
     types_tool = getToolByName(content, 'portal_types')
     actions = types_tool.listActions(object=content)  
     category =  'sl-layouts'
     #we use the the first layout as default value
-    layout = ''
-    for action in actions:
-        if action.category == category:
-            layout = action.id
-            break
+    layout = blockconf.image_layout
+    if not layout:
+        for action in actions:
+            if action.category == category:
+                layout = action.id
+                #XXX refactor me
+                #bit nasty. it removes "sl-"
+                layout = layout[3:]
+                break
     if layout:
-        #XXX workaround for refactoring
-        #leave it...
-        layout = layout[3:]
-        
-        blockconf = IBlockConfig(content)
         converter = getUtility(IBlockControl, name='block-layout')
         converter.update(content, content, content.REQUEST, layout=layout)
         
