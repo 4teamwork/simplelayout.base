@@ -28,14 +28,6 @@ from zope.i18n import translate
 #dummy for refactoring
 _ = lambda x: x
 
-def _checkForEditMode(context):
-    edit_mode = False
-    if context.REQUEST.get('edit_mode',False):
-        edit_mode = True
-    if context.REQUEST.get('HTTP_REFERER', 'dummytext_longer_as_five_chars')[-5:] == '/edit':
-        edit_mode = True
-    return edit_mode
-
 
 class SimpleLayoutListingViewlet(ViewletBase):
     render = ViewPageTemplateFile('listing.pt')
@@ -104,9 +96,6 @@ class SimpleLayoutListingViewlet(ViewletBase):
         member = portal_state.member()
         return member.has_permission('Add portal_content',self.context)
         
-    def checkForEditMode(self):
-        return _checkForEditMode(self.context)
-
     def getWrapperCss(self,context):
         blockconf = IBlockConfig(context)
         normalize = getMultiAdapter((context, self.request), name='plone').normalizeString
@@ -138,9 +127,6 @@ class SimpleLayoutControlsViewlet(ViewletBase):
 
         return None
 
-    def checkForEditMode(self):
-        return _checkForEditMode(self.context)
-        
 
 class SimpleLayoutContentViewlet(ViewletBase):
     

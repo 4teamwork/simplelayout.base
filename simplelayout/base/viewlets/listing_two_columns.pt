@@ -1,10 +1,9 @@
 <div class="simplelayout-content two-columns-design">
     <div id="slotA" class="twocolumn left" tal:define="results python:view.getSimpleLayoutContents(slotInterface='slotA')">
 		<tal:repeat repeat="result results">
-			<div tal:define="edit_mode view/checkForEditMode;
-			                 specialCSS python: result.Type() in ['Image',] and ' leftFloatable ' or ' blockClear ';
+			<div tal:define="specialCSS python: result.Type() in ['Image',] and ' leftFloatable ' or ' blockClear ';
 			                 wrapperCSS python:view.getWrapperCss(result)"
-			     tal:attributes="class python:edit_mode and specialCSS+wrapperCSS+' BlockOverallWrapper blockHighlight' or 'BlockOverallWrapper '+wrapperCSS+specialCSS;
+			     tal:attributes="class python:'BlockOverallWrapper '+wrapperCSS+specialCSS;
 			                     id string:uid_${result/UID}"
 			     class="" 
 			     tal:content="structure python:view.renderBlockProvider(result)">block</div>
@@ -15,10 +14,9 @@
      
     <div id="slotB" class="twocolumn right" tal:define="results python:view.getSimpleLayoutContents(slotInterface='slotB')">
 		<tal:repeat repeat="result results">
-			<div tal:define="edit_mode view/checkForEditMode;
-			                 specialCSS python: result.Type() in ['Image',] and ' leftFloatable ' or ' blockClear ';
+			<div tal:define="specialCSS python: result.Type() in ['Image',] and ' leftFloatable ' or ' blockClear ';
 			                 wrapperCSS python:view.getWrapperCss(result)"
-			     tal:attributes="class python:edit_mode and specialCSS+wrapperCSS+' BlockOverallWrapper blockHighlight' or 'BlockOverallWrapper '+wrapperCSS+specialCSS;
+			     tal:attributes="class python:'BlockOverallWrapper '+wrapperCSS+specialCSS;
 			                     id string:uid_${result/UID}"
 			     class="" 
 			     tal:content="structure python:view.renderBlockProvider(result)">block</div>

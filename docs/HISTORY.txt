@@ -4,6 +4,10 @@ Changelog
 2.0rc5
 ---------------
 * fire "set init. layout" on IObjectEditedEvent [mathias.leimgruber]
+* use a cookie to store the edit-mode state [mathias.leimgruber]
+* remove unused code [mathias.leimgruber]
+* moved JS toggleEditMode function to 
+  simplelayout.ui.base [mathias.leimgruber]
 
 
 2.0rc4

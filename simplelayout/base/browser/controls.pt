@@ -1,6 +1,5 @@
 <tal:b 
-	 tal:define="current_layout python: view.getCurrentLayout(here);
-	             edit_mode view/checkForEditMode">
+	 tal:define="current_layout python: view.getCurrentLayout(here)">
 <ul class="sl-obj-actions">
 		<li tal:repeat="action view/getActions">
 			<a href="" tal:attributes="href action/url;

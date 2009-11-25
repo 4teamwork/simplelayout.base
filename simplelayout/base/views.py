@@ -36,9 +36,6 @@ from simplelayout.base.interfaces import ISimpleLayoutListingViewlet,  \
                                       ISimpleLayoutBlock, \
                                       ISlUtils
 
-from simplelayout.base.viewlets.viewlets import _checkForEditMode
-
-
 class SimpleLayoutView(BrowserView):
     implements(ISimplelayoutView)
 
@@ -122,8 +119,7 @@ class BlockControl(BrowserView):
                 return response.redirect(parent.absolute_url())
     
             converter.update(parent, self.context, self.request)
-        # added edit_mode, so we never lose the edit area while changing the layout or moving
-        return response.redirect(parent.absolute_url()+'?edit_mode=1')
+        return response.redirect(parent.absolute_url())
 
 
 class ChangeDesign(BrowserView):
@@ -220,10 +216,6 @@ class SimpleLayoutControlsView(BrowserView):
             return blockconf.image_layout
 
         return None
-
-    def checkForEditMode(self):
-        return _checkForEditMode(self.context)
-
 
     def isWorkflowEnabled(self):
         conf = getUtility(ISlUtils, name='simplelayout.utils')
