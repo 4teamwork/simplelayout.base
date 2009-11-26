@@ -305,4 +305,14 @@
         handler=".upgrades.set_content_interfaces"
         />  
 
+    <genericsetup:upgradeStep
+        sortkey="1"
+        source="simplelayout 2.0rc4"
+        destination="simplelayout 2.0rc5"
+        title="remove unused actions/buttons"
+        description="removs sl-edit-button / unused actions"
+        profile="simplelayout.base:default"
+        handler=".upgrades.remove_unused_actions"
+        />  
+
 </configure>

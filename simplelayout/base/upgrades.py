@@ -88,3 +88,37 @@ def set_content_interfaces(portal_setup):
             alsoProvides(obj,column_iface)
         
         obj.reindexObject(idxs=['object_provides'])
+
+
+def remove_unused_actions(portal_setup):
+    """
+    removes sl-edit-button and more unused actions
+    """
+    types = portal_setup.portal_types
+    
+    #remove sl-toggle action from Page
+    page = types.Page
+    tmplist = list(page._actions)
+    to_remove = None
+    for action in tmplist:
+        if action.id == 'edit-toggle':
+            to_remove = action
+    if to_remove is not None:
+        tmplist.remove(to_remove)
+        page._actions = tuple(tmplist)
+
+
+    #remove sl-up and sl-down actions from block types
+    actions_to_remove = ['sl-moveup', 'sl-movedo']
+    block_types = ['Paragraph', 'Link', 'Image', 'File',]
+    for bt in block_types:
+        if bt not in types.keys():
+            continue
+        dvti = types[bt]
+        bt_actions = list(dvti._actions)
+        for action in bt_actions:
+            if action.id in actions_to_remove:
+                bt_actions.remove(action)
+        dvti._actions = tuple(bt_actions)
+        
+    return "Simplelayout Actions migrated"
