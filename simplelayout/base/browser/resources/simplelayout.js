@@ -37,6 +37,7 @@ simplelayout.alignBlockToGridAction = function(){
             if (true){
                 var master_height = (left_height > right_height) ? left_height : right_height;
                 master_height_in_em = jq(master_height).toEm();
+
                 
                 left_block_content.css('height',master_height_in_em);
                 all_left_blocks[i] = [jq(left_block).attr('id'), master_height_in_em];
@@ -54,7 +55,6 @@ simplelayout.alignBlockToGridAction = function(){
     
     //reset all others (if block moved to onecolumn slot)
     jq('.onecolumn .BlockOverallWrapper').css('height','');
-    
     jq.post(getBaseUrl()+'block_manipulation/setBlockHeights',{'uids:list':all_uids,'left:list':all_left_blocks, 'right:list':all_right_blocks}, function(data){});
 }
 

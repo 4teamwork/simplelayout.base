@@ -8,6 +8,8 @@ Changelog
 * remove unused code [mathias.leimgruber]
 * moved JS toggleEditMode function to 
   simplelayout.ui.base [mathias.leimgruber]
+* Upgrade step from 2.0rc4 to 2.0rc5 [mathias.leimgruber]
+* reorder JS by GenericSetup [mathias.leimgruber]
 
 
 2.0rc4

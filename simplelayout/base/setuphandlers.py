@@ -25,6 +25,9 @@ def reorderJS(context):
     """
     portal = context.getSite()
     js_reg = portal.portal_javascripts
+    
+    # we can do this now by GS
+    """
     try:
         js_reg.moveResourceBefore('++resource++simplelayout.ui.base-resources/jq-QueuManagerPlugin-v0.2.js', '++resource++sl/simplelayout.js')
         js_reg.moveResourceBefore('++resource++simplelayout.ui.dragndrop-resources/jquery-ui-current.js', '++resource++sl/simplelayout.js')
@@ -34,4 +37,4 @@ def reorderJS(context):
         js_reg.moveResourceAfter('++resource++simplelayout.ui.dragndrop-resources/sl-dnd-reorder.js', 'sl_ui_variables.js')
     except ValueError:
         pass
-        
+    """

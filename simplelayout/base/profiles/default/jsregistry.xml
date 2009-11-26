@@ -4,9 +4,14 @@
  <javascript cacheable="True" compression="safe" cookable="True"
     enabled="True"
     expression="object/@@simplelayout/isSimplelayout"
-    id="++resource++sl/simplelayout.js" inline="False"/>
+    id="++resource++sl/simplelayout.js" inline="False" 
+    insert-before="sl_ui_variables.js" />
  <javascript cacheable="True" compression="safe" cookable="True"
     enabled="True" expression="" id="++resource++sl/pxem_Jqueryplugin.js"
-    inline="False"/>
+    inline="False" insert-after="jquery-integration.js"/>
+    
+ <javascript cacheable="True" compression="safe" cookable="True"
+    enabled="1" expression="" id="++resource++jquery-ui-1.7.2.min.js"
+    insert-after="jquery-integration.js"/>
 </object>
 
