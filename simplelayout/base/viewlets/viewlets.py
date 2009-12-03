@@ -25,8 +25,17 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.Expression import getExprContext
 from zope.i18n import translate
 
+import logging
+logger = logging.getLogger(__name__)
+
 #dummy for refactoring
 _ = lambda x: x
+
+
+def _render_listing_cachkey(method,self,context):
+    context_info = [context.modified,'/'.join(context.getPhysicalPath())]
+    content_info = [(item.modified,item.getPath()) for item in context.getFolderContents({'object_provides':config.BLOCK_INTERFACES})]
+    return hash(tuple(context_info + content_info))
 
 
 class SimpleLayoutListingViewlet(ViewletBase):
@@ -50,7 +59,10 @@ class SimpleLayoutListingViewlet(ViewletBase):
         else:
             return [self.context]
     
-    def renderBlockProvider(self, context):    
+    #XXX enable caching ASAP
+    #@ram.cache(_render_listing_cachkey)
+    def renderBlockProvider(self, context):   
+        #logger.info('sl viewlet renderer not cached') 
         view = self
         block = context
         request = self.request
