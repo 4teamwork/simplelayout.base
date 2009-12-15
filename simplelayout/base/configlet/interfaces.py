@@ -13,7 +13,7 @@ class ISimplelayoutConfiguration(Interface):
                                 
     show_design_tab = schema.Bool(title=_(u"Show Design"),
                                 description=_(u'If enabled it is possible to change between 2 or more designs, ex. a two column design'),
-                                default=False)
+                                default=True)
 
     use_atct_scales = schema.Bool(title=_(u"Set simplelayout scales as image scales"),
                                 description=_(u'If enabled this option you have to restart zope and push the recalc images button.'),

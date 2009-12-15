@@ -1,4 +1,3 @@
-var simplelayout = new Object();
 
 simplelayout.alignBlockToGridAction = function(){
 
@@ -60,11 +59,10 @@ simplelayout.alignBlockToGridAction = function(){
 
 
 jq(function(){
-    jq(".simplelayout-content").bind("actionsloaded",function(e){
-        jq('#alignallblocks').bind('click',function(e){
+    //jq(".simplelayout-content").bind("actionsloaded",function(e){
+        jq('#alignallblocks').live('click',function(e){
         e.stopPropagation();
         e.preventDefault();
-
         
         simplelayout.align_to_grid = parseInt(simplelayout.align_to_grid)==0 ? 1 : 0;
         jq.get(getBaseUrl()+'simplelayout/toggle_align_to_grid',{'new_value':simplelayout.align_to_grid}, function(data){
@@ -73,7 +71,7 @@ jq(function(){
 
         simplelayout.alignBlockToGridAction();
         });
-    });
+    //});
     
     //jq(".simplelayout-content").bind("afterReorder", alignBlockToGridAction); 
 
