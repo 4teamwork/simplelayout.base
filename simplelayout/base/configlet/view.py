@@ -5,7 +5,7 @@ from Products.Five.formlib import formbase
 from Acquisition import aq_inner
 
 from zope.interface import implements
-from zope.component import getUtility, getMultiAdapter
+from zope.component import getUtility, getMultiAdapter, queryAdapter
 from zope.schema.fieldproperty import FieldProperty
 from persistent import Persistent
 
@@ -35,7 +35,13 @@ def recalc_all_images(context):
     results = catalog(query)
     for b in results:
         obj = aq_inner(b.getObject()).aq_explicit
-        blockconf = IBlockConfig(obj)
+        blockconf = queryAdapter(obj, IBlockConfig)
+        if blockconf is None: continue
+        
+        #check for image field
+        field = obj.getField('image',None)
+        if field is None: continue
+        
         image_util = getUtility(IScaleImage,name='simplelayout.image.scaler')
         scale,dimension =  image_util.getScaledImageTag(obj, 'image')
         
@@ -43,7 +49,6 @@ def recalc_all_images(context):
         blockconf.image_dimension = dimension
         
         if conf.use_atct_scales:
-            field = obj.getField('image')
             if field is not None:
                 field.removeScales(obj)
                 field.createScales(obj)             

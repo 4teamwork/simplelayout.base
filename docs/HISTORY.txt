@@ -3,6 +3,8 @@ Changelog
 
 2.0rc5
 ---------------
+* fix recalculating all images function, check if IBlockConfig is
+  addaptable [mathias.leimgruber]
 * fire "set init. layout" on IObjectEditedEvent [mathias.leimgruber]
 * use a cookie to store the edit-mode state [mathias.leimgruber]
 * remove unused code [mathias.leimgruber]
