@@ -20,7 +20,7 @@ from Products.statusmessages.interfaces import IStatusMessage
 from plone.app.controlpanel.events import ConfigurationChangedEvent
 
 from simplelayout.base.interfaces  import IBlockConfig, IScaleImage
-
+from simplelayout.base.config import BLOCK_INTERFACES
 
 from simplelayout.base import websiteMessageFactory as _
 
@@ -31,7 +31,7 @@ def recalc_all_images(context):
     conf = getUtility(ISimplelayoutConfiguration, name='sl-config')
     
     #XXX: store types somewhere
-    query['portal_type'] = ['Image', 'Paragraph']
+    query['object_provides'] = BLOCK_INTERFACES
     results = catalog(query)
     for b in results:
         obj = aq_inner(b.getObject()).aq_explicit
