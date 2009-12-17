@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2.0rc6
+---------------
+* removed special characters that prevented buildout to 
+  run [florian.sprenger]
+
 2.0rc5
 ---------------
 * fix recalculating all images function, check if IBlockConfig is
