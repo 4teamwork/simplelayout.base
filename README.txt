@@ -4,7 +4,7 @@ Introduction
 SimpleLayout provides an intuitive way of adding and arranging the different 
 elements of a page such as paragraphs, images, files and links using 
 drag-and-drop functionality. 
-These elements are implemented as addable and easily arrangeable “blocks”. 
+These elements are implemented as addable and easily arrangeable "blocks". 
 Because of the restricted dimensions of text, images and other content elements, 
 the general result is content with a uniform look and feel throughout the site. 
 
