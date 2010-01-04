@@ -231,16 +231,24 @@ This FAQ provides some technical information/answers.
 :A: Tick the box "Set simplelayout scales as image scales", restart zope an "recalc images". 
     Don't use atct_tool for this action, because it will ignore paragraphs. 
 
+:Q: Is it possible to use more than one block_view per type?
+:A: Yes, in the 2.0 release of simplelayout.base its possible to define your own view
+    for a blockable type, you have to customize the actions and the action-icons of your 
+    content type. the action id should look like the following example
+    id: sl-dummyscale-dummycssklass-myview
+    sl- = simplelayout prefix for actions
+    dummyscale = the image scale, possible values are small, half or full 
+    dummycssklass = an additional css wrapper class 
+    myview = your view must be registered as block_view-myview 
 
-more info will follow...
-
+    If yout don't need a scale or additional css class, please fill in some 
+    dummy values as in the example above, Otherwise your view will have the
+    wrong name. 
 
 TODO
 ====
 
 * TESTS
-* cache the hole rendered html of a simplelayout page (viewletManager)
-* topic/collection block, with diffrent listings
 * mess up JS
 * fix block height, if moving blocks from two to one column. 
 * send feedback if ajax request fails

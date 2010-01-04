@@ -1,6 +1,14 @@
 Changelog
 =========
 
+2.0
+---------------
+* use the action ids on blockable types to define a custom block 
+  viewname, the custom viewname is stored in anotations. 
+  check FAQ section in README file for an example.
+  [mathias.leimgruber]
+* use absolute path for control icons [mathias.leimgruber]
+
 2.0rc6
 ---------------
 * removed special characters that prevented buildout to 

@@ -19,7 +19,7 @@
 				tal:attributes="class python: 'sl-layout '+ (current_layout == layout_name and 'active' or '')">
 				<a href="" tal:attributes="href layout/url; 
 										   id string:${here/UID}-${layout_name}">
-					<img tal:attributes="src layout/icon" src="#"/>
+					<img tal:attributes="src string:${context/portal_url}${layout/icon}" src="#"/>
 				</a>
 			</li>
 		</tal:block>

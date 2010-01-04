@@ -60,3 +60,13 @@ class BlockConfig(object):
         self.annotations['height'] = value
             
     block_height = property(get_block_height, set_block_height)
+
+    #stores the given viewname
+    def get_viewname(self):
+        return self.annotations.get('viewname', None)
+    
+    def set_viewname(self, value):
+        if value:
+            self.annotations['viewname'] = value
+            
+    viewname = property(get_viewname, set_viewname)

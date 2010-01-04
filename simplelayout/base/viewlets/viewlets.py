@@ -146,12 +146,12 @@ class SimpleLayoutContentViewlet(ViewletBase):
     render_fallback = ViewPageTemplateFile('fallback.pt')
     
     def render(self):
-        self.block_view = None
-        context = self.context.aq_explicit
+‡        context = self.context.aq_explicit
+        blockconf = IBlockConfig(context)
+        viewname = blockconf.viewname
         
-        #TODO allow views for every layout
-        #layout_name = 'listing'
-        #block_view = zope.component.queryMultiAdapter((context, self.request), name='block_view-%s' % layout_name)
+        #ex. layout_name = 'listing'
+        self.block_view = zope.component.queryMultiAdapter((context, self.request), name='block_view-%s' % viewname)
         if not self.block_view:
             self.block_view = zope.component.queryMultiAdapter((context, self.request), name='block_view')
             
