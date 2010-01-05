@@ -90,6 +90,7 @@ class BlockLayout(BaseBlockControl):
         #we store everything in annotations
         blockconf = IBlockConfig(block)
         layout = kwargs.get('layout','') 
+        viewname = kwargs.get('viewname','')
         if not layout:
             layout = request.get('layout','')        
         
@@ -97,7 +98,9 @@ class BlockLayout(BaseBlockControl):
         
         if not fieldname:
             fieldname = 'image'
+            
         blockconf.image_layout = layout
+        blockconf.viewname = viewname
                 
         image_util = getUtility(IScaleImage,name='simplelayout.image.scaler')
         scale,dimension =  image_util.getScaledImageTag(block, fieldname)

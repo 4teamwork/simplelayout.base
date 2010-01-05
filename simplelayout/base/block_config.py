@@ -66,7 +66,6 @@ class BlockConfig(object):
         return self.annotations.get('viewname', None)
     
     def set_viewname(self, value):
-        if value:
-            self.annotations['viewname'] = value
+        self.annotations['viewname'] = value
             
     viewname = property(get_viewname, set_viewname)

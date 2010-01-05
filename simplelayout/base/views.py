@@ -213,7 +213,12 @@ class SimpleLayoutControlsView(BrowserView):
     def getCurrentLayout(self,block):
         if ISimpleLayoutBlock.providedBy(block):
             blockconf = IBlockConfig(block)
-            return blockconf.image_layout
+            viewname = blockconf.viewname
+            image_layout = blockconf.image_layout
+            if not image_layout: image_layout = ''
+            if not viewname: viewname = ''
+            if viewname: viewname = '-%s' % viewname
+            return  image_layout + viewname
 
         return None
 

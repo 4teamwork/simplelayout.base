@@ -146,7 +146,7 @@ class SimpleLayoutContentViewlet(ViewletBase):
     render_fallback = ViewPageTemplateFile('fallback.pt')
     
     def render(self):
-‡        context = self.context.aq_explicit
+        context = self.context.aq_explicit
         blockconf = IBlockConfig(context)
         viewname = blockconf.viewname
         
