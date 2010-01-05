@@ -12,12 +12,11 @@ def registerLocalUtility(context):
     sm = getSiteManager(portal)
     
     ###use component registry
+    
     #if not sm.queryUtility(ISimplelayoutConfiguration, name='sl-config'):
-    #    sm.registerUtility(SimpleLayoutConfiguration(),
-    #                   ISimplelayoutConfiguration,
-    #                   'sl-config')
-
-
+    #     sm.registerUtility(SimpleLayoutConfiguration(),
+    #                        ISimplelayoutConfiguration,
+    #                        'sl-config')
 
 def reorderJS(context):
     """
