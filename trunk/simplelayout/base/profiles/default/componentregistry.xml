@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<componentregistry>
+  <utilities>
+    <utility 
+        interface="simplelayout.base.configlet.interfaces.ISimplelayoutConfiguration"
+        factory="simplelayout.base.configlet.view.SimpleLayoutConfiguration"
+        name='sl-config'
+        />
+  </utilities>
+</componentregistry>

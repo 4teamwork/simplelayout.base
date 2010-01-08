@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<import-steps>
+
+ <import-step id="register utility"
+              version="20080811-01"
+              handler="simplelayout.base.setuphandlers.registerLocalUtility"
+              title="Register local utility for simplelayout">
+  <dependency step="plone-final" />
+    Install simplelayout utility
+ </import-step>
+
+
+
+ <import-step id="reorder js"
+              version="20080811-01"
+              handler="simplelayout.base.setuphandlers.reorderJS"
+              title="Reorders simplelayout js">
+  <dependency step="metadata" />
+  <dependency step="jsregistry" />
+    Reorders JS
+ </import-step>
+
+</import-steps>

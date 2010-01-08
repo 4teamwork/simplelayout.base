@@ -1,0 +1,32 @@
+simplelayout.base Installation
+==========================
+
+if you are using zc.buildout and the plone.recipe.zope2instance
+recipe to manage your project, you can do this:
+
+ * Add ``simplelayout.base`` to the list of eggs to install, e.g.:
+ 
+    [buildout]
+    ...
+    eggs =
+        ...
+        simplelayout.base
+        
+  * Tell the plone.recipe.zope2instance recipe to install a ZCML slug:
+  
+    [instance]
+    recipe = plone.recipe.zope2instance
+    ...
+    zcml =
+        simplelayout.base
+        
+  * Re-run buildout, e.g. with:
+  
+    $ ./bin/buildout
+
+
+Simplelayout will install all necessary dependencies
+
+
+You can skip the ZCML slug if you are going to explicitly include the package
+from another package's configure.zcml file.

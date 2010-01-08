@@ -1,0 +1,13 @@
+<!-- fallback view -->
+<div class="#" id="#"
+				tal:define="
+				text here/getBlockText|here/getText|nothing;
+				title here/Title | here/pretty_title_or_id;
+				fullblock python: text and ' sl-fullblock' or ''"
+				tal:attributes="id here/id;">
+	<h3 tal:content="here/Title" tal:condition="here/getShowTitle|python:True" />
+	<a tal:attributes="name here/id" ></a>
+	<div tal:condition="text" class="sl-text-wrapper" tal:content="structure text"></div>
+
+</div>
+<span class="visualClear">&nbsp;</span>

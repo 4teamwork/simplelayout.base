@@ -1,0 +1,37 @@
+<configure 
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser">
+
+  <browser:page
+     for="Products.CMFPlone.Portal.PloneSite"
+     name="sl-configuration"
+     class=".view.SimpleLayoutConfigurationForm"
+     permission="cmf.ManagePortal"
+     />
+     
+<!-- doesn't work, after restart we lose our data
+    <utility
+        provides=".interfaces.ISimplelayoutConfiguration"
+        factory=".view.SimpleLayoutConfiguration"
+        name="sl-config"
+        />
+-->
+
+
+    <adapter
+       for="Products.CMFPlone.Portal.PloneSite"
+       provides=".interfaces.ISimplelayoutConfiguration"
+       factory=".view.getConfigUtil" />
+
+    <adapter
+       for="Products.CMFPlone.Portal.PloneSite"
+       provides=".interfaces.ISimplelayoutConfigurationOneColumn"
+       factory=".view.getConfigUtil" />
+
+    <adapter
+       for="Products.CMFPlone.Portal.PloneSite"
+       provides=".interfaces.ISimplelayoutConfigurationTwoColumn"
+       factory=".view.getConfigUtil" />
+
+
+</configure>

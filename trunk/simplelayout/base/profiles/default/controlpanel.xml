@@ -1,0 +1,14 @@
+<object name="portal_controlpanel" meta_type="Plone Control Panel Tool">
+
+	<configlet title="Simplelayout configuration"
+			   action_id="simplelayout-configuration"
+			   appId="simplelayout.base"
+			   category="Products"
+			   url_expr="string:${portal_url}/@@sl-configuration"
+			   condition_expr=""
+			   visible="True">
+			   
+	<permission>Manage portal</permission>
+	</configlet>
+
+</object>

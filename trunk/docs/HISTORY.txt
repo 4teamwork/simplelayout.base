@@ -1,0 +1,103 @@
+Changelog
+=========
+
+2.0
+---------------
+* use the action ids on blockable types to define a custom block 
+  viewname, the custom viewname is stored in anotations. 
+  check FAQ section in README file for an example.
+  [mathias.leimgruber]
+* use absolute path for control icons [mathias.leimgruber]
+
+2.0rc6
+---------------
+* removed special characters that prevented buildout to 
+  run [florian.sprenger]
+
+2.0rc5
+---------------
+* fix recalculating all images function, check if IBlockConfig is
+  addaptable [mathias.leimgruber]
+* fire "set init. layout" on IObjectEditedEvent [mathias.leimgruber]
+* use a cookie to store the edit-mode state [mathias.leimgruber]
+* remove unused code [mathias.leimgruber]
+* moved JS toggleEditMode function to 
+  simplelayout.ui.base [mathias.leimgruber]
+* Upgrade step from 2.0rc4 to 2.0rc5 [mathias.leimgruber]
+* reorder JS by GenericSetup [mathias.leimgruber]
+
+
+2.0rc4
+---------------
+* mark right and left column by a css class [mathias.leimgruber]
+
+
+2.0rc3
+----------------
+* don't display the empty sl-control panel <div /> 
+  for anonymous users  [mathias.leimgruber]
+
+
+2.0rc2
+----------------
+* fix event: change all block states from page [mathias.leimgruber]
+* added simplelayout page to default_page_types [mathias.leimgruber]
+* load sl-JS only if we are on a simplayout capable object and if user
+  is logged in. [mathias.leimgruber]
+* simplelayout view provides a function to determin if current object is
+  simplelayout capable or not. [mathias.leimgruber]
+* compress, merged and cache js. [mathias.leimgruber]
+
+
+2.0.rc1
+----------------
+* remove obsolete code [mathias.leimgruber]
+* added permission check befor rendering sl-actions [mathias.leimgruber]
+* Change required permission to "View" from controls viewlets [mathias.leimgruber]
+* updated readme
+
+
+2.0b3
+----------------
+* Issue #1: fix some Translations [julian.infanger]
+* Add the possobility to set simplelayout image sizes as atct image scales
+  Now there's no quality issue with IE anymore. [mathias.leimgruber]
+
+
+2.0b2
+----------------
+* added technical FAQ to README [mathias.leimgruber]
+* added HowTo to README [arno.blumer]
+* fix error while reinstalling [mathias.leimgruber]
+* added more info to README/HISTORY [mathias.leimgruber]
+* some IE7 JS fixes [mathias.leimgruber]
+
+
+
+2.0b1
+----------------
+* create two columns layout [mathias.leimgruber]
+* fixed dragndrop functionality for two columns [mathias.leimgruber]
+* align two columns layout to grid [mathias.leimgruber]
+  - works great in FF 2.x - 3.x 
+  - There are some display issues in edit-mode with IE 6/7
+  - edit-mode for safari and IE 8 not tested
+* added a tow column view with a one column slot on top [mathias.leimgruber]
+* added design menu [mathias.leimgruber]
+* some fixes in sl-controls ajax reload [victor.baumann]
+* reload block after moving arround [mathias.leimgruber]
+
+
+1.0
+----------------
+
+* Initial release
+* Extracted from plonegov.website 1.0 [mathias.leimgruber]
+* Shipps base function for simplelayout [victore.baumann]
+* simplelayout configlet included [mathias.leimgruber]
+* based on:
+  - simplelayout.types.common
+  - simplelayout.ui.base
+  - simplelayout.ui.dragndrop
+
+

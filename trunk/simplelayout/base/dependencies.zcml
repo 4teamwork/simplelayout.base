@@ -1,0 +1,8 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope">
+
+    <include package="simplelayout.types.common" />
+    <include package="simplelayout.ui.base" />
+    <include package="simplelayout.ui.dragndrop" />
+
+</configure>

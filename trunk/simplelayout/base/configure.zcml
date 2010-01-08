@@ -1,0 +1,318 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    i18n_domain="simplelayout">
+
+    <five:registerPackage package="." initialize=".initialize" />
+    
+    <include file="dependencies.zcml" />
+    
+    <include package=".configlet" />
+    
+    <!-- Register the installation GenericSetup extension profile -->
+    <genericsetup:registerProfile
+      name="default"
+      title="simplelayout.base"
+      directory="profiles/default"
+      description="Simplelayout"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+
+    <browser:viewlet  
+        name="simplelayout.base.block.controls" 
+        manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+        class=".viewlets.SimpleLayoutControlsViewlet"
+        for=".interfaces.ISimpleLayoutCapable"
+        permission="zope2.View"
+        />
+
+
+    <browser:page
+        for="*"
+        name="simplelayout"
+        permission="zope2.View"
+        class=".views.SimpleLayoutView"
+        template="browser/simplelayout.pt"
+        allowed_attributes="toggle_align_to_grid isSimplelayout"
+        />
+
+    <browser:page
+        for="*"
+        name="block_view"
+        permission="zope2.View"
+        class=".views.SimpleLayoutBlockView"
+        template="browser/block.pt"
+        />
+
+    <browser:page
+        for="*"
+        name="sl_controls"
+        permission="zope2.View"
+        class=".views.SimpleLayoutControlsView"
+        template="browser/controls.pt"
+        allowed_attributes="ToggleGridLayoutText"
+        />
+
+    <browser:page
+    	for="*"
+    	name="block_control"
+    	permission="zope2.View"
+    	class=".views.BlockControl" />
+
+
+    <browser:page
+        for="*"
+        name="change_design"
+        permission="zope2.View"
+        class=".views.ChangeDesign"
+        allowed_attributes="setDesignInterface"
+        />
+
+    <browser:page
+        for="*"
+        name="block_manipulation"
+        permission="zope2.View"
+        class=".views.BlockManipulation"
+        allowed_attributes="setBlockHeights"
+        />
+
+
+
+
+	<!-- *****************Simple Layout base viewlets *****************-->
+	<browser:viewletManager
+		    name="simplelayout.base.block"
+		    provides=".interfaces.ISimpleViewletProvider"
+		    permission="zope2.View"
+		    class="plone.app.viewletmanager.manager.OrderedViewletManager"
+		    />
+
+	    <browser:viewlet  
+	        name="simplelayout.base.block.content" 
+	        manager=".interfaces.ISimpleViewletProvider"
+	        class=".viewlets.SimpleLayoutContentViewlet"
+	        permission="zope2.View" 
+	        />
+
+	    <browser:viewlet  
+	        name="simplelayout.base.block.controls" 
+	        manager=".interfaces.ISimpleViewletProvider"
+	        class=".viewlets.SimpleLayoutControlsViewlet"
+	        permission="zope2.View"
+	        />
+	<!-- ************************************************************ -->
+	
+	<!-- ***************Simple Layout Listing viewlets *****************-->
+		<browser:viewletManager
+		    name="simplelayout.base.listing"
+		    provides=".interfaces.ISimpleViewletListingProvider"
+		    permission="zope2.View"
+		    class="plone.app.viewletmanager.manager.OrderedViewletManager"
+		    />
+
+        <!-- normal listing -->
+	    <browser:viewlet
+            for="simplelayout.base.interfaces.ISimplelayoutView"  
+	        name="simplelayout.base.listing.body" 
+	        manager=".interfaces.ISimpleViewletListingProvider"
+	        class=".viewlets.SimpleLayoutListingViewlet"
+	        permission="zope2.View" 
+	        />
+        <!-- two columns listing -->
+	    <browser:viewlet  
+            for="simplelayout.base.interfaces.ISimplelayoutTwoColumnView"
+	        name="simplelayout.base.listingTwoColumns.body" 
+	        manager=".interfaces.ISimpleViewletListingProvider"
+	        class=".viewlets.SimpleLayoutListingTwoColumnsViewlet"
+	        permission="zope2.View" 
+	        />
+        <!-- two columns and one on top listing -->
+	    <browser:viewlet  
+            for="simplelayout.base.interfaces.ISimplelayoutTwoColumnOneOnTopView"
+	        name="simplelayout.base.listingTwoColumns.body" 
+	        manager=".interfaces.ISimpleViewletListingProvider"
+	        class=".viewlets.SimpleLayoutListingTwoColumnsOneOnTopViewlet"
+	        permission="zope2.View" 
+	        />
+            
+	<!-- ************************************************************ -->
+
+
+    <browser:resourceDirectory
+    		name='sl'
+    		directory="browser/resources" />
+
+	<utility 
+	    factory=".utils.BlockActions" 
+	    provides=".utils.IBlockControl"
+	    name="block-action"
+			    />
+
+	<utility 
+	    factory=".utils.BlockLayout" 
+	    provides=".utils.IBlockControl"
+	    name="block-layout"
+			    />
+
+	<utility
+	     provides=".interfaces.IScaleImage"
+	     factory=".utils.ImageScaler"
+	     name="simplelayout.image.scaler" />
+
+	<utility
+	     provides=".interfaces.ISlUtils"
+	     factory=".utils.SlUtils"
+	     name="simplelayout.utils" />
+         
+
+   <adapter
+        provides=".interfaces.IBlockConfig"
+        for=".interfaces.ISimpleLayoutBlock"
+        factory=".block_config.BlockConfig" />
+
+
+
+    <subscriber
+        for="simplelayout.base.interfaces.ISimpleLayoutBlock
+             Products.Archetypes.interfaces.IObjectInitializedEvent"
+        handler=".events.set_initial_layout"
+        />
+
+    <subscriber
+        for="simplelayout.base.interfaces.ISimpleLayoutBlock
+             Products.Archetypes.interfaces.IObjectEditedEvent"
+        handler=".events.set_initial_layout"
+        />
+
+    <!-- PloneFlashUpload integration -->
+	<subscriber zcml:condition="installed Products.PloneFlashUpload"
+        for="simplelayout.base.interfaces.ISimpleLayoutBlock
+             z3c.widget.flashupload.interfaces.FlashUploadedEvent" 
+        handler=".events.set_initial_layout" 
+        />
+	<subscriber zcml:condition="installed Products.PloneFlashUpload"
+        for="simplelayout.base.interfaces.ISimpleLayoutBlock
+             z3c.widget.flashupload.interfaces.FlashUploadedEvent" 
+        handler=".events.setDefaultBlockInterfaces" 
+        />
+    <!-- end of PloneFlashUpload integration -->
+
+    <!-- event handlers -->
+	<subscriber
+        for="simplelayout.base.interfaces.ISimpleLayoutCapable
+             Products.DCWorkflow.interfaces.IAfterTransitionEvent" 
+        handler=".events.changeBlockStates" 
+        />
+        
+	<subscriber
+        for="simplelayout.base.interfaces.ISimpleLayoutBlock
+             Products.DCWorkflow.interfaces.IAfterTransitionEvent" 
+        handler=".events.changeBlockStateToSameAsParent" 
+        />
+        
+	<subscriber
+        for="simplelayout.base.interfaces.ISimpleLayoutCapable
+             Products.Archetypes.interfaces.IObjectInitializedEvent" 
+        handler=".events.setDefaultDesignInterface" 
+        />
+        
+	<subscriber
+        for="simplelayout.base.interfaces.ISimpleLayoutBlock
+             Products.Archetypes.interfaces.IObjectInitializedEvent" 
+        handler=".events.setDefaultBlockInterfaces" 
+        />
+    
+    <!--
+	<subscriber
+        for="simplelayout.base.interfaces.ISimpleLayoutBlock
+             zope.lifecycleevent.interfaces.IObjectCopiedEvent" 
+        handler=".events.setDefaultBlockInterfaces" 
+        /> 
+      
+   <subscriber
+        for="simplelayout.base.interfaces.ISimpleLayoutBlock
+             zope.lifecycleevent.interfaces.IObjectMovedEvent" 
+        handler=".events.setBlockInterfacesAfterCopy" 
+        />      -->
+    <!-- end of event handlers -->
+
+     <browser:menu
+        id="simplelayout_contentmenu_design"
+        title="The 'actions' menu - allows the user to execute actions on an object"
+        class=".menu.BlockDesignMenu"
+        />  
+      <adapter for="* *"
+               name="simplayout.contentmenu.design"
+               factory=".menu.BlockDesignSubMenu"
+               provides="plone.app.contentmenu.interfaces.IContentMenuItem" />
+
+
+    <!-- A content provider, provides -->
+    <adapter
+        for="*
+             zope.publisher.interfaces.browser.IDefaultBrowserLayer
+             *"
+        factory=".menu.BlockWorkflowMenu"
+        name="simplelayout.base.workflowmenu"
+        provides="zope.contentprovider.interfaces.IContentProvider"
+        />
+
+    <!-- adapt folder factories -->
+    <configure package="plone.app.content">
+        <browser:page
+            for="simplelayout.base.interfaces.ISimpleLayoutCapable"
+            name="folder_factories"
+            class="simplelayout.base.browser.factories.SimplelayoutFactories"
+            template="browser/folderfactories.pt"
+            permission="cmf.AddPortalContent"
+            />
+    </configure>
+
+
+    <!-- Migration step form plonegov.website simplelayout to real simplelayout -->
+    <genericsetup:upgradeStep
+        sortkey="1"
+        source="plonegov.website.simplelayout"
+        destination="simplayout"
+        title="Migrate from plonegov.website.simplelayout to simplelayout"
+        description="Migrate from plonegov.website.simplelayout to simplelayout"
+        profile="simplelayout.base:default"
+        handler=".upgrades.migrateActionsAndLayoutNames"
+        />
+
+    <genericsetup:upgradeStep
+        sortkey="1"
+        source="simplelayout"
+        destination="simplayout"
+        title="Migrate new workflow"
+        description="Migrate new workflow for contained blocks"
+        profile="simplelayout.base:default"
+        handler=".upgrades.set_block_states"
+        />  
+
+    <genericsetup:upgradeStep
+        sortkey="1"
+        source="simplelayout pre twocolumns"
+        destination="simplelayout post twocolumns"
+        title="Migrate all content to work with multible columns layouts"
+        description="Sets specific interfaces on pages/blocks"
+        profile="simplelayout.base:default"
+        handler=".upgrades.set_content_interfaces"
+        />  
+
+    <genericsetup:upgradeStep
+        sortkey="1"
+        source="simplelayout 2.0rc4"
+        destination="simplelayout 2.0rc5"
+        title="remove unused actions/buttons"
+        description="removs sl-edit-button / unused actions"
+        profile="simplelayout.base:default"
+        handler=".upgrades.remove_unused_actions"
+        />  
+
+</configure>

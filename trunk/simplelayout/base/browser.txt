@@ -1,0 +1,47 @@
+
+Setting up some Content
+-------------------------
+
+We use zope.testbrowser to simulate browser interaction in order to show
+the main flow of pages. This is not a true functional test, because we also
+inspect and modify the internal state of the ZODB, but it is a useful way of
+making sure we test the full end-to-end process of creating and modifying
+content.
+
+    >>> from Products.Five.testbrowser import Browser
+    >>> from Products.PloneTestCase.setup import portal_owner, default_user, default_password
+    >>> browser = Browser()
+    >>> portal_url = self.portal.absolute_url()
+    >>> portal_url
+        'http://nohost/plone' 
+
+
+The following is useful when writing and debugging testbrowser tests. It lets
+us see error messages properly.
+
+    >>> browser.handleErrors = False
+    >>> self.portal.error_log._ignored_exceptions = ()
+
+
+Firs we create the demo structure to test if all content types work as exspected. 
+We have to login as portal owner
+
+    >>> login_url = portal_url + '/login_form'
+    >>> browser.open(login_url)
+
+We have the login portlet, so let's use that.
+
+    >>> browser.getControl(name='__ac_name').value = portal_owner
+    >>> browser.getControl(name='__ac_password').value = default_password
+    >>> browser.getControl(name='submit').click()
+    >>> self.setRoles(['Manager'])
+
+
+Create some simplelayout contents
+
+    >>> browser.open(portal_url/createObject?type_name=Page)
+    >>> browser.getControl('Title',index=0).value="a sl page"
+    >>> browser.getControl('Save').click()
+    >>> 'a sl page' in browser.contents
+    True
+

@@ -1,0 +1,13 @@
+<div tal:define="results python:view.getSimpleLayoutContents(slotInterface='slotA')" class="simplelayout-content">
+    <div id="slotA" class="onecolumn">
+		<tal:repeat repeat="result results">
+			<div tal:define="specialCSS python: result.Type() in ['Image',] and ' leftFloatable ' or ' blockClear ';
+			                 wrapperCSS python:view.getWrapperCss(result)"
+			     tal:attributes="class python:'BlockOverallWrapper '+wrapperCSS+specialCSS;
+			                     id string:uid_${result/UID}"
+			     class="" 
+			     tal:content="structure python:view.renderBlockProvider(result)">block</div>
+		</tal:repeat>
+     </div>
+	<span class="visualClear">&nbsp;</span>	
+</div>

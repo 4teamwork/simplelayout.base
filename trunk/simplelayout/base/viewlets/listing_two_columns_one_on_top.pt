@@ -1,0 +1,37 @@
+<div class="simplelayout-content two-columns-design">
+    <div id="slotA" class="onecolumn" tal:define="results python:view.getSimpleLayoutContents(slotInterface='slotA')">
+		<tal:repeat repeat="result results">
+			<div tal:define="specialCSS python: result.Type() in ['Image',] and ' leftFloatable ' or ' blockClear ';
+			                 wrapperCSS python:view.getWrapperCss(result)"
+			     tal:attributes="class python:'BlockOverallWrapper '+wrapperCSS+specialCSS;
+			                     id string:uid_${result/UID}"
+			     class="" 
+			     tal:content="structure python:view.renderBlockProvider(result)">block</div>
+		</tal:repeat>
+        <span class="visualClear">&nbsp;</span>	
+     </div>
+
+    <div id="slotB" class="twocolumn left" tal:define="results python:view.getSimpleLayoutContents(slotInterface='slotB')">
+		<tal:repeat repeat="result results">
+			<div tal:define="specialCSS python: result.Type() in ['Image',] and ' leftFloatable ' or ' blockClear ';
+			                 wrapperCSS python:view.getWrapperCss(result)"
+			     tal:attributes="class python:'BlockOverallWrapper '+wrapperCSS+specialCSS;
+			                     id string:uid_${result/UID}"
+			     class="" 
+			     tal:content="structure python:view.renderBlockProvider(result)">block</div>
+		</tal:repeat>
+        <span class="visualClear">&nbsp;</span>	
+     </div>
+     
+    <div id="slotC" class="twocolumn right" tal:define="results python:view.getSimpleLayoutContents(slotInterface='slotC')">
+		<tal:repeat repeat="result results">
+			<div tal:define="specialCSS python: result.Type() in ['Image',] and ' leftFloatable ' or ' blockClear ';
+			                 wrapperCSS python:view.getWrapperCss(result)"
+			     tal:attributes="class python:'BlockOverallWrapper '+wrapperCSS+specialCSS;
+			                     id string:uid_${result/UID}"
+			     class="" 
+			     tal:content="structure python:view.renderBlockProvider(result)">block</div>
+		</tal:repeat>
+     </div>
+	<span class="visualClear">&nbsp;</span>	
+</div>

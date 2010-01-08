@@ -1,0 +1,5 @@
+<tal:if condition="not: here/portal_membership/isAnonymousUser">
+<div class="sl-controls" 
+	 tal:define="current_layout python: view.getCurrentLayout(here)">&nbsp;</div>    
+<span class="visualClear">&nbsp;</span>
+</tal:if>

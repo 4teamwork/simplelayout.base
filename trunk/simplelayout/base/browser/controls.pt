@@ -1,0 +1,37 @@
+<tal:b 
+	 tal:define="current_layout python: view.getCurrentLayout(here)">
+<ul class="sl-obj-actions">
+		<li tal:repeat="action view/getActions">
+			<a href="" tal:attributes="href action/url;
+                       class string:${action/id}-action;
+                       id here/id">
+				<img src="" tal:attributes="src action/icon" />
+			</a>
+		</li>	
+        <li tal:condition="view/isTwoColumnLayout">
+            <a href="#" id="alignallblocks"><span tal:replace="structure string:${view/ToggleGridLayoutText}">text</span></a>
+        </li>
+	</ul>
+	<ul class="sl-obj-layouts">
+		<tal:block tal:repeat="layout view/getLayouts">
+			<li class="sl-layout"
+				tal:define="layout_name python:layout['id'][3:]"
+				tal:attributes="class python: 'sl-layout '+ (current_layout == layout_name and 'active' or '')">
+				<a href="" tal:attributes="href layout/url; 
+										   id string:${here/UID}-${layout_name}">
+					<img tal:attributes="src string:${context/portal_url}${layout/icon}" src="#"/>
+				</a>
+			</li>
+		</tal:block>
+            <li tal:condition="python:here.isPrincipiaFolderish" id="sl-obj-actions">
+                <span>
+                    <span i18n:translate="warning_causes_whole_page" i18n:domain="simplelayout">Warning! Causes the whole area</span> (<span tal:replace="here/Type"/>)
+                </span>
+            </li>
+
+	</ul> 
+    
+     <div class="sl-workflowChanger" tal:condition="view/isWorkflowEnabled">
+            <div tal:replace="structure provider:simplelayout.base.workflowmenu" />	 
+     </div>
+</tal:b>    
