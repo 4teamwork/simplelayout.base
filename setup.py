@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '2.0'
+version = '2.1'
 
 setup(name='simplelayout.base',
       version=version,
@@ -27,7 +27,7 @@ setup(name='simplelayout.base',
           'setuptools',
           'archetypes.schemaextender',
           'simplelayout.types.common<=3.0',
-          'simplelayout.ui.base<=2.0', 
+          'simplelayout.ui.base<=2.1', 
           'simplelayout.ui.dragndrop<=2.0'
       ],
       entry_points="""

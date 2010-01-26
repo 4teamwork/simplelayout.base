@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2.1
+---------------
+* change dependency for simplelayout.ui.base to 2.1
+  [mathias.leimgruber]
+
 2.0
 ---------------
 * use the action ids on blockable types to define a custom block 
