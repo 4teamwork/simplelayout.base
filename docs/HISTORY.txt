@@ -3,7 +3,7 @@ Changelog
 
 2.1
 ---------------
-* change dependency for simplelayout.ui.base to 2.1
+* change dependency for simplelayout.ui.* to <=2.1
   [mathias.leimgruber]
 
 2.0
