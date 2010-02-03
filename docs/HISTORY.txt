@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2.1.1
+---------------
+* bugfix: ObjectEditedEvent, the viewname property was missed
+  [mathias.leimgruber]
+
 2.1
 ---------------
 * change dependency for simplelayout.ui.* to <=2.1

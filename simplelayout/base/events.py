@@ -26,6 +26,7 @@ def set_initial_layout(object, event):
     category =  'sl-layouts'
     #we use the the first layout as default value
     layout = blockconf.image_layout
+    viewname = blockconf.viewname
     if not layout:
         for action in actions:
             if action.category == category:
@@ -36,7 +37,7 @@ def set_initial_layout(object, event):
                 break
     if layout:
         converter = getUtility(IBlockControl, name='block-layout')
-        converter.update(content, content, content.REQUEST, layout=layout)
+        converter.update(content, content, content.REQUEST, layout=layout, viewname=viewname)
         
 def changeBlockStates(obj, event):
     """
