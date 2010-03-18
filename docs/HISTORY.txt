@@ -1,6 +1,12 @@
 Changelog
 =========
 
+2.1.2
+--------------
+* fix alignblocktogrid function if there is only an image
+  [mathias.leimgruber]
+
+
 2.1.1
 ---------------
 * bugfix: ObjectEditedEvent, the viewname property was missed

@@ -16,18 +16,19 @@ simplelayout.alignBlockToGridAction = function(){
         var right_height = 0;
 
         if (typeof(left_block) != 'undefined'){
-            left_block_content = jq('.simplelayout-block-wrapper',left_block);
+            var left_block_content = jq('.simplelayout-block-wrapper',left_block);
+            var left_block_controls = jq('.sl-controls',left_block);
             left_block_content.css('height','');
-            left_height = left_block_content.height();
-            
+            // calc block height, to prevent problems with float, we take the overallblock height
+            // includes the controls area, then overallblockheight - controlsheight
+            left_height = jq(left_block).height() - left_block_controls.height();
         }
 
         if  (typeof(right_block) != 'undefined'){
-            right_block_content = jq('.simplelayout-block-wrapper',right_block);
+            var right_block_content = jq('.simplelayout-block-wrapper',right_block);
+            var right_block_controls = jq('.sl-controls',right_block);            
             right_block_content.css('height','');
-            right_height = right_block_content.height();
-            
-
+            right_height = jq(right_block).height() - right_block_controls.height();
         }
         
         
