@@ -26,9 +26,9 @@ setup(name='simplelayout.base',
       install_requires=[
           'setuptools',
           'archetypes.schemaextender',
-          'simplelayout.types.common<=3.0',
-          'simplelayout.ui.base<=2.1', 
-          'simplelayout.ui.dragndrop<=2.1'
+          'simplelayout.types.common',
+          'simplelayout.ui.base', 
+          'simplelayout.ui.dragndrop'
       ],
       entry_points="""
       # -*- Entry points: -*-

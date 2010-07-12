@@ -6,7 +6,7 @@ from zope.component import getUtility
 from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
 from zope.contentprovider import interfaces as cp_interfaces
-from zope.component.exceptions import ComponentLookupError
+from zope.component.interfaces import ComponentLookupError
 from zope.contentprovider.tales import addTALNamespaceData
 from plone.memoize import instance,view
 from plone.memoize import view, ram

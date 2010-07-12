@@ -2,21 +2,18 @@ from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 
 import zope.component
-from zope.interface import implements, providedBy, alsoProvides, noLongerProvides
-from zope.component import getUtility, getMultiAdapter
-from Products.CMFCore.utils import getToolByName
+from zope.interface import implements, alsoProvides, noLongerProvides
+from zope.component import getUtility
 
 from zope.contentprovider import interfaces as cp_interfaces
-from zope.component.exceptions import ComponentLookupError
+from zope.component.interfaces import ComponentLookupError
 
 from zope.contentprovider.tales import addTALNamespaceData
 from utils import IBlockControl
 
 from Acquisition import aq_inner
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
-from plone.app.contentmenu.view import ContentMenuProvider
-from plone.app.contentmenu.interfaces import IContentMenuView
-from zope.app.publisher.interfaces.browser import IBrowserMenu
 from simplelayout.base.interfaces import ISimplelayoutView, \
                                          ISimpleLayoutCapable
 from simplelayout.base.config import VIEW_INTERFACES_MAP, \
@@ -28,11 +25,9 @@ from simplelayout.base.config import VIEW_INTERFACES_MAP, \
 
 from Products.CMFCore.Expression import getExprContext
 
-from simplelayout.base.interfaces import ISimpleLayoutListingViewlet,  \
-                                      ISimplelayoutTwoColumnView, \
+from simplelayout.base.interfaces import ISimplelayoutTwoColumnView, \
                                       ISimplelayoutTwoColumnOneOnTopView, \
                                       IBlockConfig, \
-                                      IScaleImage, \
                                       ISimpleLayoutBlock, \
                                       ISlUtils
 
@@ -182,10 +177,15 @@ class ChangeDesign(BrowserView):
     
 class SimpleLayoutControlsView(BrowserView):
 
+    template = ViewPageTemplateFile("browser/controls.pt")
+
+    def __call__(self):
+        return self.template()
+        
+    
     def getActions(self, category='sl-actions'):
         types_tool = getToolByName(self.context, 'portal_types')
         m_tool = getToolByName(self.context, 'portal_membership')
-        ai_tool = getToolByName(self.context, 'portal_actionicons')
         actions = types_tool.listActions(object=self.context)
         member = m_tool.getAuthenticatedMember()
         for action in actions:
@@ -197,13 +197,11 @@ class SimpleLayoutControlsView(BrowserView):
 
                 if not has_permissions:
                     continue
-                icon = ai_tool.queryActionIcon(action_id=action.id, category=category, context=self.context)
                 econtext = getExprContext(self.context, self.context)
                 action = action.getAction(ec=econtext)
-                
                 yield {
                        'id':action['id'],
-                       'icon':icon,
+                       'icon':action['icon'],
                        'url':action['url']
                        }
 
