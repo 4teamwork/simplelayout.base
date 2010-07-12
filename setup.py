@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '2.1.2'
+version = open('izug/blog/version.txt').read().strip()
 
 setup(name='simplelayout.base',
       version=version,
