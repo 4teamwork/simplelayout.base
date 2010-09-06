@@ -12,8 +12,11 @@
       <a href="#" id="alignallblocks"><span tal:replace="structure string:${view/ToggleGridLayoutText}">text</span></a>
     </li>
   </ul>
-  <ul class="sl-obj-layouts">
-    <tal:block tal:repeat="layout view/getLayouts">
+
+  <ul class="sl-obj-layouts"
+      tal:define="layouts python:list(view.getLayouts())"
+      tal:condition="layouts">
+    <tal:block tal:repeat="layout layouts">
       <li class="sl-layout"
           tal:define="layout_name python:layout['id'][3:]"
           tal:attributes="class python: 'sl-layout '+ (current_layout == layout_name and 'active' or '')">
