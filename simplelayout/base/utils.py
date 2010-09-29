@@ -1,20 +1,21 @@
 from zope.interface import Interface
 from zope.interface import implements
-from simplelayout.base.config import BLOCK_INTERFACES,COLUMN_INTERFACES_MAP, \
+from simplelayout.base.config import BLOCK_INTERFACES, \
+                                     COLUMN_INTERFACES_MAP, \
                                      IMAGE_SIZE_MAP_PER_INTERFACE, \
                                      CONFIGLET_INTERFACE_MAP
 from simplelayout.base.interfaces  import IBlockConfig, IScaleImage
 from simplelayout.base.configlet.interfaces import ISimplelayoutConfiguration
-from Products.CMFCore.utils import getToolByName
 from zope.component import getUtility, queryUtility
 
 
 class SlUtils(object):
+
     def isBlockWorkflowEnabled(self):
         conf = getUtility(ISimplelayoutConfiguration, name='sl-config')
         return conf.same_workflow
-        
-    def getSizeAttributesByInterface(self,content,size):
+
+    def getSizeAttributesByInterface(self, content, size):
         #XXX get infos by a given value or by request
         current_iface = None
         for iface in COLUMN_INTERFACES_MAP.values():
@@ -24,31 +25,31 @@ class SlUtils(object):
         if current_iface is None:
             return size
 
-        if IMAGE_SIZE_MAP_PER_INTERFACE.has_key(current_iface):
+        if current_iface in IMAGE_SIZE_MAP_PER_INTERFACE:
             return IMAGE_SIZE_MAP_PER_INTERFACE[current_iface][size]
-        
-        return size
 
+        return size
 
     def isDesignTabEnabled(self):
         conf = getUtility(ISimplelayoutConfiguration, name='sl-config')
         return conf.show_design_tab
+
 
 class IBlockControl(Interface):
     """actions
     """
     def update(parent, block, request):
         """"""
-        
+
 class BaseBlockControl(object):
     implements(IBlockControl)
-    
+
     def update(self, parent, block, request):
         self.block = block
-        
+
 
 class BlockActions(BaseBlockControl):
-    
+
     def update(self, parent, block, request):
         self.block = block
         action = request.get('action','')
@@ -56,7 +57,7 @@ class BlockActions(BaseBlockControl):
         if action == 'delete':
             parent.manage_delObjects(block.id)
         if action in ['moveup', 'movedo']:
-            contents = parent.getFolderContents({'object_provides':BLOCK_INTERFACES, 
+            contents = parent.getFolderContents({'object_provides':BLOCK_INTERFACES,
                                               'sort_order':'getObjPositionInParent'})
             #get current blocks position
             ids = [content.id for content in contents]
@@ -68,7 +69,7 @@ class BlockActions(BaseBlockControl):
                 #XXX
                 try:
                     upper = contents[blockPosition-1]
-                    upperPosition= parent.getObjectPosition(upper.id)    
+                    upperPosition= parent.getObjectPosition(upper.id)
                     parent.moveObjectToPosition(block.id, upperPosition)
                 except:
                     pass
@@ -82,37 +83,37 @@ class BlockActions(BaseBlockControl):
                     pass
             parent.plone_utils.reindexOnReorder(parent)
 
-        
+
 class BlockLayout(BaseBlockControl):
-    
+
     def update(self, parent, block, request, **kwargs):
         self.block = block
         #we store everything in annotations
         blockconf = IBlockConfig(block)
-        layout = kwargs.get('layout','') 
+        layout = kwargs.get('layout','')
         viewname = kwargs.get('viewname','')
         if not layout:
-            layout = request.get('layout','')        
-        
+            layout = request.get('layout','')
+
         fieldname = request.get('fieldname','')
-        
+
         if not fieldname:
             fieldname = 'image'
-            
+
         blockconf.image_layout = layout
         blockconf.viewname = viewname
-                
+
         image_util = getUtility(IScaleImage,name='simplelayout.image.scaler')
         scale,dimension =  image_util.getScaledImageTag(block, fieldname)
-        
+
         blockconf.image_scale = scale
         blockconf.image_dimension = dimension
-        
-        
-        
+
+
+
 class ImageScaler(object):
     implements(IScaleImage)
-    
+
     def scaleMapper(self,content,scale):
         #maps an string to an integer value
         try:
@@ -120,7 +121,7 @@ class ImageScaler(object):
             return scale
         except ValueError:
             pass
-        
+
         #get data from configlets
         size_config = None
         #XXX hackish - use properties or try to make just one configlet
@@ -135,42 +136,43 @@ class ImageScaler(object):
                               'no-image':0}
                 except AttributeError:
                     continue
-                
+
         if scale in mapper.keys():
             return mapper[scale]
         else:
             #damit...no scale found
             return 0
-    
+
     def getScaledImageTag(self, content, fieldname='image'):
 
-        #get Image layout    
+        #get Image layout
         blockconf = IBlockConfig(content)
         #layout contains the image size and also an aditional css class
         layout = str(blockconf.image_layout).split('-')
         img_width = len(layout) != 0 and layout[0] or None
-        
+
         #check for img_width
         if img_width is None:
             return None,(0,0)
+
         img_width = self.scaleMapper(content,img_width)
-        
-        if not content.schema.has_key(fieldname):
+
+        if not content.Schema().has_key(fieldname):
             return 'no-image',(0,0)
         img_field = content.getField(fieldname)
         img = img_field.getRaw(content)
         if img == '' or img is None:
             return 'no-image',(0,0)
-        #XXX Issue #64 We cannot handle bmp's 
+        #XXX Issue #64 We cannot handle bmp's
         if img.content_type == 'image/x-ms-bmp':
             return 'no-image', (0,0)
         orig_img_width = img.width
         orig_img_height = img.height
         img_height = int(img_width*(float(orig_img_height)/float(orig_img_width)))
-        
+
         #dont load full images if possible
         #try to use the best matching scale!
-        scale = None  
+        scale = None
         sizes_d = img_field.getAvailableSizes(content)
         scales = [(s,sizes_d[s][0]) for s in sizes_d]
         scales.sort(lambda x,y: cmp(x[1], y[1]))
@@ -179,7 +181,3 @@ class ImageScaler(object):
                 scale = s[0]
                 break
         return scale, (img_width,img_height)
-
-                
-    
-    
