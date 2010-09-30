@@ -222,11 +222,6 @@ This FAQ provides some technical information/answers.
     interface. The slot interface tells the block where he should appear. 
     The column interface desides the image scale. 
 
-:Q: Recalculation if all images takes a very long time?
-:A: If you tick the box "Set simplelayout scales as image scales", the recalcultation
-    can take a very long time, because it has to calculate a lot of new scales
-    on every image. 
-
 :Q: My images will be resized by CSS?
 :A: Tick the box "Set simplelayout scales as image scales", restart zope an "recalc images". 
     Don't use atct_tool for this action, because it will ignore paragraphs. 
