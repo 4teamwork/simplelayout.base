@@ -166,11 +166,16 @@ class ImageScaler(object):
 
         #check for img_width
         if layout is None:
-            return None, (0, 0)
+            return dict(width = 0, height = 0)
         img_width = self.scaleMapper(content, layout)
 
         # calc img height depending on our width
-        img = content.getField('image').getRaw(content)
+        field = content.getField('image')
+        if field:
+            img = field.getRaw(content)
+        else:
+            return dict(width = 0, height = 0)
+            
         # jump out if img is empty or there's a bitmap
         if img == '' or img is None or img.content_type == 'image/x-ms-bmp':
             return dict(width = 0, height = 0)
