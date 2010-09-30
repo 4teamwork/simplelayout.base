@@ -38,8 +38,10 @@ class SlUtils(object):
 class IBlockControl(Interface):
     """actions
     """
+
     def update(parent, block, request):
         """"""
+
 
 class BaseBlockControl(object):
     implements(IBlockControl)
@@ -52,13 +54,15 @@ class BlockActions(BaseBlockControl):
 
     def update(self, parent, block, request):
         self.block = block
-        action = request.get('action','')
+        action = request.get('action', '')
         #XXX:
         if action == 'delete':
             parent.manage_delObjects(block.id)
         if action in ['moveup', 'movedo']:
-            contents = parent.getFolderContents({'object_provides':BLOCK_INTERFACES,
-                                              'sort_order':'getObjPositionInParent'})
+            contents = parent.getFolderContents(
+                {
+                    'object_provides': BLOCK_INTERFACES,
+                    'sort_order': 'getObjPositionInParent'})
             #get current blocks position
             ids = [content.id for content in contents]
             try:
@@ -90,12 +94,12 @@ class BlockLayout(BaseBlockControl):
         self.block = block
         #we store everything in annotations
         blockconf = IBlockConfig(block)
-        layout = kwargs.get('layout','')
-        viewname = kwargs.get('viewname','')
+        layout = kwargs.get('layout', '')
+        viewname = kwargs.get('viewname', '')
         if not layout:
-            layout = request.get('layout','')
+            layout = request.get('layout', '')
 
-        fieldname = request.get('fieldname','')
+        fieldname = request.get('fieldname', '')
 
         if not fieldname:
             fieldname = 'image'
@@ -103,18 +107,11 @@ class BlockLayout(BaseBlockControl):
         blockconf.image_layout = layout
         blockconf.viewname = viewname
 
-        image_util = getUtility(IScaleImage,name='simplelayout.image.scaler')
-        scale,dimension =  image_util.getScaledImageTag(block, fieldname)
-
-        blockconf.image_scale = scale
-        blockconf.image_dimension = dimension
-
-
 
 class ImageScaler(object):
     implements(IScaleImage)
 
-    def scaleMapper(self,content,scale):
+    def scaleMapper(self, content, scale):
         #maps an string to an integer value
         try:
             scale = int(scale)
@@ -130,10 +127,23 @@ class ImageScaler(object):
             size_config = queryUtility(CONFIGLET_INTERFACE_MAP[k], name=k)
             if size_config:
                 try:
-                    mapper = {'small': getattr(size_config,SlUtils().getSizeAttributesByInterface(content,'small_size')),
-                              'middle': getattr(size_config,SlUtils().getSizeAttributesByInterface(content,'middle_size')),
-                              'full': getattr(size_config,SlUtils().getSizeAttributesByInterface(content,'full_size')),
-                              'no-image':0}
+                    mapper = {
+                        'small': getattr(
+                            size_config,
+                            SlUtils().getSizeAttributesByInterface(
+                                content,
+                                'small_size')),
+                        'middle': getattr(
+                            size_config,
+                            SlUtils().getSizeAttributesByInterface(
+                            content,
+                            'middle_size')),
+                        'full': getattr(
+                            size_config,
+                            SlUtils().getSizeAttributesByInterface(
+                            content,
+                            'full_size')),
+                        'no-image': 0}
                 except AttributeError:
                     continue
 
@@ -143,41 +153,34 @@ class ImageScaler(object):
             #damit...no scale found
             return 0
 
-    def getScaledImageTag(self, content, fieldname='image'):
+    def get_image_attributes(self, content):
+        """Returns a dict with image attributes, like width and height.
+        currently we are only interesst in height
 
-        #get Image layout
+        """
+        # get the stored layout
         blockconf = IBlockConfig(content)
         #layout contains the image size and also an aditional css class
-        layout = str(blockconf.image_layout).split('-')
-        img_width = len(layout) != 0 and layout[0] or None
+        image_layout = str(blockconf.image_layout).split('-')
+        layout = len(image_layout) != 0 and image_layout[0] or None
 
         #check for img_width
-        if img_width is None:
-            return None,(0,0)
+        if layout is None:
+            return None, (0, 0)
+        img_width = self.scaleMapper(content, layout)
 
-        img_width = self.scaleMapper(content,img_width)
+        # calc img height depending on our width
+        img = content.getField('image').getRaw(content)
+        # jump out if img is empty or there's a bitmap
+        if img == '' or img is None or img.content_type == 'image/x-ms-bmp':
+            return dict(width = 0, height = 0)
 
-        if not content.Schema().has_key(fieldname):
-            return 'no-image',(0,0)
-        img_field = content.getField(fieldname)
-        img = img_field.getRaw(content)
-        if img == '' or img is None:
-            return 'no-image',(0,0)
-        #XXX Issue #64 We cannot handle bmp's
-        if img.content_type == 'image/x-ms-bmp':
-            return 'no-image', (0,0)
         orig_img_width = img.width
         orig_img_height = img.height
-        img_height = int(img_width*(float(orig_img_height)/float(orig_img_width)))
+        img_height = int(img_width*
+            (float(orig_img_height)/
+            float(orig_img_width)))
 
-        #dont load full images if possible
-        #try to use the best matching scale!
-        scale = None
-        sizes_d = img_field.getAvailableSizes(content)
-        scales = [(s,sizes_d[s][0]) for s in sizes_d]
-        scales.sort(lambda x,y: cmp(x[1], y[1]))
-        for s in scales:
-            if s[1] >= img_width:
-                scale = s[0]
-                break
-        return scale, (img_width,img_height)
+        return dict(
+            width = img_width,
+            height = img_height)

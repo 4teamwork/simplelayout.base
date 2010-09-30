@@ -32,26 +32,6 @@ class BlockConfig(object):
             self.annotations['imageLayout'] = value
             
     image_layout = property(get_image_layout, set_image_layout) 
-
-
-    #stores the calculated imge dimension and scale    
-    def get_image_scale(self):
-        return self.annotations.get('scale', None)
-    
-    def set_image_scale(self,value):
-        self.annotations['scale'] = value
-        
-    image_scale = property(get_image_scale, set_image_scale)
-    
-    def get_image_dimension(self):
-        return self.annotations.get('dimension',None)
-    
-    def set_image_dimension(self, value):
-        if value:
-            self.annotations['dimension'] = value
-            
-    image_dimension = property(get_image_dimension, set_image_dimension)
-
             
     def get_block_height(self):
         return self.annotations.get('height',None)

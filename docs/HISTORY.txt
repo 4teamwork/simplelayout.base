@@ -3,6 +3,13 @@ Changelog
 
 3.0
 --------------
+* implemented image scaling by plone.app.imaging. Manual recalc button in 
+  configlet is not longer necessary. 
+  [30.09.2010, mathias.leimgruber]
+
+* added workaround for blob image field
+  [29.09.2010, mathias.leimgruber]
+
 * removed actioniscons.xml and added icon_expr directly to the 
   content types xml. Because the actionicons tool in plone 4 has been deprecated
   [12.07.2010, mathias.leimgruber]
