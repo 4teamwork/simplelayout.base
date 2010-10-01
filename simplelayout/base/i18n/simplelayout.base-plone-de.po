@@ -18,6 +18,9 @@ msgstr ""
 msgid "label_design_menu"
 msgstr "Anordnung"
 
+msgid "desc_design_menu"
+msgstr "Das Design der Seite anpassen"
+
 msgid "Paragraph"
 msgstr "Inhaltsblock"
 
