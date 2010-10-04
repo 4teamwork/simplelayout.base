@@ -155,7 +155,6 @@ This FAQ provides some technical information/answers.
     imports::
 
       from zope.component import getUtility
-      from simplelayout.base.interfaces import IBlockConfig
       from simplelayout.base.configlet.interfaces import ISimplelayoutConfiguration
   
     config.py::

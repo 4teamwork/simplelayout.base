@@ -189,18 +189,6 @@
         handler=".events.set_initial_layout"
         />
 
-    <!-- PloneFlashUpload integration -->
-	<subscriber zcml:condition="installed Products.PloneFlashUpload"
-        for="simplelayout.base.interfaces.ISimpleLayoutBlock
-             z3c.widget.flashupload.interfaces.FlashUploadedEvent" 
-        handler=".events.set_initial_layout" 
-        />
-	<subscriber zcml:condition="installed Products.PloneFlashUpload"
-        for="simplelayout.base.interfaces.ISimpleLayoutBlock
-             z3c.widget.flashupload.interfaces.FlashUploadedEvent" 
-        handler=".events.setDefaultBlockInterfaces" 
-        />
-    <!-- end of PloneFlashUpload integration -->
 
     <!-- event handlers -->
 	<subscriber

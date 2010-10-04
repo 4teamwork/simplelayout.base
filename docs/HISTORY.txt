@@ -3,6 +3,9 @@ Changelog
 
 3.0
 --------------
+* Removed old Products.FlashUpload support, it's not longer necessary.
+  [04.10.2010, mathias.leimgruber]
+
 * implemented image scaling by plone.app.imaging. Manual recalc button in 
   configlet is not longer necessary. 
   [30.09.2010, mathias.leimgruber]
