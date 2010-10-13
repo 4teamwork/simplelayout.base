@@ -59,10 +59,10 @@
         />
 
     <browser:page
-    	for="*"
-    	name="block_control"
-    	permission="zope2.View"
-    	class=".views.BlockControl" />
+        for="*"
+        name="block_control"
+        permission="zope2.View"
+        class=".views.BlockControl" />
 
 
     <browser:page
@@ -84,98 +84,96 @@
 
 
 
-	<!-- *****************Simple Layout base viewlets *****************-->
-	<browser:viewletManager
-		    name="simplelayout.base.block"
-		    provides=".interfaces.ISimpleViewletProvider"
-		    permission="zope2.View"
-		    class="plone.app.viewletmanager.manager.OrderedViewletManager"
-		    />
+    <!-- *****************Simple Layout base viewlets *****************-->
+    <browser:viewletManager
+            name="simplelayout.base.block"
+            provides=".interfaces.ISimpleViewletProvider"
+            permission="zope2.View"
+            class="plone.app.viewletmanager.manager.OrderedViewletManager"
+            />
 
-	    <browser:viewlet  
-	        name="simplelayout.base.block.content" 
-	        manager=".interfaces.ISimpleViewletProvider"
-	        class=".viewlets.SimpleLayoutContentViewlet"
-	        permission="zope2.View" 
-	        />
+        <browser:viewlet  
+            name="simplelayout.base.block.content" 
+            manager=".interfaces.ISimpleViewletProvider"
+            class=".viewlets.SimpleLayoutContentViewlet"
+            permission="zope2.View" 
+            />
 
-	    <browser:viewlet  
-	        name="simplelayout.base.block.controls" 
-	        manager=".interfaces.ISimpleViewletProvider"
-	        class=".viewlets.SimpleLayoutControlsViewlet"
-	        permission="zope2.View"
-	        />
-	<!-- ************************************************************ -->
-	
-	<!-- ***************Simple Layout Listing viewlets *****************-->
-		<browser:viewletManager
-		    name="simplelayout.base.listing"
-		    provides=".interfaces.ISimpleViewletListingProvider"
-		    permission="zope2.View"
-		    class="plone.app.viewletmanager.manager.OrderedViewletManager"
-		    />
+        <browser:viewlet  
+            name="simplelayout.base.block.controls" 
+            manager=".interfaces.ISimpleViewletProvider"
+            class=".viewlets.SimpleLayoutControlsViewlet"
+            permission="zope2.View"
+            />
+    <!-- ************************************************************ -->
+    
+    <!-- ***************Simple Layout Listing viewlets *****************-->
+        <browser:viewletManager
+            name="simplelayout.base.listing"
+            provides=".interfaces.ISimpleViewletListingProvider"
+            permission="zope2.View"
+            class="plone.app.viewletmanager.manager.OrderedViewletManager"
+            />
 
         <!-- normal listing -->
-	    <browser:viewlet
+        <browser:viewlet
             for="simplelayout.base.interfaces.ISimplelayoutView"  
-	        name="simplelayout.base.listing.body" 
-	        manager=".interfaces.ISimpleViewletListingProvider"
-	        class=".viewlets.SimpleLayoutListingViewlet"
-	        permission="zope2.View" 
-	        />
+            name="simplelayout.base.listing.body" 
+            manager=".interfaces.ISimpleViewletListingProvider"
+            class=".viewlets.SimpleLayoutListingViewlet"
+            permission="zope2.View" 
+            />
         <!-- two columns listing -->
-	    <browser:viewlet  
+        <browser:viewlet  
             for="simplelayout.base.interfaces.ISimplelayoutTwoColumnView"
-	        name="simplelayout.base.listingTwoColumns.body" 
-	        manager=".interfaces.ISimpleViewletListingProvider"
-	        class=".viewlets.SimpleLayoutListingTwoColumnsViewlet"
-	        permission="zope2.View" 
-	        />
+            name="simplelayout.base.listingTwoColumns.body" 
+            manager=".interfaces.ISimpleViewletListingProvider"
+            class=".viewlets.SimpleLayoutListingTwoColumnsViewlet"
+            permission="zope2.View" 
+            />
         <!-- two columns and one on top listing -->
-	    <browser:viewlet  
+        <browser:viewlet  
             for="simplelayout.base.interfaces.ISimplelayoutTwoColumnOneOnTopView"
-	        name="simplelayout.base.listingTwoColumns.body" 
-	        manager=".interfaces.ISimpleViewletListingProvider"
-	        class=".viewlets.SimpleLayoutListingTwoColumnsOneOnTopViewlet"
-	        permission="zope2.View" 
-	        />
+            name="simplelayout.base.listingTwoColumns.body" 
+            manager=".interfaces.ISimpleViewletListingProvider"
+            class=".viewlets.SimpleLayoutListingTwoColumnsOneOnTopViewlet"
+            permission="zope2.View" 
+            />
             
-	<!-- ************************************************************ -->
+    <!-- ************************************************************ -->
 
 
     <browser:resourceDirectory
-    		name='sl'
-    		directory="browser/resources" />
+            name='sl'
+            directory="browser/resources" />
 
-	<utility 
-	    factory=".utils.BlockActions" 
-	    provides=".utils.IBlockControl"
-	    name="block-action"
-			    />
+    <utility 
+        factory=".utils.BlockActions" 
+        provides=".utils.IBlockControl"
+        name="block-action"
+                />
 
-	<utility 
-	    factory=".utils.BlockLayout" 
-	    provides=".utils.IBlockControl"
-	    name="block-layout"
-			    />
+    <utility 
+        factory=".utils.BlockLayout" 
+        provides=".utils.IBlockControl"
+        name="block-layout"
+                />
 
-	<utility
-	     provides=".interfaces.IScaleImage"
-	     factory=".utils.ImageScaler"
-	     name="simplelayout.image.scaler" />
+    <utility
+         provides=".interfaces.IScaleImage"
+         factory=".utils.ImageScaler"
+         name="simplelayout.image.scaler" />
 
-	<utility
-	     provides=".interfaces.ISlUtils"
-	     factory=".utils.SlUtils"
-	     name="simplelayout.utils" />
+    <utility
+         provides=".interfaces.ISlUtils"
+         factory=".utils.SlUtils"
+         name="simplelayout.utils" />
          
 
    <adapter
         provides=".interfaces.IBlockConfig"
         for=".interfaces.ISimpleLayoutBlock"
         factory=".block_config.BlockConfig" />
-
-
 
     <subscriber
         for="simplelayout.base.interfaces.ISimpleLayoutBlock
@@ -191,32 +189,32 @@
 
 
     <!-- event handlers -->
-	<subscriber
+    <subscriber
         for="simplelayout.base.interfaces.ISimpleLayoutCapable
              Products.DCWorkflow.interfaces.IAfterTransitionEvent" 
         handler=".events.changeBlockStates" 
         />
         
-	<subscriber
+    <subscriber
         for="simplelayout.base.interfaces.ISimpleLayoutBlock
              Products.DCWorkflow.interfaces.IAfterTransitionEvent" 
         handler=".events.changeBlockStateToSameAsParent" 
         />
         
-	<subscriber
+    <subscriber
         for="simplelayout.base.interfaces.ISimpleLayoutCapable
              Products.Archetypes.interfaces.IObjectInitializedEvent" 
         handler=".events.setDefaultDesignInterface" 
         />
         
-	<subscriber
+    <subscriber
         for="simplelayout.base.interfaces.ISimpleLayoutBlock
              Products.Archetypes.interfaces.IObjectInitializedEvent" 
         handler=".events.setDefaultBlockInterfaces" 
         />
     
     <!--
-	<subscriber
+    <subscriber
         for="simplelayout.base.interfaces.ISimpleLayoutBlock
              zope.lifecycleevent.interfaces.IObjectCopiedEvent" 
         handler=".events.setDefaultBlockInterfaces" 

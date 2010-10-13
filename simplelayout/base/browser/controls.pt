@@ -32,14 +32,7 @@
           <img tal:attributes="src string:${context/portal_url}${layout/icon}" src="#"/>
         </a>
       </li>
-    </tal:block>
-
-    <li tal:condition="folderish" id="sl-obj-actions">
-      <span>
-        <span i18n:translate="warning_causes_whole_page" i18n:domain="simplelayout">Warning! Causes the whole area</span> (<span tal:replace="here/Type"/>)
-      </span>
-    </li>
-
+    </tal:block>    
   </ul>
 
   <div class="sl-workflowChanger" tal:condition="view/isWorkflowEnabled">

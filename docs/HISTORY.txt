@@ -3,6 +3,12 @@ Changelog
 
 3.0
 --------------
+* Clean up views.py / remove tabs in configure.zcml
+  [13.10.2010, mathias.leimgruber]
+
+* Fixed a bug while rendering the sl-actions (check for visible attr)
+  [13.10.2010, mathias.leimgruber]
+
 * Removed old Products.FlashUpload support, it's not longer necessary.
   [04.10.2010, mathias.leimgruber]
 
