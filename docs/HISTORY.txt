@@ -3,6 +3,9 @@ Changelog
 
 3.0
 ---
+* fix align blocks to grid function (remove buggy px_to_em plugin)
+  [27.12.2010, mathias.leimgruber]
+  
 * fix workflow menus css
   [13.07.2010, mathias.leimgruber]
 

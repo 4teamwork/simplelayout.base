@@ -9,7 +9,7 @@
     insert-after="sl_ui_variables.js" />
 
  <javascript cacheable="True" compression="safe" cookable="True"
-    enabled="True" expression="" id="++resource++sl/pxem_Jqueryplugin.js"
+    enabled="False" expression="" id="++resource++sl/pxem_Jqueryplugin.js"
     inline="False" insert-after="jquery-integration.js"/>
 
 </object>

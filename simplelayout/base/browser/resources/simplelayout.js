@@ -36,14 +36,13 @@ simplelayout.alignBlockToGridAction = function(){
         if ((left_height > 0 && right_height > 0) && (parseInt(simplelayout.align_to_grid)==1)) {
             if (true){
                 var master_height = (left_height > right_height) ? left_height : right_height;
-                master_height_in_em = jq(master_height).toEm();
 
                 
-                left_block_content.css('height',master_height_in_em);
-                all_left_blocks[i] = [jq(left_block).attr('id'), master_height_in_em];
+                left_block_content.css('height', master_height);
+                all_left_blocks[i] = [jq(left_block).attr('id'), master_height];
                 
-                right_block_content.css('height',master_height_in_em);
-                all_right_blocks[i] = [jq(right_block).attr('id'), master_height_in_em];
+                right_block_content.css('height', master_height);
+                all_right_blocks[i] = [jq(right_block).attr('id'), master_height];
                 
             }
         }

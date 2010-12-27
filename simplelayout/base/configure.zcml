@@ -37,7 +37,6 @@
         name="simplelayout"
         permission="zope2.View"
         class=".views.SimpleLayoutView"
-        template="browser/simplelayout.pt"
         allowed_attributes="toggle_align_to_grid isSimplelayout"
         />
 
@@ -54,7 +53,6 @@
         name="sl_controls"
         permission="zope2.View"
         class=".views.SimpleLayoutControlsView"
-        template="browser/controls.pt"
         allowed_attributes="ToggleGridLayoutText"
         />
 

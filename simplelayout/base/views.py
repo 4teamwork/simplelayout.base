@@ -34,6 +34,11 @@ from simplelayout.base.interfaces import ISimplelayoutTwoColumnView, \
 
 class SimpleLayoutView(BrowserView):
     implements(ISimplelayoutView)
+    
+    template = ViewPageTemplateFile('browser/simplelayout.pt')
+    
+    def __call__(self):
+        return self.template()
 
     def getSimpleLayoutContents(self):
         results = self.context.getFolderContents()
@@ -76,7 +81,6 @@ class SimpleLayoutView(BrowserView):
         toggles alignment to grid
         """
         context = aq_inner(self.context).aq_explicit
-
         if hasattr(context, 'align_to_grid'):
             self.context.manage_changeProperties({'align_to_grid': new_value})
         else:
@@ -264,21 +268,32 @@ class BlockManipulation(BrowserView):
     """
     """
 
+    def __call__(self):
+        pass
+
     def setBlockHeights(self, uids=[], left=[], right=[]):
         """
         usage: needs a list of uid, height pairs...
         if the uid of a block is missing, the height attribute of this
         block will be deleted
         """
+        # XXX:
+        # Don't understand, why the varname:list, will shown as 
+        # varname:list[]
+        # I just make this work, but i need to be fixed
+        
+        
+        uids = self.request.get('uids:list[]', [])
+        left = self.request.get('left:list[0][]', [])
+        right = self.request.get('right:list[0][]', [])
+        
         # create a dict
         _d = {}
         real_uids = [u.replace('uid_', '') for u in uids]
-        both = [[l.split(',')[0], l.split(',')[1]] for l in left] + \
-            [[r.split(',')[0], r.split(',')[1]] for r in right]
-
-        for uid, height in both:
-            _d[uid.replace('uid_', '')] = height
-
+        
+        if right or left:
+            for uid, height in [right] + [left]:
+                _d[uid.replace('uid_', '')] = height
 
         for uid in real_uids:
             block = self.context.reference_catalog.lookupObject(uid)
@@ -287,7 +302,7 @@ class BlockManipulation(BrowserView):
                 #set height
                 blockconf.block_height = _d[uid]
             else:
-                #remove height
+                #remove heights
                 blockconf.block_height = None
 
         return 1
