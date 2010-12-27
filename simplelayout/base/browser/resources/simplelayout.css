@@ -83,7 +83,7 @@
 	margin-bottom:2px;
 }
 
-.sl-controls .sl-obj-actions li{
+#content .sl-controls .sl-obj-actions li{
     display:inline;
 
 }
@@ -92,7 +92,7 @@
     border:none;
 }
 
-.sl-controls .sl-obj-layouts{
+#content .sl-controls .sl-obj-layouts{
     float:left;    
 	display:inline;
 	margin-bottom:2px;
@@ -100,7 +100,7 @@
 	list-style-image: none;
 }
 
-.sl-controls .sl-obj-layouts li{
+#content .sl-controls .sl-obj-layouts li{
     display:inline;
     line-height:16px;
 }
@@ -125,27 +125,23 @@
 	padding:0px;
 }
 
-.sl-controls .sl-workflowChanger {
-    float:right;
+#content .sl-controls .sl-workflowChanger dl{
+    margin:0;
+    padding:0;
 }
 
-.sl-controls .sl-workflowChanger #contentActionMenus {
-    margin:0em;
+#content .sl-controls .sl-workflowChanger dt {
+    margin:0 0.25em;
 }
 
-.sl-controls .sl-workflowChanger ul {
-    margin:0em;
-    padding:0em;
-    list-style-type:none;
-    list-style-image:none;
+#content .sl-controls .sl-workflowChanger li {
+    display:inline;
 }
-.sl-controls .sl-workflowChanger ul li {
-    margin:0em;
-    padding:0em;
+
+.sl-workflowChanger #contentActionMenus {
+    right:0;
 }
-.sl-controls .sl-workflowChanger a {
-    border:none;
-}
+
 
 .sl-controls .actionMenu .actionMenuContent {
     top:1.5em;
@@ -189,8 +185,9 @@ div.documentActions ul.simplelayout{
 }
 
 .visualClear {
-height:0;
-line-height:0;
+    height:0;
+    line-height:0;
+    display:block;
 }
 .blockClear {
 clear:both;

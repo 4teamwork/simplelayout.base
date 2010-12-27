@@ -2,13 +2,20 @@ Changelog
 =========
 
 3.0
---------------
+---
+* fix workflow menus css
+  [13.07.2010, mathias.leimgruber]
+
+* fix controls css
+  [13.07.2010, mathias.leimgruber]
+
 * Clean up views.py / remove tabs in configure.zcml
   [13.10.2010, mathias.leimgruber]
 
 * Fixed a bug while rendering the sl-actions (check for visible attr)
   [13.10.2010, mathias.leimgruber]
 
+>>>>>>> .r229459
 * Removed old Products.FlashUpload support, it's not longer necessary.
   [04.10.2010, mathias.leimgruber]
 
@@ -22,7 +29,6 @@ Changelog
 * removed actioniscons.xml and added icon_expr directly to the 
   content types xml. Because the actionicons tool in plone 4 has been deprecated
   [12.07.2010, mathias.leimgruber]
-  
 * rewrite browserviews with allowed_attributes
   [12.07.2010, mathias.leimgruber]
 
