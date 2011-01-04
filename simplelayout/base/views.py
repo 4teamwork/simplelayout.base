@@ -10,7 +10,7 @@ from zope.component.interfaces import ComponentLookupError
 
 from zope.contentprovider.tales import addTALNamespaceData
 from utils import IBlockControl
-
+from Products.CMFCore.ActionInformation import ActionInfo
 from Acquisition import aq_inner
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
@@ -21,9 +21,6 @@ from simplelayout.base.config import VIEW_INTERFACES_MAP, \
                                      COLUMN_INTERFACES_MAP, \
                                      BLOCK_INTERFACES, \
                                      INIT_INTERFACES_MAP
-
-
-from Products.CMFCore.Expression import getExprContext
 
 from simplelayout.base.interfaces import ISimplelayoutTwoColumnView, \
                                       ISimplelayoutTwoColumnOneOnTopView, \
@@ -203,20 +200,20 @@ class SimpleLayoutControlsView(BrowserView):
 
     def getActions(self, category='sl-actions'):
         types_tool = getToolByName(self.context, 'portal_types')
-        m_tool = getToolByName(self.context, 'portal_membership')
         actions = types_tool.listActions(object=self.context)
-        member = m_tool.getAuthenticatedMember()
+        # Prepare actions
+        ec = types_tool._getExprContext(self.context)
+        actions = [ ActionInfo(action, ec) for action in actions ]
+        
         for action in actions:
-            has_permissions = True
-            if action.category == category and action.visible:
-                for permission in action.permissions:
-                    if not member.has_permission(permission, self.context):
-                        has_permissions = False
 
-                if not has_permissions:
+            if action['category'] == category and action['visible']:
+                if not action['allowed']:
                     continue
-                econtext = getExprContext(self.context, self.context)
-                action = action.getAction(ec=econtext)
+                    
+                if not action['available']:
+                        continue
+
                 yield {
                        'id': action['id'],
                        'icon': action['icon'],

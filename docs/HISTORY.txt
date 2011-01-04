@@ -3,6 +3,9 @@ Changelog
 
 3.0
 ---
+* Fix sl actions view, also check action condition.
+  [04.01.2011, mathias.leimgruber]
+
 * fix align blocks to grid function (remove buggy px_to_em plugin)
   [27.12.2010, mathias.leimgruber]
   
