@@ -220,6 +220,12 @@ clear:both;
     text-decoration:none;
 }
 
+/* IE float fix*/
+*+html .simplelayout-content,
+*+html .sl-controls {
+    height:0.1%;
+}
+
 .simplelayout-content.two-columns-design .twocolumn {
     width:49.7%;
     float:left;

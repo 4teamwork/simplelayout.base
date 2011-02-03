@@ -3,6 +3,9 @@ Changelog
 
 3.0
 ---
+* Fix IE 7 stupid behaviour with floating elements. 
+  [03.02.2011, mathias.leimgruber]
+
 * Fix sl actions view, also check action condition.
   [04.01.2011, mathias.leimgruber]
 
