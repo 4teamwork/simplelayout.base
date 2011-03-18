@@ -11,7 +11,7 @@
 				<div tal:replace="structure provider:plone.abovecontenttitle" />
 				<h1 tal:content="here/Title" class="documentFirstHeading"/>
 				<div tal:replace="structure provider:plone.belowcontenttitle" />
-                <b tal:content="structure here/Description">Desc</b>
+                <p class="documentDescription" tal:content="structure here/Description">Desc</p>
 				<div tal:replace="structure provider:plone.abovecontentbody" />
 				<tal:block content="structure provider:simplelayout.base.listing" />
 				<div metal:use-macro="here/document_relateditems/macros/relatedItems"></div>
