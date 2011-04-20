@@ -18,7 +18,7 @@ setup(name='simplelayout.base',
       keywords='',
       author='%s, 4teamwork GmbH' % maintainer,
       author_email='info@4teamwork.ch',
-      maintainer=maintainer
+      maintainer=maintainer,
       url='http://plone.org/products/simplelayout.base/',
       license='GPL2',
       packages=find_packages(exclude=['ez_setup']),
