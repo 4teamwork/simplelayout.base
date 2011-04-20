@@ -1,0 +1,6 @@
+recursive-include simplelayout *
+recursive-include docs *
+include *.txt
+global-exclude *.pyc
+global-exclude *.mo
+global-exclude ._*
