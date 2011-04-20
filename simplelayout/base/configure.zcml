@@ -8,11 +8,11 @@
     i18n_domain="simplelayout">
 
     <five:registerPackage package="." initialize=".initialize" />
-    
+
     <include file="dependencies.zcml" />
-    
+
     <include package=".configlet" />
-    
+
     <!-- Register the installation GenericSetup extension profile -->
     <genericsetup:registerProfile
       name="default"
@@ -23,8 +23,8 @@
       />
 
 
-    <browser:viewlet  
-        name="simplelayout.base.block.controls" 
+    <browser:viewlet
+        name="simplelayout.base.block.controls"
         manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
         class=".viewlets.SimpleLayoutControlsViewlet"
         for=".interfaces.ISimpleLayoutCapable"
@@ -92,21 +92,21 @@
 		    class="plone.app.viewletmanager.manager.OrderedViewletManager"
 		    />
 
-	    <browser:viewlet  
-	        name="simplelayout.base.block.content" 
+	    <browser:viewlet
+	        name="simplelayout.base.block.content"
 	        manager=".interfaces.ISimpleViewletProvider"
 	        class=".viewlets.SimpleLayoutContentViewlet"
-	        permission="zope2.View" 
+	        permission="zope2.View"
 	        />
 
-	    <browser:viewlet  
-	        name="simplelayout.base.block.controls" 
+	    <browser:viewlet
+	        name="simplelayout.base.block.controls"
 	        manager=".interfaces.ISimpleViewletProvider"
 	        class=".viewlets.SimpleLayoutControlsViewlet"
 	        permission="zope2.View"
 	        />
 	<!-- ************************************************************ -->
-	
+
 	<!-- ***************Simple Layout Listing viewlets *****************-->
 		<browser:viewletManager
 		    name="simplelayout.base.listing"
@@ -117,29 +117,29 @@
 
         <!-- normal listing -->
 	    <browser:viewlet
-            for="simplelayout.base.interfaces.ISimplelayoutView"  
-	        name="simplelayout.base.listing.body" 
+            for="simplelayout.base.interfaces.ISimplelayoutView"
+	        name="simplelayout.base.listing.body"
 	        manager=".interfaces.ISimpleViewletListingProvider"
 	        class=".viewlets.SimpleLayoutListingViewlet"
-	        permission="zope2.View" 
+	        permission="zope2.View"
 	        />
         <!-- two columns listing -->
-	    <browser:viewlet  
+	    <browser:viewlet
             for="simplelayout.base.interfaces.ISimplelayoutTwoColumnView"
-	        name="simplelayout.base.listingTwoColumns.body" 
+	        name="simplelayout.base.listingTwoColumns.body"
 	        manager=".interfaces.ISimpleViewletListingProvider"
 	        class=".viewlets.SimpleLayoutListingTwoColumnsViewlet"
-	        permission="zope2.View" 
+	        permission="zope2.View"
 	        />
         <!-- two columns and one on top listing -->
-	    <browser:viewlet  
+	    <browser:viewlet
             for="simplelayout.base.interfaces.ISimplelayoutTwoColumnOneOnTopView"
-	        name="simplelayout.base.listingTwoColumns.body" 
+	        name="simplelayout.base.listingTwoColumns.body"
 	        manager=".interfaces.ISimpleViewletListingProvider"
 	        class=".viewlets.SimpleLayoutListingTwoColumnsOneOnTopViewlet"
-	        permission="zope2.View" 
+	        permission="zope2.View"
 	        />
-            
+
 	<!-- ************************************************************ -->
 
 
@@ -147,14 +147,14 @@
     		name='sl'
     		directory="browser/resources" />
 
-	<utility 
-	    factory=".utils.BlockActions" 
+	<utility
+	    factory=".utils.BlockActions"
 	    provides=".utils.IBlockControl"
 	    name="block-action"
 			    />
 
-	<utility 
-	    factory=".utils.BlockLayout" 
+	<utility
+	    factory=".utils.BlockLayout"
 	    provides=".utils.IBlockControl"
 	    name="block-layout"
 			    />
@@ -168,7 +168,7 @@
 	     provides=".interfaces.ISlUtils"
 	     factory=".utils.SlUtils"
 	     name="simplelayout.utils" />
-         
+
 
    <adapter
         provides=".interfaces.IBlockConfig"
@@ -192,52 +192,52 @@
     <!-- PloneFlashUpload integration -->
 	<subscriber zcml:condition="installed Products.PloneFlashUpload"
         for="simplelayout.base.interfaces.ISimpleLayoutBlock
-             z3c.widget.flashupload.interfaces.FlashUploadedEvent" 
-        handler=".events.set_initial_layout" 
+             z3c.widgets.flashupload.interfaces.FlashUploadedEvent"
+        handler=".events.set_initial_layout"
         />
 	<subscriber zcml:condition="installed Products.PloneFlashUpload"
         for="simplelayout.base.interfaces.ISimpleLayoutBlock
-             z3c.widget.flashupload.interfaces.FlashUploadedEvent" 
-        handler=".events.setDefaultBlockInterfaces" 
+             z3c.widgets.flashupload.interfaces.FlashUploadedEvent"
+        handler=".events.setDefaultBlockInterfaces"
         />
     <!-- end of PloneFlashUpload integration -->
 
     <!-- event handlers -->
 	<subscriber
         for="simplelayout.base.interfaces.ISimpleLayoutCapable
-             Products.DCWorkflow.interfaces.IAfterTransitionEvent" 
-        handler=".events.changeBlockStates" 
+             Products.DCWorkflow.interfaces.IAfterTransitionEvent"
+        handler=".events.changeBlockStates"
         />
-        
+
 	<subscriber
         for="simplelayout.base.interfaces.ISimpleLayoutBlock
-             Products.DCWorkflow.interfaces.IAfterTransitionEvent" 
-        handler=".events.changeBlockStateToSameAsParent" 
+             Products.DCWorkflow.interfaces.IAfterTransitionEvent"
+        handler=".events.changeBlockStateToSameAsParent"
         />
-        
+
 	<subscriber
         for="simplelayout.base.interfaces.ISimpleLayoutCapable
-             Products.Archetypes.interfaces.IObjectInitializedEvent" 
-        handler=".events.setDefaultDesignInterface" 
+             Products.Archetypes.interfaces.IObjectInitializedEvent"
+        handler=".events.setDefaultDesignInterface"
         />
-        
+
 	<subscriber
         for="simplelayout.base.interfaces.ISimpleLayoutBlock
-             Products.Archetypes.interfaces.IObjectInitializedEvent" 
-        handler=".events.setDefaultBlockInterfaces" 
+             Products.Archetypes.interfaces.IObjectInitializedEvent"
+        handler=".events.setDefaultBlockInterfaces"
         />
-    
+
     <!--
 	<subscriber
         for="simplelayout.base.interfaces.ISimpleLayoutBlock
-             zope.lifecycleevent.interfaces.IObjectCopiedEvent" 
-        handler=".events.setDefaultBlockInterfaces" 
-        /> 
-      
+             zope.lifecycleevent.interfaces.IObjectCopiedEvent"
+        handler=".events.setDefaultBlockInterfaces"
+        />
+
    <subscriber
         for="simplelayout.base.interfaces.ISimpleLayoutBlock
-             zope.lifecycleevent.interfaces.IObjectMovedEvent" 
-        handler=".events.setBlockInterfacesAfterCopy" 
+             zope.lifecycleevent.interfaces.IObjectMovedEvent"
+        handler=".events.setBlockInterfacesAfterCopy"
         />      -->
     <!-- end of event handlers -->
 
@@ -245,7 +245,7 @@
         id="simplelayout_contentmenu_design"
         title="The 'actions' menu - allows the user to execute actions on an object"
         class=".menu.BlockDesignMenu"
-        />  
+        />
       <adapter for="* *"
                name="simplayout.contentmenu.design"
                factory=".menu.BlockDesignSubMenu"
@@ -293,7 +293,7 @@
         description="Migrate new workflow for contained blocks"
         profile="simplelayout.base:default"
         handler=".upgrades.set_block_states"
-        />  
+        />
 
     <genericsetup:upgradeStep
         sortkey="1"
@@ -303,7 +303,7 @@
         description="Sets specific interfaces on pages/blocks"
         profile="simplelayout.base:default"
         handler=".upgrades.set_content_interfaces"
-        />  
+        />
 
     <genericsetup:upgradeStep
         sortkey="1"
@@ -313,6 +313,6 @@
         description="removs sl-edit-button / unused actions"
         profile="simplelayout.base:default"
         handler=".upgrades.remove_unused_actions"
-        />  
+        />
 
 </configure>

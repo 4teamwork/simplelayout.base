@@ -27,7 +27,7 @@ setup(name='simplelayout.base',
           'setuptools',
           'archetypes.schemaextender',
           'simplelayout.types.common<=3.0',
-          'simplelayout.ui.base<=2.1', 
+          'simplelayout.ui.base<=2.1',
           'simplelayout.ui.dragndrop<=2.1'
       ],
       entry_points="""
