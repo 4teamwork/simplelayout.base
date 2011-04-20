@@ -2,6 +2,7 @@ from setuptools import setup, find_packages
 import os
 
 version = open('simplelayout/base/version.txt').read().strip()
+maintainer = 'Mathias Leimgruber'
 
 setup(name='simplelayout.base',
       version=version,
@@ -15,10 +16,11 @@ setup(name='simplelayout.base',
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
       keywords='',
-      author='Mathias LEIMGRUBER (4teamwork)',
-      author_email='m.leimgruber@4teamwork.ch',
+      author='%s, 4teamwork GmbH' % maintainer,
+      author_email='info@4teamwork.ch',
+      maintainer=maintainer
       url='http://plone.org/products/simplelayout.base/',
-      license='GPL',
+      license='GPL2',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['simplelayout'],
       include_package_data=True,
