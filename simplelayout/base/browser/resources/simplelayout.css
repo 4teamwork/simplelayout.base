@@ -17,10 +17,25 @@
     margin-bottom:1em;
 }
 
-.sl-img-wrapper,
+/* We dont need this generally */
+/*.sl-img-wrapper,
 .sl-text-wrapper {
     padding-right:10px;
 }
+*/
+
+/* Image paddings */
+.sl-img-wrapper.SLNoPaddingRight{
+    padding-right:0;
+}
+
+
+.sl-img-wrapper.SLPaddingRight {
+        padding-right:1em;
+}
+
+
+
 
 .sl-fullblock .sl-img-wrapper{
     margin-right:1em;
@@ -39,6 +54,7 @@
 	float:right;
     margin-bottom: 1em;
     margin-left: 1em;
+    margin-right:0em;
 }
 
 .sl-img-full .sl-img-wrapper {

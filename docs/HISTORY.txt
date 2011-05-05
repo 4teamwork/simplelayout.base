@@ -3,6 +3,10 @@ Changelog
 
 3.0
 ---
+
+* Added some CSS for new Image display behavior. 
+  [05.05.2011, mathias.leimgruber]
+
 * Fix IE 7 stupid behaviour with floating elements. 
   [03.02.2011, mathias.leimgruber]
 
