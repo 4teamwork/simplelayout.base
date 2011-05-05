@@ -28,7 +28,6 @@ Changelog
 * Fixed a bug while rendering the sl-actions (check for visible attr)
   [13.10.2010, mathias.leimgruber]
 
->>>>>>> .r229459
 * Removed old Products.FlashUpload support, it's not longer necessary.
   [04.10.2010, mathias.leimgruber]
 
