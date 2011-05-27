@@ -4,6 +4,9 @@ Changelog
 3.0
 ---
 
+* Fix permission check for sl-actions and sl-layouts
+  [27.05.2011, mathias.leimgruber]
+
 * Added some CSS for new Image display behavior. 
   [05.05.2011, mathias.leimgruber]
 

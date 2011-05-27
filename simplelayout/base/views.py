@@ -13,6 +13,7 @@ from utils import IBlockControl
 from Products.CMFCore.ActionInformation import ActionInfo
 from Acquisition import aq_inner
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from Products.CMFCore.utils import _checkPermission
 
 from simplelayout.base.interfaces import ISimplelayoutView, \
                                          ISimpleLayoutCapable
@@ -208,7 +209,9 @@ class SimpleLayoutControlsView(BrowserView):
         for action in actions:
 
             if action['category'] == category and action['visible']:
-                if not action['allowed']:
+                # Do not use action['allowed']
+                # manually check permissions
+                if not self._check_permission(action):
                     continue
                     
                 if not action['available']:
@@ -218,6 +221,15 @@ class SimpleLayoutControlsView(BrowserView):
                        'id': action['id'],
                        'icon': action['icon'],
                        'url': action['url']}
+
+    def _check_permission(self, action):
+        """Checks for the given permissions, 
+        because the one from plone is hard coded to several categories
+        """
+        for permission in action._permissions:
+            if _checkPermission(permission, self.context):
+                return True
+        return False
 
     def getLayouts(self, category='sl-layouts'):
         return self.getActions(category)
