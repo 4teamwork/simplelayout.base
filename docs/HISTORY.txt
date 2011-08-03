@@ -5,6 +5,9 @@ Changelog
 3.0
 ---
 
+* Plone 4.1 compatibility: Use _ instead of - as ID sepereator.
+  [03.08.2011, jbaumann]
+
 * Fix permission check for sl-actions and sl-layouts
   [27.05.2011, mathias.leimgruber]
 
