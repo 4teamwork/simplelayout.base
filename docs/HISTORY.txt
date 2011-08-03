@@ -1,16 +1,17 @@
 Changelog
 =========
 
+
 3.0
 ---
 
 * Fix permission check for sl-actions and sl-layouts
   [27.05.2011, mathias.leimgruber]
 
-* Added some CSS for new Image display behavior. 
+* Added some CSS for new Image display behavior.
   [05.05.2011, mathias.leimgruber]
 
-* Fix IE 7 stupid behaviour with floating elements. 
+* Fix IE 7 stupid behaviour with floating elements.
   [03.02.2011, mathias.leimgruber]
 
 * Fix sl actions view, also check action condition.
@@ -18,7 +19,7 @@ Changelog
 
 * fix align blocks to grid function (remove buggy px_to_em plugin)
   [27.12.2010, mathias.leimgruber]
-  
+
 * fix workflow menus css
   [13.07.2010, mathias.leimgruber]
 
@@ -34,14 +35,14 @@ Changelog
 * Removed old Products.FlashUpload support, it's not longer necessary.
   [04.10.2010, mathias.leimgruber]
 
-* implemented image scaling by plone.app.imaging. Manual recalc button in 
-  configlet is not longer necessary. 
+* implemented image scaling by plone.app.imaging. Manual recalc button in
+  configlet is not longer necessary.
   [30.09.2010, mathias.leimgruber]
 
 * added workaround for blob image field
   [29.09.2010, mathias.leimgruber]
 
-* removed actioniscons.xml and added icon_expr directly to the 
+* removed actioniscons.xml and added icon_expr directly to the
   content types xml. Because the actionicons tool in plone 4 has been deprecated
   [12.07.2010, mathias.leimgruber]
 * rewrite browserviews with allowed_attributes
@@ -65,15 +66,15 @@ Changelog
 
 2.0
 ---------------
-* use the action ids on blockable types to define a custom block 
-  viewname, the custom viewname is stored in anotations. 
+* use the action ids on blockable types to define a custom block
+  viewname, the custom viewname is stored in anotations.
   check FAQ section in README file for an example.
   [mathias.leimgruber]
 * use absolute path for control icons [mathias.leimgruber]
 
 2.0rc6
 ---------------
-* removed special characters that prevented buildout to 
+* removed special characters that prevented buildout to
   run [florian.sprenger]
 
 2.0rc5
@@ -83,7 +84,7 @@ Changelog
 * fire "set init. layout" on IObjectEditedEvent [mathias.leimgruber]
 * use a cookie to store the edit-mode state [mathias.leimgruber]
 * remove unused code [mathias.leimgruber]
-* moved JS toggleEditMode function to 
+* moved JS toggleEditMode function to
   simplelayout.ui.base [mathias.leimgruber]
 * Upgrade step from 2.0rc4 to 2.0rc5 [mathias.leimgruber]
 * reorder JS by GenericSetup [mathias.leimgruber]
@@ -96,7 +97,7 @@ Changelog
 
 2.0rc3
 ----------------
-* don't display the empty sl-control panel <div /> 
+* don't display the empty sl-control panel <div />
   for anonymous users  [mathias.leimgruber]
 
 
@@ -141,7 +142,7 @@ Changelog
 * create two columns layout [mathias.leimgruber]
 * fixed dragndrop functionality for two columns [mathias.leimgruber]
 * align two columns layout to grid [mathias.leimgruber]
-  - works great in FF 2.x - 3.x 
+  - works great in FF 2.x - 3.x
   - There are some display issues in edit-mode with IE 6/7
   - edit-mode for safari and IE 8 not tested
 * added a tow column view with a one column slot on top [mathias.leimgruber]
