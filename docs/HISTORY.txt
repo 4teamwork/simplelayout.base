@@ -5,6 +5,9 @@ Changelog
 3.0
 ---
 
+* Fix right margin for small and middle images on the left site
+  [20.12.2011, elio.schmutz]
+
 * Plone 4.1 compatibility: Use _ instead of - as ID sepereator.
   [03.08.2011, jbaumann]
 
