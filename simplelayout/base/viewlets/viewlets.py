@@ -11,6 +11,16 @@ from simplelayout.base.interfaces import ISimpleLayoutListingViewlet,  \
                                          IBlockConfig, \
                                          ISimpleLayoutBlock
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from Products.CMFCore.utils import getToolByName
+from zope.component import getUtility
+from Products.CMFCore.ActionInformation import ActionInfo
+from Acquisition import aq_inner
+from Products.CMFCore.utils import _checkPermission
+from simplelayout.base.interfaces import ISimplelayoutTwoColumnView, \
+                                      ISimplelayoutTwoColumnOneOnTopView, \
+                                      ISlUtils
+
+
 
 import logging
 logger = logging.getLogger(__name__)
@@ -118,13 +128,59 @@ class SimpleLayoutListingTwoColumnsOneOnTopViewlet(SimpleLayoutListingViewlet):
 class SimpleLayoutControlsViewlet(ViewletBase):
     render = ViewPageTemplateFile('controls.pt')
 
+    def getActions(self, category='sl-actions'):
+        types_tool = getToolByName(self.context, 'portal_types')
+        actions = types_tool.listActions(object=self.context)
+        # Prepare actions
+        ec = types_tool._getExprContext(self.context)
+        actions = [ ActionInfo(action, ec) for action in actions ]
 
-    def getCurrentLayout(self,block):
+        for action in actions:
+
+            if action['category'] == category and action['visible']:
+                # Do not use action['allowed']
+                # manually check permissions
+                if not self._check_permission(action):
+                    continue
+
+                if not action['available']:
+                        continue
+
+                yield {
+                       'id': action['id'],
+                       'icon': action['icon'],
+                       'url': action['url']}
+
+    def _check_permission(self, action):
+        """Checks for the given permissions,
+        because the one from plone is hard coded to several categories
+        """
+        for permission in action._permissions:
+            if _checkPermission(permission, self.context):
+                return True
+        return False
+
+    def getLayouts(self, category='sl-layouts'):
+        return self.getActions(category)
+
+    def getCurrentLayout(self, block):
         if ISimpleLayoutBlock.providedBy(block):
             blockconf = IBlockConfig(block)
-            return blockconf.image_layout
+            viewname = blockconf.viewname
+            image_layout = blockconf.image_layout
+            if not image_layout:
+                image_layout = ''
+            if not viewname:
+                viewname = ''
+            if viewname:
+                viewname = '-%s' % viewname
+            return  image_layout + viewname
 
         return None
+
+    def isWorkflowEnabled(self):
+        conf = getUtility(ISlUtils, name='simplelayout.utils')
+        return conf.isBlockWorkflowEnabled()
 
 
 class SimpleLayoutContentViewlet(ViewletBase):
@@ -146,3 +202,18 @@ class SimpleLayoutContentViewlet(ViewletBase):
             return self.template()
         return self.render_fallback()
 
+class SimpleLayoutAlignActionViewlet(ViewletBase):
+
+    index = ViewPageTemplateFile('align_action.pt')
+
+    def text(self):
+        return self.context.restrictedTraverse('@@sl_controls').ToggleGridLayoutText()
+
+    def isTwoColumnLayout(self):
+        context = aq_inner(self.context).aq_explicit
+
+        if ISimplelayoutTwoColumnView.providedBy(context):
+            return True
+        if ISimplelayoutTwoColumnOneOnTopView.providedBy(context):
+            return True
+        return False

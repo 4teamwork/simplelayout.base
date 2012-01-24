@@ -12,7 +12,6 @@
     line-height: 1.5em;
 }
 
-
 .sl-fullblock {
     margin-bottom:1em;
 }
@@ -43,7 +42,7 @@
 }
 
 /*left-float*/
-.sl-img-small .sl-img-wrapper, 
+.sl-img-small .sl-img-wrapper,
 .sl-img-middle .sl-img-wrapper {
 	float:left;
     margin-bottom: 1em;
@@ -51,7 +50,7 @@
 }
 
 /*right-float*/
-.sl-img-small-right .sl-img-wrapper, 
+.sl-img-small-right .sl-img-wrapper,
 .sl-img-middle-right .sl-img-wrapper {
 	float:right;
     margin-bottom: 1em;
@@ -59,11 +58,6 @@
     margin-right:0em;
 }
 
-.sl-img-full .sl-img-wrapper {
-}
-
-#region-content .sl-text-wrapper p {
-}
 
 /* fix for diffrent paddings */
 #region-content .simplelayout-block-wrapper h3 {
@@ -84,6 +78,10 @@
     width: 100%;
     background-color:#DEE7EC;
     border-bottom:1px solid #8CACBB;
+    position: relative;
+    margin-bottom: -2em;
+    z-index: 5;
+    opacity:0;
 }
 
 .sl-controls img{
@@ -111,7 +109,7 @@
 }
 
 #content .sl-controls .sl-obj-layouts{
-    float:left;    
+    float:left;
 	display:inline;
 	margin-bottom:2px;
 	list-style-type:none;
@@ -187,14 +185,19 @@ div.documentActions ul.simplelayout{
 }
 
 .blockHighlight {
-    background-color:#EEF3F5;
-    margin:0px 0px 1em;
+/*    background-color:#EEF3F5;*/
+/*    margin:0px 0px 1em;
     border-bottom:1px solid #8CACBB;
+*/}
+
+.blockHighlight div.simplelayout-block-wrapper {
+    opacity:0.5;
 }
+
 
 .highlightBorder {
     border:1px dotted #8CACBB;
-    margin-right:-2px;
+    margin:-1px;
 }
 
 
@@ -216,7 +219,7 @@ clear:both;
 }
 
 .Linkdescription {
-    padding-left: 16px; 
+    padding-left: 16px;
 }
 
 .Filedescription {

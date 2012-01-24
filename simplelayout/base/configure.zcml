@@ -22,16 +22,6 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
-
-    <browser:viewlet
-        name="simplelayout.base.block.controls"
-        manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
-        class=".viewlets.SimpleLayoutControlsViewlet"
-        for=".interfaces.ISimpleLayoutCapable"
-        permission="zope2.View"
-        />
-
-
     <browser:page
         for="*"
         name="simplelayout"
@@ -112,6 +102,16 @@
             permission="zope2.View"
             class="plone.app.viewletmanager.manager.OrderedViewletManager"
             />
+
+        <!-- Align block to grid action viewlet -->
+        <browser:viewlet
+            for="simplelayout.base.interfaces.ISimpleLayoutCapable"
+            name="simplelayout.base.actions.align"
+            manager=".interfaces.ISimpleViewletListingProvider"
+            class=".viewlets.SimpleLayoutAlignActionViewlet"
+            permission="zope2.View"
+            />
+
 
         <!-- normal listing -->
         <browser:viewlet

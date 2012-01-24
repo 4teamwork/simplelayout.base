@@ -5,6 +5,9 @@ Changelog
 3.0
 ---
 
+* Implement new way of editing a block (edit actions will appear at mousover). 
+  [24.01.2012, mathias.leimgruber]
+
 * Fix right margin for small and middle images on the left site
   [20.12.2011, elio.schmutz]
 

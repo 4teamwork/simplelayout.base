@@ -10,10 +10,8 @@ from zope.component.interfaces import ComponentLookupError
 
 from zope.contentprovider.tales import addTALNamespaceData
 from utils import IBlockControl
-from Products.CMFCore.ActionInformation import ActionInfo
 from Acquisition import aq_inner
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from Products.CMFCore.utils import _checkPermission
 
 from simplelayout.base.interfaces import ISimplelayoutView, \
                                          ISimpleLayoutCapable
@@ -23,18 +21,13 @@ from simplelayout.base.config import VIEW_INTERFACES_MAP, \
                                      BLOCK_INTERFACES, \
                                      INIT_INTERFACES_MAP
 
-from simplelayout.base.interfaces import ISimplelayoutTwoColumnView, \
-                                      ISimplelayoutTwoColumnOneOnTopView, \
-                                      IBlockConfig, \
-                                      ISimpleLayoutBlock, \
-                                      ISlUtils
-
+from simplelayout.base.interfaces import IBlockConfig
 
 class SimpleLayoutView(BrowserView):
     implements(ISimplelayoutView)
-    
+
     template = ViewPageTemplateFile('browser/simplelayout.pt')
-    
+
     def __call__(self):
         return self.template()
 
@@ -199,68 +192,6 @@ class SimpleLayoutControlsView(BrowserView):
     def __call__(self):
         return self.template()
 
-    def getActions(self, category='sl-actions'):
-        types_tool = getToolByName(self.context, 'portal_types')
-        actions = types_tool.listActions(object=self.context)
-        # Prepare actions
-        ec = types_tool._getExprContext(self.context)
-        actions = [ ActionInfo(action, ec) for action in actions ]
-        
-        for action in actions:
-
-            if action['category'] == category and action['visible']:
-                # Do not use action['allowed']
-                # manually check permissions
-                if not self._check_permission(action):
-                    continue
-                    
-                if not action['available']:
-                        continue
-
-                yield {
-                       'id': action['id'],
-                       'icon': action['icon'],
-                       'url': action['url']}
-
-    def _check_permission(self, action):
-        """Checks for the given permissions, 
-        because the one from plone is hard coded to several categories
-        """
-        for permission in action._permissions:
-            if _checkPermission(permission, self.context):
-                return True
-        return False
-
-    def getLayouts(self, category='sl-layouts'):
-        return self.getActions(category)
-
-    def getCurrentLayout(self, block):
-        if ISimpleLayoutBlock.providedBy(block):
-            blockconf = IBlockConfig(block)
-            viewname = blockconf.viewname
-            image_layout = blockconf.image_layout
-            if not image_layout:
-                image_layout = ''
-            if not viewname:
-                viewname = ''
-            if viewname:
-                viewname = '-%s' % viewname
-            return  image_layout + viewname
-
-        return None
-
-    def isWorkflowEnabled(self):
-        conf = getUtility(ISlUtils, name='simplelayout.utils')
-        return conf.isBlockWorkflowEnabled()
-
-    def isTwoColumnLayout(self):
-        context = aq_inner(self.context).aq_explicit
-
-        if ISimplelayoutTwoColumnView.providedBy(context):
-            return True
-        if ISimplelayoutTwoColumnOneOnTopView.providedBy(context):
-            return True
-        return False
 
     def ToggleGridLayoutText(self):
         """
@@ -287,19 +218,19 @@ class BlockManipulation(BrowserView):
         block will be deleted
         """
         # XXX:
-        # Don't understand, why the varname:list, will shown as 
+        # Don't understand, why the varname:list, will shown as
         # varname:list[]
         # I just make this work, but i need to be fixed
-        
-        
+
+
         uids = self.request.get('uids:list[]', [])
         left = self.request.get('left:list[0][]', [])
         right = self.request.get('right:list[0][]', [])
-        
+
         # create a dict
         _d = {}
         real_uids = [u.replace('uid_', '') for u in uids]
-        
+
         if right or left:
             for uid, height in [right] + [left]:
                 _d[uid.replace('uid_', '')] = height
