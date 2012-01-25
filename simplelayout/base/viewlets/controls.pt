@@ -7,7 +7,7 @@
                    layouts python:tuple(view.getLayouts());
                    folderish python:here.isPrincipiaFolderish">
       <div class="sl-toggle-edit-bar-wrapper">
-          <div class="sl-toggle-edit-bar ui-icon ui-icon-triangle-1-w"></div>
+          <div class="sl-toggle-edit-bar ui-icon ui-icon-triangle-1-e"></div>
       </div>
       <div class="sl-actions-wrapper">
           <ul class="sl-obj-actions"

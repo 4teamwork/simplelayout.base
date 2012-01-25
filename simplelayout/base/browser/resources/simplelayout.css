@@ -1,5 +1,6 @@
 .BlockOverallWrapper{
     width:auto;
+    padding-bottom: 1px;
 }
 
 .simplelayout-block-wrapper{
@@ -71,15 +72,12 @@
 
 .sl-controls{
     padding:0;
-    border-bottom:1px solid black;
     padding-top:0.5em;
     display:none;
-    float:left;
+    float:right;
     width: 100%;
-    background-color:#DEE7EC;
-    border-bottom:1px solid #8CACBB;
     position: relative;
-    margin-bottom: -3em;
+    margin-bottom: -4em;
     z-index: 1;
     opacity:0;
 }
@@ -92,16 +90,41 @@
 
 .sl-controls .sl-obj-actions{
     float:left;
-	margin-right:20px;
 	font-weight:bold;
 	list-style-type:none;
 	list-style-image: none;
-	margin-bottom:2px;
 }
 
-#content .sl-controls .sl-obj-actions li{
-    display:inline;
 
+#content .sl-controls .sl-obj-actions li,
+#content .sl-controls .sl-obj-layouts li{
+    display:block;
+	border: 1px solid #d3d3d3;
+    background: #ededed; /*fallback for non-CSS3 browsers*/
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#f9f9f9) to(#ededed)); /*old webkit*/
+    background: -webkit-linear-gradient(#f9f9f9, #ededed); /*new webkit*/
+    background: -moz-linear-gradient(#f9f9f9, #ededed); /*gecko*/
+    background: -ms-linear-gradient(#f9f9f9, #ededed); /*IE10*/
+    background: -o-linear-gradient(#f9f9f9, #ededed); /*opera 11.10+*/
+    background: linear-gradient(#f9f9f9, #ededed); /*future CSS3 browsers*/
+    float:left;
+    padding:0.5em;
+}
+
+#content .sl-controls .sl-actions-wrapper ul {
+    margin-top:0em;
+}
+
+#content .sl-controls .sl-obj-actions li:hover,
+#content .sl-controls .sl-obj-layouts li:hover{
+    background: #ededed; /*fallback for non-CSS3 browsers*/
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#ededed) to(#f9f9f9)); /*old webkit*/
+    background: -webkit-linear-gradient(#ededed, #f9f9f9); /*new webkit*/
+    background: -moz-linear-gradient(#ededed, #f9f9f9); /*gecko*/
+    background: -ms-linear-gradient(#ededed, #f9f9f9); /*IE10*/
+    background: -o-linear-gradient(#ededed, #f9f9f9); /*opera 11.10+*/
+    background: linear-gradient(#ededed, #f9f9f9); /*future CSS3 browsers*/
+    -pie-background: linear-gradient(#ededed, #f9f9f9); /*PIE*/
 }
 
 .sl-controls .sl-obj-actions li a{
@@ -111,20 +134,8 @@
 #content .sl-controls .sl-obj-layouts{
     float:left;
 	display:inline;
-	margin-bottom:2px;
 	list-style-type:none;
 	list-style-image: none;
-}
-
-#content .sl-controls .sl-obj-layouts li{
-    display:inline;
-    line-height:16px;
-}
-
-.sl-controls .sl-layout a{
-	margin:2px;
-	padding-right:1px;
-	padding-left:1px;
 }
 
 .sl-controls .sl-layout.active img{
@@ -185,21 +196,21 @@ div.documentActions ul.simplelayout{
 }
 
 .blockHighlight {
-/*    background-color:#EEF3F5;
-    margin:0px 0px 1em; */
     border-bottom:1px solid #8CACBB;
-    margin-bottom:-1px;
-
+    padding-bottom:0px;
 }
 
 .blockHighlight div.simplelayout-block-wrapper {
     opacity:0.5;
 }
 
+.simplelayout-content div[id*=slot] {
+  padding: 1px;
+}
 
 .highlightBorder {
     border:1px dotted #8CACBB;
-    margin:-1px;
+    padding: 0px !important;
 }
 
 
@@ -265,9 +276,9 @@ clear:both;
     background: -o-linear-gradient(#f9f9f9, #ededed); /*opera 11.10+*/
     background: linear-gradient(#f9f9f9, #ededed); /*future CSS3 browsers*/
     -pie-background: linear-gradient(#f9f9f9, #ededed); /*PIE*/
-    position: absolute;
-    height:2.4em;
+    height:2.8em;
     width:1em;
+    float:right;
 }
 
 .sl-toggle-edit-bar-wrapper:hover {
@@ -283,6 +294,10 @@ clear:both;
 
 .sl-toggle-edit-bar {
     left: -0.4em;
-    top: 0.4em;
+    top: 0.6em;
     position:relative;
+}
+
+.sl-actions-wrapper {
+    float:right;
 }
