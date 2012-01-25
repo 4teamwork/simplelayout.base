@@ -75,7 +75,6 @@
     padding-top:0.5em;
     display:none;
     float:right;
-    width: 100%;
     position: relative;
     margin-bottom: -4em;
     z-index: 1;
@@ -136,6 +135,14 @@
 	display:inline;
 	list-style-type:none;
 	list-style-image: none;
+}
+
+.sl-controls .document-action-dragme a {
+  display: block;
+  background-image: url(++resource++sl/icons/icon_move.png);
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
 }
 
 .sl-controls .sl-layout.active img{
@@ -276,7 +283,7 @@ clear:both;
     background: -o-linear-gradient(#f9f9f9, #ededed); /*opera 11.10+*/
     background: linear-gradient(#f9f9f9, #ededed); /*future CSS3 browsers*/
     -pie-background: linear-gradient(#f9f9f9, #ededed); /*PIE*/
-    height:2.8em;
+    height:25px;
     width:1em;
     float:right;
 }
@@ -294,7 +301,7 @@ clear:both;
 
 .sl-toggle-edit-bar {
     left: -0.4em;
-    top: 0.6em;
+    top: 0.4em;
     position:relative;
 }
 

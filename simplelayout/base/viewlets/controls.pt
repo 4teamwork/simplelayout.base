@@ -13,9 +13,9 @@
           <ul class="sl-obj-actions"
               tal:condition="actions">
 
-            <li id="document-action-dragme">
+            <li class="document-action-dragme">
                 <a href="#" title="Dragme">
-                    <img tal:attributes="src string:++resource++sl/icons/icon_move.png" alt="Dragme"/>
+                    <!-- iefix -->
                 </a>
             </li>
 
