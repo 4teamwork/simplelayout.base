@@ -79,7 +79,6 @@ class SimpleLayoutView(BrowserView):
 
         return 1
 
-    @property
     def isSimplelayout(self):
         """returns boolean if sl capable or not
         """
