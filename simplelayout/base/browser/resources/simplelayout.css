@@ -225,6 +225,10 @@ div.documentActions ul.simplelayout{
   float: left;
 }
 
+.leftFloatable .simplelayout-block-wrapper .sl-img-wrapper {
+    margin-right:0em;
+}
+
 .visualClear {
     height:0;
     line-height:0;
