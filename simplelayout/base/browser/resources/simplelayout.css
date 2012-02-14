@@ -1,12 +1,15 @@
 .BlockOverallWrapper{
     width:auto;
     padding-bottom: 1px;
+    direction: rtl;
+    position:relative;
 }
 
 .simplelayout-block-wrapper{
     margin: 0px !important;
     padding: 0px !important;
     width:auto;
+    direction:ltr;
 }
 
 .simplelayout-block-wrapper a {
@@ -16,6 +19,7 @@
 .sl-fullblock {
     margin-bottom:1em;
 }
+
 
 /* We dont need this generally */
 /*.sl-img-wrapper,
@@ -33,8 +37,6 @@
 .sl-img-wrapper.SLPaddingRight {
         padding-right:1em;
 }
-
-
 
 
 .sl-fullblock .sl-img-wrapper{
@@ -75,10 +77,11 @@
     padding-top:0.5em;
     display:none;
     float:right;
-    position: relative;
+    position: absolute;
     margin-bottom: -4em;
     z-index: 1;
     opacity:0;
+    direction:ltr;
 }
 
 .sl-controls img{
@@ -142,7 +145,7 @@
   background-image: url(++resource++sl/icons/icon_move.png);
   background-repeat: no-repeat;
   width: 16px;
-  height: 16px;
+  height: 18px;
 }
 
 .sl-controls .sl-layout.active img{
@@ -208,7 +211,7 @@ div.documentActions ul.simplelayout{
 }
 
 .blockHighlight div.simplelayout-block-wrapper {
-    opacity:0.5;
+    background-color:#DEE7EC;
 }
 
 .simplelayout-content div[id*=slot] {
@@ -287,7 +290,7 @@ clear:both;
     background: -o-linear-gradient(#f9f9f9, #ededed); /*opera 11.10+*/
     background: linear-gradient(#f9f9f9, #ededed); /*future CSS3 browsers*/
     -pie-background: linear-gradient(#f9f9f9, #ededed); /*PIE*/
-    height:25px;
+    height:2.5em;
     width:1em;
     float:right;
 }
@@ -304,8 +307,8 @@ clear:both;
 }
 
 .sl-toggle-edit-bar {
-    left: -0.4em;
-    top: 0.4em;
+    left: -0.2em;
+    top: 0.6em;
     position:relative;
 }
 
