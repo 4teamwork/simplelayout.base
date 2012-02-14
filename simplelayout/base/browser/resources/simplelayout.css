@@ -208,11 +208,9 @@ div.documentActions ul.simplelayout{
 .blockHighlight {
     border-bottom:1px solid #8CACBB;
     padding-bottom:0px;
-}
-
-.blockHighlight div.simplelayout-block-wrapper {
     background-color:#DEE7EC;
 }
+
 
 .simplelayout-content div[id*=slot] {
   padding: 1px;
