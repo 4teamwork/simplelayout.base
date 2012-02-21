@@ -121,3 +121,18 @@ def remove_unused_actions(portal_setup):
         dvti._actions = tuple(bt_actions)
 
     return "Simplelayout Actions migrated"
+
+
+def create_initial_paragraph_versions(portal_setup):
+    """Create initial versions of existing paragraph objects.
+    """
+
+    catalog = getToolByName(portal_setup, 'portal_catalog')
+    repository = getToolByName(portal_setup, 'portal_repository')
+
+    for brain in catalog(portal_type=['Paragraph']):
+        obj = brain.getObject()
+
+        if repository.isVersionable(obj) and \
+                len(repository.getHistory(obj, countPurged=False)) == 0:
+            repository.save(obj=obj, comment='Initial version.')

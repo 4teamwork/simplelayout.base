@@ -299,4 +299,13 @@
         handler=".upgrades.remove_unused_actions"
         />
 
+    <genericsetup:upgradeStep
+        source="2.0"
+        destination="2.1"
+        title="Create initial paragraph versions."
+        description="Paragraphs are now versioned: create initial versions."
+        profile="simplelayout.base:default"
+        handler=".upgrades.create_initial_paragraph_versions"
+        />
+
 </configure>

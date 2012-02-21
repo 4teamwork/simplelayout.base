@@ -5,7 +5,10 @@ Changelog
 3.0
 ---
 
-* Implement new way of editing a block (edit actions will appear at mousover). 
+- Add upgrade step for creating initial paragraph versions (paragraphs are now versioned).
+  [jone]
+
+* Implement new way of editing a block (edit actions will appear at mousover).
   [24.01.2012, mathias.leimgruber]
 
 * Fix right margin for small and middle images on the left site
@@ -171,5 +174,3 @@ Changelog
   - simplelayout.types.common
   - simplelayout.ui.base
   - simplelayout.ui.dragndrop
-
-
