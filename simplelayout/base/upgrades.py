@@ -19,18 +19,18 @@ def migrateActionsAndLayoutNames(portal_setup):
         obj = aq_inner(b.getObject()).aq_explicit
         blockconf = IBlockConfig(obj)
         layout = blockconf.image_layout
-        migrate_layout = {'half':'middle',
-                      'squarish':'small',
-                      'full': 'full',
-                      'thumbnail':'small',
-                      '25':'small',
-                      '33':'middle',
-                      '50':'full',
-                      'no-image':'no-image'}
-        if layout and layout not in ['small','middle','full']:
+        migrate_layout = {'half': 'middle',
+                          'squarish': 'small',
+                          'full': 'full',
+                          'thumbnail': 'small',
+                          '25': 'small',
+                          '33': 'middle',
+                          '50': 'full',
+                          'no-image': 'no-image'}
+        if layout and layout not in ['small', 'middle', 'full']:
             blockconf.image_layout = migrate_layout[layout]
 
-    obsoleteactions = ['sl-25','sl-33','sl-50','sl-squarish']
+    obsoleteactions = ['sl-25', 'sl-33', 'sl-50', 'sl-squarish']
     image_actions = portal.portal_types.Image._cloneActions()
     for a in image_actions:
         if a.id in obsoleteactions:
@@ -39,14 +39,20 @@ def migrateActionsAndLayoutNames(portal_setup):
 
     return 'migration done'
 
+
 def set_block_states(portal_setup):
-    containers = [c.getObject() for c in portal_setup.portal_catalog(object_provides='simplelayout.base.interfaces.ISimpleLayoutCapable')]
+    capable_iface = 'simplelayout.base.interfaces.ISimpleLayoutCapable'
+    block_iface = 'simplelayout.base.interfaces.ISimpleLayoutBlock'
+
+    containers = [c.getObject() for c in portal_setup.portal_catalog(
+            object_provides=capable_iface)]
+
     wt = getToolByName(portal_setup, 'portal_workflow')
 
     for obj in containers:
         wf_id = wt.getChainFor(obj)[0]
         container_status = wt.getInfoFor(obj, 'review_state')
-        cf = {'object_provides': 'simplelayout.base.interfaces.ISimpleLayoutBlock'}
+        cf = {'object_provides': block_iface}
 
         for item in obj.getFolderContents(cf, full_objects=True):
             wt.setStatusOf(wf_id, item, {'review_state': container_status})
@@ -59,23 +65,27 @@ def set_block_states(portal_setup):
 
 #set default interfaces, so the "normal" will work correctly
 def set_content_interfaces(portal_setup):
-    containers = [c.getObject() for c in portal_setup.portal_catalog(object_provides='simplelayout.base.interfaces.ISimpleLayoutCapable')]
+    capable_iface = 'simplelayout.base.interfaces.ISimpleLayoutCapable'
+    containers = [c.getObject() for c in portal_setup.portal_catalog(
+            object_provides=capable_iface)]
+
     iface = VIEW_INTERFACES_MAP['normal']
     for obj in containers:
         if not iface.providedBy(obj):
             alsoProvides(obj, iface)
             obj.reindexObject(idxs=['object_provides'])
 
+    blocks = [c.getObject() for c in portal_setup.portal_catalog(
+            object_provides=BLOCK_INTERFACES)]
 
-    blocks = [c.getObject() for c in portal_setup.portal_catalog(object_provides=BLOCK_INTERFACES)]
     for obj in blocks:
         slot_iface = SLOT_INTERFACES_MAP['slotA']
         column_iface = COLUMN_INTERFACES_MAP['onecolumn']
 
         if not slot_iface.providedBy(obj):
-            alsoProvides(obj,slot_iface)
+            alsoProvides(obj, slot_iface)
         if not column_iface.providedBy(obj):
-            alsoProvides(obj,column_iface)
+            alsoProvides(obj, column_iface)
 
         obj.reindexObject(idxs=['object_provides'])
 
@@ -97,10 +107,9 @@ def remove_unused_actions(portal_setup):
         tmplist.remove(to_remove)
         page._actions = tuple(tmplist)
 
-
     #remove sl-up and sl-down actions from block types
     actions_to_remove = ['sl-moveup', 'sl-movedo']
-    block_types = ['Paragraph', 'Link', 'Image', 'File',]
+    block_types = ['Paragraph', 'Link', 'Image', 'File']
     for bt in block_types:
         if bt not in types.keys():
             continue
