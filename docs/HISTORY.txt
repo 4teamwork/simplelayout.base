@@ -2,8 +2,8 @@ Changelog
 =========
 
 
-3.0 (unreleased)
-----------------
+3.0b1 (2012-03-05)
+------------------
 
 - Add upgrade step for creating initial paragraph versions (paragraphs are now versioned).
   [jone]
