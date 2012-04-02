@@ -1,0 +1,20 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="simplelayout.base">
+
+
+    <!-- 2.1 to 3.0b2 -->
+    <genericsetup:upgradeSteps
+        source="2.1"
+        destination="3.0b2"
+        profile="simplelayout.base:default">
+
+
+        <genericsetup:upgradeStep
+            title="Change the storagetype of the imagefield for paragraph"
+            handler="simplelayout.base.upgrade.v30b2.upgrades.change_paragraph_image_storage_type_to_blobstorage"
+            />
+    </genericsetup:upgradeSteps>
+
+</configure>
