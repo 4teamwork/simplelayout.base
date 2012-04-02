@@ -5,7 +5,8 @@ Changelog
 3.0b2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Added upgrade step
+  [elio.schmutz]
 
 
 3.0b1 (2012-03-05)

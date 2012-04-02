@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <metadata>
     <description>simplelayout</description>
-    <version>2.1</version>
+    <version>3.0b2</version>
   <dependencies>
     <dependency>profile-simplelayout.types.common:default</dependency>
     <dependency>profile-simplelayout.ui.base:default</dependency>
