@@ -221,8 +221,10 @@ class BlockManipulation(BrowserView):
         # varname:list[]
         # I just make this work, but i need to be fixed
 
-
         uids = self.request.get('uids:list[]', [])
+        # In case if only one block is available
+        if not isinstance(uids, list):
+            uids = [uids]
         left = self.request.get('left:list[0][]', [])
         right = self.request.get('right:list[0][]', [])
 

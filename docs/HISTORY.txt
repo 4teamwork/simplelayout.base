@@ -5,7 +5,8 @@ Changelog
 3.0b3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix setBlockHeights function.
+  [mathias.leimgruber]
 
 
 3.0b2 (2012-04-02)
