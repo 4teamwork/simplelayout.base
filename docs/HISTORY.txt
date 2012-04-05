@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-3.0b3 (unreleased)
+3.0b3 (2012-04-05)
 ------------------
 
 - Fix setBlockHeights function.
