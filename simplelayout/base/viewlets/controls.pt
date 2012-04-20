@@ -1,9 +1,9 @@
-<tal:if condition="not: here/portal_membership/isAnonymousUser">
-<div class="sl-controls">
+<tal:if condition="not: here/portal_membership/isAnonymousUser"
+        define="actions python:tuple(view.getActions());">
+<div class="sl-controls" tal:condition="actions">
 
     <tal:b
        tal:define="current_layout python: view.getCurrentLayout(here);
-                   actions python:tuple(view.getActions());
                    layouts python:tuple(view.getLayouts());
                    folderish python:here.isPrincipiaFolderish">
       <div class="sl-toggle-edit-bar-wrapper">

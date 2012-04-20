@@ -5,7 +5,8 @@ Changelog
 3.0b4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Do not show simplelayout controls viewlet if there are no controls.
+  [Julian Infanger]
 
 
 3.0b3 (2012-04-05)
