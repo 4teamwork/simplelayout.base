@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-3.0b4 (unreleased)
+3.0b4 (2012-04-23)
 ------------------
 
 - Do not show simplelayout controls viewlet if there are no controls.
