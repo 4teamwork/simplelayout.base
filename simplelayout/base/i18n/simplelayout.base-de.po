@@ -172,5 +172,11 @@ msgstr "Bild-Layout ändern: rechts mittel"
 msgid "sl_layout_small-right"
 msgstr "Bild-Layout ändern: rechts klein"
 
+msgid "sl_layout_dummy-dummy-dummy"
+msgstr " "
+
+msgid "sl_layout_dummy-dummy-flowplayer"
+msgstr "Layout ändern: Film"
+
 msgid "action_sl-toogle"
 msgstr "Bedienung aus-/einblenden"

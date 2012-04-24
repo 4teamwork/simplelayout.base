@@ -44,5 +44,11 @@ msgstr "Change layout: right middle"
 msgid "sl_layout_small-right"
 msgstr "Change layout: right small"
 
+msgid "sl_layout_dummy-dummy-dummy"
+msgstr " "
+
+msgid "sl_layout_dummy-dummy-flowplayer"
+msgstr "Change layout: movie"
+
 msgid "action_sl-toogle"
 msgstr "Toggle actions"
