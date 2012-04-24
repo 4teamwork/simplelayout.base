@@ -5,6 +5,9 @@ Changelog
 3.0b5 (unreleased)
 ------------------
 
+- Added tooltips to simplelayout actions.
+  [Julian Infanger]
+
 - Fixed CSS problem with floated image and list in block.
   [Julian Infanger]
 

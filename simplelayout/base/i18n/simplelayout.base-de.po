@@ -144,3 +144,33 @@ msgstr "Bildgrösse \"Mittel\" für 2-Spalten Anordnung"
 
 msgid "Full/big size two column"
 msgstr "Bildgrösse \"Gross\" für 2-Spalten Anordnung"
+
+msgid "action_sl-drag"
+msgstr "Block verschieben"
+
+msgid "action_sl-edit"
+msgstr "Block bearbeiten"
+
+msgid "action_sl-delete"
+msgstr "Block löschen"
+
+msgid "sl_layout_small"
+msgstr "Bild-Layout ändern: links klein"
+
+msgid "sl_layout_middle"
+msgstr "Bild-Layout ändern: links mittel"
+
+msgid "sl_layout_full"
+msgstr "Bild-Layout ändern: volle Breite"
+
+msgid "sl_layout_no-image"
+msgstr "Bild-Layout ändern: kein Bild"
+
+msgid "sl_layout_middle-right"
+msgstr "Bild-Layout ändern: rechts mittel"
+
+msgid "sl_layout_small-right"
+msgstr "Bild-Layout ändern: rechts klein"
+
+msgid "action_sl-toogle"
+msgstr "Bedienung aus-/einblenden"
