@@ -102,7 +102,6 @@ class BlockControl(BrowserView):
     def __call__(self):
         parent = aq_inner(self.context).aq_parent
         response = self.request.response
-
         if 'action' in self.request:
             name = 'action'
         if 'layout' in self.request:
@@ -114,7 +113,6 @@ class BlockControl(BrowserView):
                                        name=utilname)
             except ComponentLookupError:
                 return response.redirect(parent.absolute_url())
-
             converter.update(parent, self.context, self.request)
         return response.redirect(parent.absolute_url())
 

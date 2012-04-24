@@ -20,6 +20,9 @@
     margin-bottom:1em;
 }
 
+.sl-text-wrapper {
+    overflow: auto;
+}
 
 /* We dont need this generally */
 /*.sl-img-wrapper,
