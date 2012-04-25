@@ -20,8 +20,10 @@
     margin-bottom:1em;
 }
 
-.sl-text-wrapper {
+.sl-text-wrapper ul,
+.sl-text-wrapper ol {
     overflow: auto;
+    padding-left: 20px;
 }
 
 /* We dont need this generally */
