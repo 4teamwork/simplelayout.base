@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-3.0b5 (unreleased)
+3.0b5 (2012-04-25)
 ------------------
 
 - Show design tab for roles, which can be specified in the simplelayout configlet.
