@@ -15,6 +15,13 @@ class ISimplelayoutConfiguration(Interface):
                                 description=_(u'If enabled it is possible to change between 2 or more designs, ex. a two column design'),
                                 default=True)
 
+    show_design_tab_roles = schema.Text(
+        title=_(u'Limit design for roles'),
+        description=_(u'Enter roles which can change the designs. Ignores if nothing is specified. One per line.'),
+        required=False,
+        default=u'',
+    )
+
 class ISimplelayoutConfigurationOneColumn(Interface):
     """This interface defines the one column conf."""
     small_size = schema.Int(title=_(u'Small size one column'),

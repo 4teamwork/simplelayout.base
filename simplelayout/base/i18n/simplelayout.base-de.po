@@ -180,3 +180,9 @@ msgstr "Layout ändern: Film"
 
 msgid "action_sl-toogle"
 msgstr "Bedienung aus-/einblenden"
+
+msgid "Limit design for roles"
+msgstr "Bedienung nur für bestimmte Rollen aktivieren"
+
+msgid "Enter roles which can change the designs. Ignores if nothing is specified. One per line."
+msgstr "Geben Sie an, welche Rollen die Darstellung ändern können. Wenn keine Rolle angegeben ist, dann wird das Feld ignoriert. Eine Rolle pro Zeile."

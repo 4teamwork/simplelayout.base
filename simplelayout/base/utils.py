@@ -1,3 +1,4 @@
+from Products.CMFCore.utils import getToolByName
 from zope.interface import Interface
 from zope.interface import implements
 from simplelayout.base.config import BLOCK_INTERFACES, \
@@ -33,6 +34,17 @@ class SlUtils(object):
     def isDesignTabEnabled(self):
         conf = getUtility(ISimplelayoutConfiguration, name='sl-config')
         return conf.show_design_tab
+
+    def canMemberChangeDesign(self, context):
+        conf = getUtility(ISimplelayoutConfiguration, name='sl-config')
+        allowed_roles = conf.show_design_tab_roles
+        if not allowed_roles:
+            return True
+        mt = getToolByName(context, 'portal_membership')
+        member = mt.getAuthenticatedMember()
+        #check if at least one list item is in the other list
+        return len(set(allowed_roles.split('\n')).intersection(
+                   set(member.getRolesInContext(context)))) > 0
 
 
 class IBlockControl(Interface):

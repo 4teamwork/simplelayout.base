@@ -5,6 +5,9 @@ Changelog
 3.0b5 (unreleased)
 ------------------
 
+- Show design tab for roles, which can be specified in the simplelayout configlet.
+  [Julian Infanger]
+
 - Added tooltips to simplelayout actions.
   [Julian Infanger]
 

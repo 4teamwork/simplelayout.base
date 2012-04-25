@@ -58,7 +58,10 @@ class BlockDesignSubMenu(BrowserSubMenuItem):
        
         context_state = getMultiAdapter((self.context, self.request),name=u'plone_context_state')
         sl_design_actions = context_state.actions().get('object_simplelayout_designs', [])
-        return len(sl_design_actions) > 0 and conf.isDesignTabEnabled() and ISimpleLayoutCapable.providedBy(self.context)
+        return len(sl_design_actions) > 0 and \
+               conf.isDesignTabEnabled() and \
+               ISimpleLayoutCapable.providedBy(self.context) and \
+               conf.canMemberChangeDesign(self.context)
 
     def selected(self):
         return False

@@ -81,6 +81,7 @@ class SimpleLayoutConfiguration(Persistent):
 
     same_workflow = FieldProperty(ISimplelayoutConfiguration['same_workflow'])
     show_design_tab = FieldProperty(ISimplelayoutConfiguration['show_design_tab'])
+    show_design_tab_roles = FieldProperty(ISimplelayoutConfiguration['show_design_tab_roles'])
 
     small_size = FieldProperty(ISimplelayoutConfigurationOneColumn['small_size'])
     middle_size = FieldProperty(ISimplelayoutConfigurationOneColumn['middle_size'])
