@@ -1,7 +1,8 @@
-<tal:if condition="view/isTwoColumnLayout">
+<div class="slAlignBlocks"
+     tal:condition="view/isTwoColumnLayout">
     Simplelayout:
     <a href="#"
        id="alignallblocks">
            <span tal:replace="structure string:${view/text}">text</span>
     </a>
-</tal:if>
+</div>
