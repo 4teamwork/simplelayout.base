@@ -5,7 +5,8 @@ Changelog
 3.0b6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fixed CSS problem with floated image and list in block.
+  [Julian Infanger]
 
 
 3.0b5 (2012-04-25)

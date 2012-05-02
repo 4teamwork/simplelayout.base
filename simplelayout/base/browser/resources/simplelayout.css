@@ -22,8 +22,7 @@
 
 .sl-text-wrapper ul,
 .sl-text-wrapper ol {
-    overflow: auto;
-    padding-left: 20px;
+    list-style-position: inside;
 }
 
 /* We dont need this generally */
