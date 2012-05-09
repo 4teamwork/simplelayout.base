@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-3.0b6 (unreleased)
+3.0b6 (2012-05-09)
 ------------------
 
 - Fixed CSS problem with floated image and list in block.
