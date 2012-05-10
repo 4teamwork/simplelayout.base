@@ -13,6 +13,40 @@
 
     <include package=".configlet" />
 
+    <adapter factory=".indexer.SearchableText" name="SearchableText" />
+
+    <!-- events for reindexing -->
+    <subscriber
+        for="simplelayout.base.interfaces.ISimpleLayoutBlock
+             zope.app.container.interfaces.IObjectRemovedEvent"
+        handler=".events.reindexContainer"
+        />
+
+    <subscriber
+        for="simplelayout.base.interfaces.ISimpleLayoutBlock
+             Products.Archetypes.interfaces.IObjectInitializedEvent"
+        handler=".events.reindexContainer"
+        />
+
+    <subscriber
+        for="simplelayout.base.interfaces.ISimpleLayoutBlock
+             Products.Archetypes.interfaces.IObjectEditedEvent"
+        handler=".events.reindexContainer"
+        />
+
+    <subscriber
+        for="simplelayout.base.interfaces.ISimpleLayoutBlock
+             zope.app.container.interfaces.IObjectAddedEvent"
+        handler=".events.reindexContainer"
+        />
+
+    <subscriber
+        for="simplelayout.base.interfaces.ISimpleLayoutBlock
+             zope.app.container.interfaces.IObjectMovedEvent"
+        handler=".events.blockMoved"
+        />
+
+
     <!-- Register the installation GenericSetup extension profile -->
     <genericsetup:registerProfile
       name="default"

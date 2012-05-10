@@ -5,7 +5,10 @@ Changelog
 3.0b7 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Created indexer which adds the block SearchableText to the pages
+  SearchableText. Also added eventhandlers to make sure the index is
+  up-to-date.
+  [Julian Infanger]
 
 
 3.0b6 (2012-05-09)

@@ -3,6 +3,11 @@ import os
 
 version = open('simplelayout/base/version.txt').read().strip()
 
+tests_require = [
+    'plone.app.testing',
+    'plone.mocktestcase',
+]
+
 setup(name='simplelayout.base',
       version=version,
       description="SimpleLayout is an easy to use plone package for creating content pages",
@@ -30,6 +35,8 @@ setup(name='simplelayout.base',
           'simplelayout.ui.base', 
           'simplelayout.ui.dragndrop'
       ],
+      tests_require=tests_require,
+      extras_require=dict(tests=tests_require),
       entry_points="""
       # -*- Entry points: -*-
       """,

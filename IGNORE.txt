@@ -3,3 +3,9 @@
 simplelayout.base.egg-info
 build
 dist
+bin
+parts
+src
+develop-eggs
+buildout.cfg
+.installed.cfg
