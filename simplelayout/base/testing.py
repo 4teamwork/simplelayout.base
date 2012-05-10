@@ -28,6 +28,6 @@ class SimplelayoutBaseLayer(PloneSandboxLayer):
 
 SL_BASE_FIXTURE = SimplelayoutBaseLayer()
 SL_BASE_INTEGRATION_TESTING = IntegrationTesting(
-    bases=(SL_BASE_FIXTURE, ), name="ftw.file:Integration")
+    bases=(SL_BASE_FIXTURE, ), name="simplelayout.bases:Integration")
 SL_BASE_FUNCTIONAL_TESTING = FunctionalTesting(
-    bases=(SL_BASE_FIXTURE, ), name="ftw.file:Functional")
+    bases=(SL_BASE_FIXTURE, ), name="simplelayout.bases:Functional")
