@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-3.0b7 (unreleased)
+3.0b7 (2012-06-08)
 ------------------
 
 - Created indexer which adds the block SearchableText to the pages
