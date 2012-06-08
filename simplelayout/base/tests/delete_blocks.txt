@@ -1,0 +1,59 @@
+Set manager role for test user
+
+    >>> from plone.app.testing import TEST_USER_ID, TEST_USER_PASSWORD
+    >>> from plone.app.testing import TEST_USER_NAME
+    >>> from plone.app.testing import setRoles
+    >>> from plone.testing.z2 import Browser
+    >>> import transaction
+
+    >>> portal = layer['portal']
+    >>> portal_url = portal.absolute_url()
+    >>> setRoles(portal, TEST_USER_ID, ['Manager',])
+    >>> transaction.commit()
+
+Make sure that the blocks dont have their own workflow
+     >>> from zope.component import getUtility
+     >>> from simplelayout.base.interfaces import ISlUtils
+     >>> conf = getUtility(ISlUtils, name='simplelayout.utils')
+     >>> setattr(conf, 'isBlockWorkflowEnabled', lambda:False)
+     >>> transaction.commit()
+
+Create some content
+    >>> portal.invokeFactory('Page', 'p1')
+    'p1'
+    >>> transaction.commit()
+
+Define browser client
+    >>> browser = Browser(layer['app'])
+
+Login
+    >>> browser.open(portal_url + '/login_form')
+    >>> browser.getControl(name='__ac_name').value = TEST_USER_NAME
+    >>> browser.getControl(name='__ac_password').value = TEST_USER_PASSWORD
+    >>> browser.getControl(name='submit').click()
+
+Create a new block and search for the page
+    >>> browser.open(portal.p1.absolute_url() + '/createObject?type_name=Paragraph')
+    >>> browser.getControl(name='title').value = 'block1'
+    >>> browser.getControl(name='text').value = 'loremipsum'
+    >>> browser.getControl(name='form.button.save').click()
+
+    >>> len(portal.portal_catalog(SearchableText='loremipsum', portal_type='Page'))
+    1
+
+There should be 2 items in the catalog
+    >>> len(portal.portal_catalog())
+    2
+
+Delete block1
+    >>> block = portal.p1.objectValues()[0]
+    >>> browser.open(block.absolute_url() + '/delete_confirmation')
+    >>> browser.getControl('Delete').click()
+
+Search for block1 (do NOT find any object)
+    >>> len(portal.portal_catalog(SearchableText='loremipsum'))
+    0
+
+There should be only one item in catalog
+    >>> len(portal.portal_catalog())
+    1
