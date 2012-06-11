@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-3.0b8 (unreleased)
+3.0b8 (2012-06-11)
 ------------------
 
 - Added upgradestep: Don't show Paragraph in search.
