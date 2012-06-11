@@ -5,8 +5,8 @@ Changelog
 3.0b8 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Fixed indexer and eventhandlers: have to work for ISimpleLayoutCapable.
+  [Julian Infanger]
 
 3.0b7 (2012-06-08)
 ------------------

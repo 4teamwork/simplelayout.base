@@ -5,7 +5,6 @@ from simplelayout.base.config import INIT_INTERFACES_MAP,VIEW_INTERFACES_MAP
 from simplelayout.base.interfaces import IBlockConfig, ISlUtils
 from simplelayout.base.interfaces import ISimplelayoutView, ISimpleLayoutCapable
 from simplelayout.base.utils import IBlockControl
-from simplelayout.types.common.interfaces import IPage
 from zope.component import getUtility
 from zope.component.interfaces import ComponentLookupError
 from zope.interface import alsoProvides
@@ -125,7 +124,7 @@ def reindexContainer(obj, event, parent=None):
     if not isWorkflowEnabled():
         if not parent:
             parent = aq_parent(aq_inner(obj))
-        if IPage.providedBy(parent):
+        if ISimpleLayoutCapable.providedBy(parent):
             parent.reindexObject()
 
 

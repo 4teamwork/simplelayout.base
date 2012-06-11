@@ -2,10 +2,10 @@ from simplelayout.base.config import BLOCK_INTERFACES
 from zope.component import getUtility
 from simplelayout.base.interfaces import ISlUtils
 from plone.indexer import indexer
-from simplelayout.types.common.interfaces import IPage
+from simplelayout.base.interfaces import ISimpleLayoutCapable
 
 
-@indexer(IPage)
+@indexer(ISimpleLayoutCapable)
 def SearchableText(obj):
     searchable_text = obj.SearchableText()
     # only index sub-blocks if blockworkflow is not enabled
