@@ -136,3 +136,7 @@ def create_initial_paragraph_versions(portal_setup):
         if repository.isVersionable(obj) and \
                 len(repository.getHistory(obj, countPurged=False)) == 0:
             repository.save(obj=obj, comment='Initial version.')
+
+
+def exclude_block_form_search(portal_setup):
+    pass

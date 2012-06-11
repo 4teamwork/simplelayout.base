@@ -5,6 +5,9 @@ Changelog
 3.0b8 (unreleased)
 ------------------
 
+- Added upgradestep: Don't show Paragraph in search.
+  [Julian Infanger]
+
 - Fixed indexer and eventhandlers: have to work for ISimpleLayoutCapable.
   [Julian Infanger]
 

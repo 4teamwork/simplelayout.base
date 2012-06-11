@@ -1,0 +1,20 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="simplelayout.base">
+
+
+    <!-- 2.1 to 3.0b2 -->
+    <genericsetup:upgradeSteps
+        source="3.0b2"
+        destination="3.0b8"
+        profile="simplelayout.base:default">
+
+
+        <genericsetup:upgradeStep
+            title="Do not show object type Paragraph in search."
+            handler="simplelayout.base.upgrade.v30b8.upgrades.hide_paragraph_from_search"
+            />
+    </genericsetup:upgradeSteps>
+
+</configure>

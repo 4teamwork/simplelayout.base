@@ -4,5 +4,6 @@
     i18n_domain="simplelayout.base">
 
     <include package=".v30b2" />
+    <include package=".v30b8" />
 
 </configure>
