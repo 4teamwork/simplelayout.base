@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-3.0b9 (unreleased)
+3.0b9 (2012-06-18)
 ------------------
 
 - Do not add SearchableText if content is a file.
