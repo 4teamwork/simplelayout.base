@@ -5,7 +5,8 @@ Changelog
 3.0b9 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Do not add SearchableText if content is a file.
+  [Julian Infanger]
 
 
 3.0b8 (2012-06-11)

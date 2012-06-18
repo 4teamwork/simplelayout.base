@@ -16,7 +16,9 @@ def SearchableText(obj):
              'sort_order':'getObjPositionInParent'},
             full_objects=True)
         for content in contents:
-            searchable_text += content.SearchableText()
+            # do not add SearchableText if content is a file
+            if content.portal_type != 'File':
+                searchable_text += content.SearchableText()
         if isinstance(searchable_text, unicode):
             searchable_text = searchable_text.encode('utf8')
     return searchable_text
