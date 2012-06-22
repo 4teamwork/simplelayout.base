@@ -20,11 +20,6 @@
     margin-bottom:1em;
 }
 
-.sl-text-wrapper ul,
-.sl-text-wrapper ol {
-    list-style-position: inside;
-}
-
 /* We dont need this generally */
 /*.sl-img-wrapper,
 .sl-text-wrapper {
