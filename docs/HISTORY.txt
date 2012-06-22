@@ -5,7 +5,11 @@ Changelog
 3.0b10 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Removed multiple used id in simplelayout actions viewlet.
+  [Julian Infanger]
+
+- Dont change list-style-position to inside. Causes problem with list styling.
+  [Julian Infanger]
 
 
 3.0b9 (2012-06-18)
