@@ -5,7 +5,8 @@ Changelog
 3.0b11 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Wrap div around below-content-body viewlets, like in Plone4 templates.
+  [Julian Infanger]
 
 
 3.0b10 (2012-06-28)
