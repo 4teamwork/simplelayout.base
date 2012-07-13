@@ -5,6 +5,9 @@ Changelog
 3.0b11 (unreleased)
 -------------------
 
+- Handle ComponentLookupError when plone site is deleted.
+  [jone]
+
 - Wrap div around below-content-body viewlets, like in Plone4 templates.
   [Julian Infanger]
 

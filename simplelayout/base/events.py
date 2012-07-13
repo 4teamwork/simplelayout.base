@@ -8,6 +8,10 @@ from simplelayout.base.utils import IBlockControl
 from zope.component import getUtility
 from zope.component.interfaces import ComponentLookupError
 from zope.interface import alsoProvides
+import logging
+
+
+LOG = logging.getLogger('simplelayout.base')
 
 
 def isWorkflowEnabled():
@@ -121,12 +125,21 @@ def setDefaultBlockInterfaces(obj,event):
 
 
 def reindexContainer(obj, event, parent=None):
-    if not isWorkflowEnabled():
+    try:
+        workflow_enabled = isWorkflowEnabled()
+    except ComponentLookupError:
+        # This happens when the plone site is removed.
+        # In this case persistent utilites are already gone.
+        # Reindexing is not necessary in this situation, since
+        # everything will be gone.
+        LOG.error('events.blockMoved() threw', exc_info=True)
+        return
+
+    if workflow_enabled:
         if not parent:
             parent = aq_parent(aq_inner(obj))
         if ISimpleLayoutCapable.providedBy(parent):
             parent.reindexObject()
-
 
 def blockMoved(obj, event):
     reindexContainer(obj, event, parent=event.oldParent)
