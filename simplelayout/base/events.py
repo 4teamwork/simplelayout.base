@@ -135,11 +135,20 @@ def reindexContainer(obj, event, parent=None):
         LOG.error('events.blockMoved() threw', exc_info=True)
         return
 
-    if workflow_enabled:
+    if not workflow_enabled:
         if not parent:
             parent = aq_parent(aq_inner(obj))
-        if ISimpleLayoutCapable.providedBy(parent):
+
+        if not ISimpleLayoutCapable.providedBy(parent):
+            return
+
+        catalog = getToolByName(obj, 'portal_catalog')
+        # Only reindex existing brains! The parent may be just
+        # deleted, we should not put it back in the catalog.
+        parent_path = '/'.join(parent.getPhysicalPath())
+        if catalog.getrid(parent_path) is not None:
             parent.reindexObject()
+
 
 def blockMoved(obj, event):
     reindexContainer(obj, event, parent=event.oldParent)

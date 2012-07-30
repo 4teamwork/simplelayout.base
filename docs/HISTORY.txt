@@ -5,6 +5,10 @@ Changelog
 3.0b11 (unreleased)
 -------------------
 
+- Fix indexing blocks in container, so that it does not
+  break the catalog when deleting recursively.
+  [jone]
+
 - Handle ComponentLookupError when plone site is deleted.
   [jone]
 
