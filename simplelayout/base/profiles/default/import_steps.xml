@@ -15,7 +15,6 @@
               version="20080811-01"
               handler="simplelayout.base.setuphandlers.reorderJS"
               title="Reorders simplelayout js">
-  <dependency step="metadata" />
   <dependency step="jsregistry" />
     Reorders JS
  </import-step>

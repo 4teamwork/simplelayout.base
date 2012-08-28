@@ -5,7 +5,8 @@ Changelog
 3.0c2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Remove bad import step dependency "metadata" (does not exist).
+  [jone]
 
 
 3.0c1 (2012-07-30)
