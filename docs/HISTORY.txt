@@ -5,6 +5,9 @@ Changelog
 3.0c2 (unreleased)
 ------------------
 
+- Fix wrong initial metadata according to latest upgrade.
+  [jone]
+
 - Remove bad import step dependency "metadata" (does not exist).
   [jone]
 
