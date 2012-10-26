@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = open('simplelayout/base/version.txt').read().strip()
+version = '3.0c2.dev0'
 
 tests_require = [
     'plone.app.testing',
