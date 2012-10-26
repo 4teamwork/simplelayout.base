@@ -12,7 +12,7 @@ setup(name='simplelayout.base',
       version=version,
       description="SimpleLayout is an easy to use plone package for "
       "creating content pages",
-      long_description=(open("README.txt").read() + "\n" +
+      long_description=(open("README.rst").read() + "\n" +
                         open(os.path.join("docs", "HISTORY.txt")).read()),
 
       # Get more strings from
