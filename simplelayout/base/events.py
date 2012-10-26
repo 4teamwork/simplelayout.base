@@ -21,7 +21,7 @@ def isWorkflowEnabled():
     return conf.isBlockWorkflowEnabled()
 
 
-def set_initial_layout(object, event):
+def set_initial_layout(obj, event):
     content = event.object
     parent = content.aq_parent
 
