@@ -1,22 +1,23 @@
-from StringIO import StringIO
-from zope.component import queryUtility, provideUtility
 from Products.CMFCore.utils import getToolByName
-from zope.component import getSiteManager
-
+from StringIO import StringIO
 from simplelayout.base.configlet.interfaces import ISimplelayoutConfiguration
 from simplelayout.base.configlet.view import SimpleLayoutConfiguration
+from zope.component import getSiteManager
+from zope.component import queryUtility, provideUtility
+
 
 # register local utility
 def registerLocalUtility(context):
     portal = context.getSite()
     sm = getSiteManager(portal)
-    
+
     ###use component registry
-    
+
     #if not sm.queryUtility(ISimplelayoutConfiguration, name='sl-config'):
     #     sm.registerUtility(SimpleLayoutConfiguration(),
     #                        ISimplelayoutConfiguration,
     #                        'sl-config')
+
 
 def reorderJS(context):
     """
@@ -24,7 +25,7 @@ def reorderJS(context):
     """
     portal = context.getSite()
     js_reg = portal.portal_javascripts
-    
+
     # we can do this now by GS
     """
     try:

@@ -1,9 +1,11 @@
 from Acquisition import aq_parent, aq_inner
 from DateTime import DateTime
 from Products.CMFCore.utils import getToolByName
-from simplelayout.base.config import INIT_INTERFACES_MAP,VIEW_INTERFACES_MAP
+from simplelayout.base.config import INIT_INTERFACES_MAP
+from simplelayout.base.config import VIEW_INTERFACES_MAP
 from simplelayout.base.interfaces import IBlockConfig, ISlUtils
-from simplelayout.base.interfaces import ISimplelayoutView, ISimpleLayoutCapable
+from simplelayout.base.interfaces import ISimpleLayoutCapable
+from simplelayout.base.interfaces import ISimplelayoutView
 from simplelayout.base.utils import IBlockControl
 from zope.component import getUtility
 from zope.component.interfaces import ComponentLookupError
@@ -30,7 +32,7 @@ def set_initial_layout(object, event):
 
     types_tool = getToolByName(content, 'portal_types')
     actions = types_tool.listActions(object=content)
-    category =  'sl-layouts'
+    category = 'sl-layouts'
     #we use the the first layout as default value
     layout = blockconf.image_layout
     viewname = blockconf.viewname
@@ -44,7 +46,9 @@ def set_initial_layout(object, event):
                 break
     if layout:
         converter = getUtility(IBlockControl, name='block-layout')
-        converter.update(content, content, content.REQUEST, layout=layout, viewname=viewname)
+        converter.update(content, content, content.REQUEST, layout=layout,
+                         viewname=viewname)
+
 
 def changeBlockStates(obj, event):
     """
@@ -58,20 +62,22 @@ def changeBlockStates(obj, event):
         wt = getToolByName(obj, 'portal_workflow')
         wf_id = wt.getChainFor(obj)[0]
         container_status = wt.getInfoFor(obj, 'review_state')
-        cf = {'object_provides': 'simplelayout.base.interfaces.ISimpleLayoutBlock'}
+        cf = {'object_provides':
+                  'simplelayout.base.interfaces.ISimpleLayoutBlock'}
         comment = 'state set to: %s' % container_status
         for item in obj.getFolderContents(cf, full_objects=True):
             wt.setStatusOf(wf_id, item, {'review_state': container_status,
-                                         'action' : container_status,
+                                         'action': container_status,
                                          'actor': current_user,
                                          'time': DateTime(),
-                                         'comments': comment,})
+                                         'comments': comment,
+                                         })
             wf = wt.getWorkflowById(wf_id)
             wf.updateRoleMappingsFor(item)
             item.reindexObject(idxs=['allowRolesAndUsers', 'review_state'])
 
 
-def changeBlockStateToSameAsParent(obj,event):
+def changeBlockStateToSameAsParent(obj, event):
     """
     """
     parent = obj.aq_parent
@@ -83,23 +89,26 @@ def changeBlockStateToSameAsParent(obj,event):
         current_user = pm.getAuthenticatedMember().getId()
         wt = getToolByName(obj, 'portal_workflow')
         wf_id = wt.getChainFor(obj)[0]
-        container_status = wt.getInfoFor(obj.aq_inner.aq_parent, 'review_state')
+        container_status = wt.getInfoFor(obj.aq_inner.aq_parent,
+                                         'review_state')
         comment = 'state set to: %s' % container_status
         wt.setStatusOf(wf_id, obj, {'review_state': container_status,
-                                         'action' : container_status,
+                                         'action': container_status,
                                          'actor': current_user,
                                          'time': DateTime(),
-                                         'comments': comment,})
+                                         'comments': comment,
+                                    })
         wf = wt.getWorkflowById(wf_id)
         wf.updateRoleMappingsFor(obj)
         obj.reindexObject(idxs=['allowRolesAndUsers', 'review_state'])
 
 
-def setDefaultDesignInterface(obj,event):
+def setDefaultDesignInterface(obj, event):
     if not ISimplelayoutView.providedBy(obj):
         alsoProvides(obj, ISimplelayoutView)
 
-def setDefaultBlockInterfaces(obj,event):
+
+def setDefaultBlockInterfaces(obj, event):
     parent = obj.aq_parent
     parent_iface = None
     for i in VIEW_INTERFACES_MAP.values():
@@ -110,9 +119,10 @@ def setDefaultBlockInterfaces(obj,event):
         return
     name = parent_iface['name'].__name__
     ifaces = []
-    if INIT_INTERFACES_MAP.has_key(name):
+    if name in INIT_INTERFACES_MAP:
         ifaces = INIT_INTERFACES_MAP[name]
-    for iface in ifaces: alsoProvides(obj, iface)
+    for iface in ifaces:
+        alsoProvides(obj, iface)
     obj.reindexObject(idxs=['object_provides'])
 
     #XXX this should be done earlier, we do now twice... once is enought
