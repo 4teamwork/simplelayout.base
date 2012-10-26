@@ -6,7 +6,7 @@ version = '3.0c2.dev0'
 tests_require = [
     'plone.app.testing',
     'plone.mocktestcase',
-]
+    ]
 
 setup(name='simplelayout.base',
       version=version,
@@ -25,14 +25,16 @@ setup(name='simplelayout.base',
         ],
 
       keywords='',
-      author='Mathias LEIMGRUBER (4teamwork)',
-      author_email='m.leimgruber@4teamwork.ch',
-      url='http://plone.org/products/simplelayout.base/',
-      license='GPL',
+      author='4teamwork GmbH',
+      author_email='mailto:info@4teamwork.ch',
+      url='https://github.com/4teamwork/simplelayout.base',
+      license='GPL2',
+
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['simplelayout'],
       include_package_data=True,
       zip_safe=False,
+
       install_requires=[
         'setuptools',
         'archetypes.schemaextender',
@@ -42,7 +44,10 @@ setup(name='simplelayout.base',
         ],
       tests_require=tests_require,
       extras_require=dict(tests=tests_require),
+
       entry_points="""
       # -*- Entry points: -*-
+      [z3c.autoinclude.plugin]
+      target = plone
       """,
       )
