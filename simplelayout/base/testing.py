@@ -19,12 +19,14 @@ class SimplelayoutBaseLayer(PloneSandboxLayer):
         installProduct(app, 'simplelayout.base')
         import simplelayout.types.common
         xmlconfig.file(
-            'configure.zcml', simplelayout.types.common, context=configurationContext)
+            'configure.zcml', simplelayout.types.common,
+            context=configurationContext)
         installProduct(app, 'simplelayout.types.common')
 
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup
         applyProfile(portal, 'simplelayout.base:default')
+
 
 SL_BASE_FIXTURE = SimplelayoutBaseLayer()
 SL_BASE_INTEGRATION_TESTING = IntegrationTesting(

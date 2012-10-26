@@ -5,7 +5,8 @@ from simplelayout.base.testing import SL_BASE_INTEGRATION_TESTING
 
 
 DOCTEST_FILES = [
-    'delete_blocks.txt', 
+    'delete_blocks.txt',
+    '../browser.txt',
     ]
 
 

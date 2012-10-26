@@ -8,22 +8,24 @@ inspect and modify the internal state of the ZODB, but it is a useful way of
 making sure we test the full end-to-end process of creating and modifying
 content.
 
-    >>> from Products.Five.testbrowser import Browser
-    >>> from Products.PloneTestCase.setup import portal_owner, default_user, default_password
-    >>> browser = Browser()
-    >>> portal_url = self.portal.absolute_url()
+    >>> from plone.testing.z2 import Browser
+    >>> from plone.app.testing import SITE_OWNER_NAME, SITE_OWNER_PASSWORD
+
+    >>> browser = Browser(layer['app'])
+    >>> portal = layer['portal']
+    >>> portal_url = portal.absolute_url()
     >>> portal_url
-        'http://nohost/plone' 
+    'http://nohost/plone'
 
 
 The following is useful when writing and debugging testbrowser tests. It lets
 us see error messages properly.
 
     >>> browser.handleErrors = False
-    >>> self.portal.error_log._ignored_exceptions = ()
+    >>> portal.error_log._ignored_exceptions = ()
 
 
-Firs we create the demo structure to test if all content types work as exspected. 
+Firs we create the demo structure to test if all content types work as exspected.
 We have to login as portal owner
 
     >>> login_url = portal_url + '/login_form'
@@ -31,17 +33,15 @@ We have to login as portal owner
 
 We have the login portlet, so let's use that.
 
-    >>> browser.getControl(name='__ac_name').value = portal_owner
-    >>> browser.getControl(name='__ac_password').value = default_password
+    >>> browser.getControl(name='__ac_name').value = SITE_OWNER_NAME
+    >>> browser.getControl(name='__ac_password').value = SITE_OWNER_PASSWORD
     >>> browser.getControl(name='submit').click()
-    >>> self.setRoles(['Manager'])
 
 
 Create some simplelayout contents
 
-    >>> browser.open(portal_url/createObject?type_name=Page)
+    >>> browser.open(portal_url + '/createObject?type_name=Page')
     >>> browser.getControl('Title',index=0).value="a sl page"
     >>> browser.getControl('Save').click()
     >>> 'a sl page' in browser.contents
     True
-
