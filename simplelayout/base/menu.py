@@ -1,7 +1,6 @@
-from Acquisition import aq_inner, aq_base
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone import PloneMessageFactory as _
 from Products.CMFPlone import utils
-from plone.app.contentmenu import menu
 from plone.app.contentmenu.interfaces import IContentMenuView
 from plone.app.contentmenu.view import ContentMenuProvider
 from plone.memoize.instance import memoize
@@ -11,14 +10,9 @@ from zope.app.publisher.browser.menu import BrowserMenu
 from zope.app.publisher.browser.menu import BrowserSubMenuItem
 from zope.app.publisher.interfaces.browser import IBrowserMenu
 from zope.app.publisher.interfaces.browser import IBrowserSubMenuItem
-from zope.component import getAdapters
 from zope.component import getMultiAdapter
 from zope.component import getUtility
-from zope.component import queryMultiAdapter
-from zope.component import queryUtility
-from zope.interface import Interface
 from zope.interface import implements
-from Products.CMFPlone import PloneMessageFactory as _
 
 
 class IBlockDesignSubMenu(IBrowserSubMenuItem):
@@ -82,9 +76,6 @@ class BlockDesignMenu(BrowserMenu):
         """Return menu item entries in a TAL-friendly form."""
         results = []
 
-        portal_state = getMultiAdapter((context, request),
-                                       name='plone_portal_state')
-
         context_state = getMultiAdapter((context, request),
                                         name=u'plone_context_state')
         sl_design_actions = context_state.actions().get(
@@ -93,12 +84,7 @@ class BlockDesignMenu(BrowserMenu):
         if not sl_design_actions:
             return []
 
-        plone_utils = getToolByName(context, 'plone_utils')
-        portal_url = portal_state.portal_url()
-
         for action in sl_design_actions:
-            cssClass = 'actionicon-help-%s' % action['id']
-
             results.append({'title': action['title'],
                             'description': '',
                             'action': action['url'],
