@@ -5,6 +5,9 @@ Changelog
 3.0c2 (unreleased)
 ------------------
 
+- Updated default CSS for simplelayout actions.
+  [Julian Infanger]
+
 - Fix wrong initial metadata according to latest upgrade.
   [jone]
 
