@@ -1,7 +1,7 @@
 from simplelayout.base.interfaces import ISimplelayoutView, \
                                          ISimplelayoutTwoColumnView, \
                                          ISimplelayoutTwoColumnOneOnTopView, \
-                                         ISlotA, ISlotB, ISlotC, \
+                                         ISlotA, ISlotB, ISlotC, ISlotD, \
                                          IOneColumn,ITwoColumn,IThreeColumn
 
 from simplelayout.base.configlet.interfaces import ISimplelayoutConfiguration
@@ -19,7 +19,8 @@ VIEW_INTERFACES_MAP = {
 SLOT_INTERFACES_MAP = {
                        'slotA' : ISlotA, 
                        'slotB' : ISlotB,
-                       'slotC' : ISlotC
+                       'slotC' : ISlotC,
+                       'slotD' : ISlotD
                        }
 
 COLUMN_INTERFACES_MAP = {

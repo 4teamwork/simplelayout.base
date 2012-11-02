@@ -65,7 +65,10 @@ class ISlotB(Interface):
     """
     
 class ISlotC(Interface):
-    """ This marker Interface descripes the slot to fill - no in use"""
+    """ This marker Interface descripes the slot to fill"""
+
+class ISlotD(Interface):
+    """ This marker Interface descripes the slot to fill"""
 
 
 
