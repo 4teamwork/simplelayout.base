@@ -11,6 +11,9 @@ Changelog
 - Updated default CSS for simplelayout actions.
   [Julian Infanger]
 
+- Move package to github and clean it up.
+  [jone]
+
 - Fix wrong initial metadata according to latest upgrade.
   [jone]
 

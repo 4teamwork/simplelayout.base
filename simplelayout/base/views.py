@@ -23,6 +23,7 @@ from simplelayout.base.config import VIEW_INTERFACES_MAP, \
 
 from simplelayout.base.interfaces import IBlockConfig
 
+
 class SimpleLayoutView(BrowserView):
     implements(ISimplelayoutView)
 
@@ -107,7 +108,7 @@ class BlockControl(BrowserView):
         if 'layout' in self.request:
             name = 'layout'
         if name:
-            utilname = 'block-'+name
+            utilname = 'block-' + name
             try:
                 converter = getUtility(IBlockControl,
                                        name=utilname)
@@ -161,7 +162,7 @@ class ChangeDesign(BrowserView):
             blockconf.block_height = None
 
             #remove all related Interfaces
-            for i in COLUMN_INTERFACES_MAP.values()+ \
+            for i in COLUMN_INTERFACES_MAP.values() + \
                 SLOT_INTERFACES_MAP.values():
 
                 if i.providedBy(obj):
@@ -188,7 +189,6 @@ class SimpleLayoutControlsView(BrowserView):
 
     def __call__(self):
         return self.template()
-
 
     def ToggleGridLayoutText(self):
         """

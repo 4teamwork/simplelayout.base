@@ -5,7 +5,7 @@ from simplelayout.base.config import BLOCK_INTERFACES, \
                                      COLUMN_INTERFACES_MAP, \
                                      IMAGE_SIZE_MAP_PER_INTERFACE, \
                                      CONFIGLET_INTERFACE_MAP
-from simplelayout.base.interfaces  import IBlockConfig, IScaleImage
+from simplelayout.base.interfaces import IBlockConfig, IScaleImage
 from simplelayout.base.configlet.interfaces import ISimplelayoutConfiguration
 from zope.component import getUtility, queryUtility
 
@@ -52,7 +52,8 @@ class IBlockControl(Interface):
     """
 
     def update(parent, block, request):
-        """"""
+        """
+        """
 
 
 class BaseBlockControl(object):
@@ -84,8 +85,8 @@ class BlockActions(BaseBlockControl):
             if action in 'moveup' and blockPosition != 0:
                 #XXX
                 try:
-                    upper = contents[blockPosition-1]
-                    upperPosition= parent.getObjectPosition(upper.id)
+                    upper = contents[blockPosition - 1]
+                    upperPosition = parent.getObjectPosition(upper.id)
                     parent.moveObjectToPosition(block.id, upperPosition)
                 except:
                     pass
@@ -93,8 +94,8 @@ class BlockActions(BaseBlockControl):
                 #XXX
                 try:
                     lower = contents[blockPosition]
-                    lowerPosition= parent.getObjectPosition(lower.id)
-                    parent.moveObjectToPosition(block.id, lowerPosition+1)
+                    lowerPosition = parent.getObjectPosition(lower.id)
+                    parent.moveObjectToPosition(block.id, lowerPosition + 1)
                 except:
                     pass
             parent.plone_utils.reindexOnReorder(parent)
@@ -178,7 +179,7 @@ class ImageScaler(object):
 
         #check for img_width
         if layout is None:
-            return dict(width = 0, height = 0)
+            return dict(width=0, height=0)
         img_width = self.scaleMapper(content, layout)
 
         # calc img height depending on our width
@@ -186,18 +187,15 @@ class ImageScaler(object):
         if field:
             img = field.getRaw(content)
         else:
-            return dict(width = 0, height = 0)
-            
+            return dict(width=0, height=0)
+
         # jump out if img is empty or there's a bitmap
         if img == '' or img is None or img.content_type == 'image/x-ms-bmp':
-            return dict(width = 0, height = 0)
+            return dict(width=0, height=0)
 
         orig_img_width = img.width
         orig_img_height = img.height
-        img_height = int(img_width*
-            (float(orig_img_height)/
-            float(orig_img_width)))
+        img_height = int(img_width *
+                         (float(orig_img_height) / float(orig_img_width)))
 
-        return dict(
-            width = img_width,
-            height = img_height)
+        return dict(width=img_width, height=img_height)

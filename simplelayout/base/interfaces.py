@@ -34,14 +34,14 @@ class ISimpleLayoutListingViewlet(Interface):
 
 
 class ISimpleLayoutListingTwoColumnsViewlet(Interface):
-    """Marker interface for the 2 columns Listing Viewlet -
-    it makes querying easier!
+    """Marker interface for the 2 columns Listing Viewlet - it
+    makes querying easier!
     """
 
 
 class ISimpleLayoutListingTwoColumnsOneOnTopViewlet(Interface):
-    """Marker interface for the 2 columns Listing Viewlet -
-    it makes querying easier!
+    """Marker interface for the 2 columns Listing Viewlet - it
+    makes querying easier!
     """
 
 

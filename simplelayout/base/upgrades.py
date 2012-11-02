@@ -4,7 +4,7 @@ from simplelayout.base.config import BLOCK_INTERFACES
 from simplelayout.base.config import COLUMN_INTERFACES_MAP
 from simplelayout.base.config import SLOT_INTERFACES_MAP
 from simplelayout.base.config import VIEW_INTERFACES_MAP
-from simplelayout.base.interfaces  import IBlockConfig
+from simplelayout.base.interfaces import IBlockConfig
 from zope.interface import alsoProvides
 
 

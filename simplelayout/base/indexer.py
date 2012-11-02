@@ -12,8 +12,8 @@ def SearchableText(obj):
     conf = getUtility(ISlUtils, name='simplelayout.utils')
     if not conf.isBlockWorkflowEnabled():
         contents = obj.getFolderContents(
-            {'object_provides':BLOCK_INTERFACES,
-             'sort_order':'getObjPositionInParent'},
+            {'object_provides': BLOCK_INTERFACES,
+             'sort_order': 'getObjPositionInParent'},
             full_objects=True)
         for content in contents:
             # do not add SearchableText if content is a file

@@ -44,7 +44,6 @@ class SimpleLayoutConfigurationForm(ControlPanelForm):
     form_name = _(u'Simplelayout configuration form')
     description = _(u'This form is used to configure the simplelayout')
 
-
     form_fields = FormFieldsets(baseSets, OneColumnSets, TwoColumnsSets)
 
     @form.action(_(u'label_save'), name=u'save')
@@ -80,13 +79,21 @@ class SimpleLayoutConfiguration(Persistent):
         ISimplelayoutConfigurationTwoColumn)
 
     same_workflow = FieldProperty(ISimplelayoutConfiguration['same_workflow'])
-    show_design_tab = FieldProperty(ISimplelayoutConfiguration['show_design_tab'])
-    show_design_tab_roles = FieldProperty(ISimplelayoutConfiguration['show_design_tab_roles'])
+    show_design_tab = FieldProperty(
+        ISimplelayoutConfiguration['show_design_tab'])
+    show_design_tab_roles = FieldProperty(
+        ISimplelayoutConfiguration['show_design_tab_roles'])
 
-    small_size = FieldProperty(ISimplelayoutConfigurationOneColumn['small_size'])
-    middle_size = FieldProperty(ISimplelayoutConfigurationOneColumn['middle_size'])
-    full_size = FieldProperty(ISimplelayoutConfigurationOneColumn['full_size'])
+    small_size = FieldProperty(
+        ISimplelayoutConfigurationOneColumn['small_size'])
+    middle_size = FieldProperty(
+        ISimplelayoutConfigurationOneColumn['middle_size'])
+    full_size = FieldProperty(
+        ISimplelayoutConfigurationOneColumn['full_size'])
 
-    small_size_two = FieldProperty(ISimplelayoutConfigurationTwoColumn['small_size_two'])
-    middle_size_two = FieldProperty(ISimplelayoutConfigurationTwoColumn['middle_size_two'])
-    full_size_two = FieldProperty(ISimplelayoutConfigurationTwoColumn['full_size_two'])
+    small_size_two = FieldProperty(
+        ISimplelayoutConfigurationTwoColumn['small_size_two'])
+    middle_size_two = FieldProperty(
+        ISimplelayoutConfigurationTwoColumn['middle_size_two'])
+    full_size_two = FieldProperty(
+        ISimplelayoutConfigurationTwoColumn['full_size_two'])
