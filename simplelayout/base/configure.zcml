@@ -179,6 +179,15 @@
             class=".viewlets.SimpleLayoutListingTwoColumnsOneOnTopViewlet"
             permission="zope2.View"
             />
+        <!-- Additional listing registered for special usecases-->
+        <browser:viewlet
+            for="simplelayout.base.interfaces.IAdditionalListingEnabled"
+            name="simplelayout.base.additional.body"
+            manager=".interfaces.ISimpleViewletListingProvider"
+            class=".viewlets.AdditionalListingEnabledViewlet"
+            permission="zope2.View"
+            />
+
 
     <!-- ************************************************************ -->
 

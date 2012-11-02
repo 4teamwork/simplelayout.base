@@ -45,6 +45,11 @@ class ISimpleLayoutListingTwoColumnsOneOnTopViewlet(Interface):
     """
 
 
+class IAdditionalListingEnabledViewlet(Interface):
+    """Marker interface for the Listing Viewlet - it makes querying easier!
+    """
+
+
 class ISimplelayoutView(Interface):
     """base marker interface for simplelayout view
     """
@@ -61,6 +66,12 @@ class ISimplelayoutTwoColumnOneOnTopView(Interface):
     """base marker interface for simplelayout view
     """
     name = Attribute("""two-columns-one-on-top""")
+
+
+class IAdditionalListingEnabled(Interface):
+    """base marker interface for simplelayout view
+    """
+    name = Attribute("""normal""")
 
 
 class IScaleImage(Interface):

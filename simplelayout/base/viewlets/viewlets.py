@@ -10,6 +10,7 @@ from simplelayout.base.interfaces import ISimpleLayoutBlock
 from simplelayout.base.interfaces import ISimpleLayoutListingTwoColumnsOneOnTopViewlet
 from simplelayout.base.interfaces import ISimpleLayoutListingTwoColumnsViewlet
 from simplelayout.base.interfaces import ISimpleLayoutListingViewlet
+from simplelayout.base.interfaces import IAdditionalListingEnabledViewlet
 from simplelayout.base.interfaces import ISimplelayoutTwoColumnOneOnTopView
 from simplelayout.base.interfaces import ISimplelayoutTwoColumnView
 from simplelayout.base.interfaces import ISlUtils
@@ -126,6 +127,11 @@ class SimpleLayoutListingTwoColumnsViewlet(SimpleLayoutListingViewlet):
 class SimpleLayoutListingTwoColumnsOneOnTopViewlet(SimpleLayoutListingViewlet):
     render = ViewPageTemplateFile('listing_two_columns_one_on_top.pt')
     implements(ISimpleLayoutListingTwoColumnsOneOnTopViewlet)
+
+
+class AdditionalListingEnabledViewlet(SimpleLayoutListingViewlet):
+    render = ViewPageTemplateFile('listing_additional.pt')
+    implements(IAdditionalListingEnabledViewlet)
 
 
 class SimpleLayoutControlsViewlet(ViewletBase):
