@@ -5,7 +5,10 @@ Changelog
 3.0c2 (unreleased)
 ------------------
 
-- Added new slot (slotD) Interface.
+- Add tests for page and paragraph creation.
+  [mathias.leimgruber]
+
+- Add new slot (slotD) Interface.
   [mathias.leimgruber]
 
 - Updated default CSS for simplelayout actions.
