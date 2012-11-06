@@ -1,4 +1,3 @@
-BLUBB
 <div tal:define="results python:view.getSimpleLayoutContents(slotInterface='slotD')" class="simplelayout-content">
     <div id="slotD" class="onecolumn">
 		<tal:repeat repeat="result results">
