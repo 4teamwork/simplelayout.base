@@ -98,8 +98,8 @@
 }
 
 
-#content .sl-controls .sl-obj-actions li,
-#content .sl-controls .sl-obj-layouts li{
+.sl-controls .sl-obj-actions li,
+.sl-controls .sl-obj-layouts li{
     display:block;
 	border: 1px solid #d3d3d3;
     background: #ededed; /*fallback for non-CSS3 browsers*/
@@ -113,12 +113,12 @@
     padding:0.5em;
 }
 
-#content .sl-controls .sl-actions-wrapper ul {
-    margin-top:0em;
+.sl-controls .sl-actions-wrapper ul {
+    margin-top:0;
 }
 
-#content .sl-controls .sl-obj-actions li:hover,
-#content .sl-controls .sl-obj-layouts li:hover{
+.sl-controls .sl-obj-actions li:hover,
+.sl-controls .sl-obj-layouts li:hover{
     background: #ededed; /*fallback for non-CSS3 browsers*/
     background: -webkit-gradient(linear, 0 0, 0 100%, from(#ededed) to(#f9f9f9)); /*old webkit*/
     background: -webkit-linear-gradient(#ededed, #f9f9f9); /*new webkit*/
@@ -133,7 +133,7 @@
     border:none;
 }
 
-#content .sl-controls .sl-obj-layouts{
+.sl-controls .sl-obj-layouts{
     float:left;
 	display:inline;
 	list-style-type:none;
