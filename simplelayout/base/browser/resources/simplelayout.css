@@ -138,6 +138,14 @@
 	list-style-image: none;
 }
 
+.simplelayout-content .sl-controls .document-action-foldercontents a {
+  display: block;
+  background-image: url(++resource++sl/icons/folder_icon.gif);
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+}
+
 .simplelayout-content .sl-controls .document-action-dragme a {
   display: block;
   background-image: url(++resource++sl/icons/icon_move.png);
@@ -145,6 +153,7 @@
   width: 16px;
   height: 16px;
 }
+
 
 .simplelayout-content .sl-controls .document-action-factory dt a {
     display: block;

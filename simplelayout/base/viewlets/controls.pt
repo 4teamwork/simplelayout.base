@@ -86,6 +86,13 @@
               </dl>
             </li>
 
+            <li tal:condition="python: getattr(context, 'isPrincipiaFolderish', False)" class="document-action-foldercontents">
+                <a href="#" tal:attributes="href string:${context/absolute_url}/folder_contents" title="Folder contents" i18n:attributes="title action_sl-folder_contents">
+                    <!-- iefix -->
+                </a>
+            </li>
+
+
 
             <li tal:repeat="action view/getActions">
               <a href="" i18n:attributes="title"
