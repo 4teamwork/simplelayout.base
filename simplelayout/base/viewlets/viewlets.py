@@ -21,6 +21,7 @@ from zope.contentprovider.tales import addTALNamespaceData
 from zope.interface import implements
 import logging
 import zope.component
+from zope.app.publisher.interfaces.browser import IBrowserMenu
 
 
 logger = logging.getLogger(__name__)
@@ -190,6 +191,21 @@ class SimpleLayoutControlsViewlet(ViewletBase):
     def isWorkflowEnabled(self):
         conf = getUtility(ISlUtils, name='simplelayout.utils')
         return conf.isBlockWorkflowEnabled()
+
+    def _get_factory_menu(self):
+        # Copied from factory menu tests
+        if not getattr(self.context, 'isPrincipiaFolderish', False):
+            return False
+
+        menu = getUtility(
+            IBrowserMenu, name='plone_contentmenu',
+            context=self.context)
+        items = menu.getMenuItems(self.context, self.request)
+        factory_menu = [
+            i for i in items if
+            i['extra']['id'] == 'plone-contentmenu-factories'][0]
+        factory_menu['extra']['id'] = 'sl-plone-contentmenu-factories'
+        return factory_menu
 
 
 class SimpleLayoutContentViewlet(ViewletBase):

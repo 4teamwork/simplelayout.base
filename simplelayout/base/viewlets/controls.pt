@@ -22,6 +22,71 @@
                 </a>
             </li>
 
+            <!-- Add menu for folderish blocks -->
+            <li class="document-action-factory" tal:define="menu view/_get_factory_menu"
+                tal:condition="menu">
+              <dl class="actionMenu deactivated"
+                  tal:attributes="id menu/extra/id"
+                  tal:define="submenu menu/submenu">
+                  <dt class="actionMenuHeader">
+                    <a href="#"
+                      tal:omit-tag="not:menu/action"
+                      tal:attributes="href menu/action;
+                                      title menu/description"
+                      i18n:attributes="title;">
+                    </a>
+                  </dt>
+                  <dd class="actionMenuContent"
+                      tal:condition="not:menu/extra/hideChildren | not:submenu | nothing">
+                    <ul>
+                        <tal:block repeat="subMenuItem submenu">
+                          <li tal:attributes="class subMenuItem/extra/separator">
+                            <a href="#"
+                               tal:condition="subMenuItem/action"
+                               tal:attributes="href subMenuItem/action;
+                                               title subMenuItem/description;
+                                               id subMenuItem/extra/id | nothing;
+                                               class subMenuItem/extra/class | nothing"
+                               i18n:attributes="title">
+                                <img width="16"
+                                     height="16"
+                                     alt=""
+                                     tal:condition="subMenuItem/icon"
+                                     tal:attributes="src subMenuItem/icon;
+                                                     title subMenuItem/description;
+                                                     width subMenuItem/width|string:16;
+                                                     height subMenuItem/height|string:16;"
+                                     i18n:attributes="alt;"/>
+                                <span tal:content="structure subMenuItem/title"
+                                      i18n:translate=""
+                                      class="subMenuTitle">
+                                    Title
+                                </span>
+                            </a>
+                            <div tal:condition="not:subMenuItem/action"
+                                 tal:attributes="id subMenuItem/extra/id | nothing;
+                                                 class subMenuItem/extra/class | nothing">
+                                <img width="16"
+                                     height="16"
+                                     alt=""
+                                     tal:condition="subMenuItem/icon"
+                                     tal:attributes="src subMenuItem/icon;
+                                                     title subMenuItem/description"
+                                     i18n:attributes="alt;"/>
+                                <span tal:content="structure subMenuItem/title"
+                                      i18n:translate=""
+                                      class="subMenuTitle">
+                                    Title
+                                </span>
+                            </div>
+                          </li>
+                        </tal:block>
+                    </ul>
+                  </dd>
+              </dl>
+            </li>
+
+
             <li tal:repeat="action view/getActions">
               <a href="" i18n:attributes="title"
                          tal:attributes="href action/url;
