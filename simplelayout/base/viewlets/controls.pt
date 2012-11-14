@@ -2,7 +2,7 @@
         define="actions python:tuple(view.getActions());
                 layouts python:tuple(view.getLayouts())"
         i18n:domain="simplelayout">
-<div class="sl-controls" tal:condition="python:actions or layouts">
+<div class="sl-controls" style="width:600px" tal:condition="python:actions or layouts">
 
     <tal:b
        tal:define="current_layout python: view.getCurrentLayout(here);
@@ -12,7 +12,7 @@
            i18n:attributes="title action_sl-toogle">
           <div class="sl-toggle-edit-bar ui-icon ui-icon-triangle-1-e"></div>
       </div>
-      <div class="sl-actions-wrapper">
+      <div class="sl-actions-wrapper showSimplelayoutControls">
           <ul class="sl-obj-actions"
               tal:condition="actions">
 

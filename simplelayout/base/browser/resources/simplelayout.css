@@ -71,7 +71,7 @@
 	display:none;
 }
 
-.sl-controls{
+.simplelayout-content .sl-controls{
     padding:0;
     padding-top:0.5em;
     display:none;
@@ -80,17 +80,15 @@
     right: 0;
     margin-bottom: -4em;
     z-index: 2;
-    width: 400px;
     direction:ltr;
 }
 
-.sl-controls img{
+.simplelayout-content .sl-controls img{
     padding:0;
-    margin:0px;
     display:inline;
 }
 
-.sl-controls .sl-obj-actions{
+.simplelayout-content .sl-controls .sl-obj-actions{
     float:left;
 	font-weight:bold;
 	list-style-type:none;
@@ -98,8 +96,8 @@
 }
 
 
-.sl-controls .sl-obj-actions li,
-.sl-controls .sl-obj-layouts li{
+#portal-columns .simplelayout-content .sl-controls .sl-obj-actions li,
+#portal-columns .simplelayout-content .sl-controls .sl-obj-layouts li{
     display:block;
 	border: 1px solid #d3d3d3;
     background: #ededed; /*fallback for non-CSS3 browsers*/
@@ -113,12 +111,12 @@
     padding:0.5em;
 }
 
-.sl-controls .sl-actions-wrapper ul {
+.simplelayout-content .sl-controls .sl-actions-wrapper ul {
     margin-top:0;
 }
 
-.sl-controls .sl-obj-actions li:hover,
-.sl-controls .sl-obj-layouts li:hover{
+.simplelayout-content .sl-controls .sl-obj-actions li:hover,
+.simplelayout-content .sl-controls .sl-obj-layouts li:hover{
     background: #ededed; /*fallback for non-CSS3 browsers*/
     background: -webkit-gradient(linear, 0 0, 0 100%, from(#ededed) to(#f9f9f9)); /*old webkit*/
     background: -webkit-linear-gradient(#ededed, #f9f9f9); /*new webkit*/
@@ -129,18 +127,18 @@
     -pie-background: linear-gradient(#ededed, #f9f9f9); /*PIE*/
 }
 
-.sl-controls .sl-obj-actions li a{
+.simplelayout-content .sl-controls .sl-obj-actions li a{
     border:none;
 }
 
-.sl-controls .sl-obj-layouts{
+.simplelayout-content .sl-controls .sl-obj-layouts{
     float:left;
 	display:inline;
 	list-style-type:none;
 	list-style-image: none;
 }
 
-.sl-controls .document-action-dragme a {
+.simplelayout-content .sl-controls .document-action-dragme a {
   display: block;
   background-image: url(++resource++sl/icons/icon_move.png);
   background-repeat: no-repeat;
@@ -148,30 +146,30 @@
   height: 18px;
 }
 
-.sl-controls .sl-layout.active img{
+.simplelayout-content .sl-controls .sl-layout.active img{
 	background-color:orange;
 	border:1px solid orange;
 }
 
-.sl-controls .sl-layout a:hover img{
+.simplelayout-content .sl-controls .sl-layout a:hover img{
 	background-color:orange;
 	border:1px solid orange;
 }
-.sl-controls .sl-layout img{
+.simplelayout-content .sl-controls .sl-layout img{
     border:1px solid grey;
 	padding:0px;
 }
 
-#content .sl-controls .sl-workflowChanger dl{
+#content .simplelayout-content .sl-controls .sl-workflowChanger dl{
     margin:0;
     padding:0;
 }
 
-#content .sl-controls .sl-workflowChanger dt {
+#content .simplelayout-content .sl-controls .sl-workflowChanger dt {
     margin:0 0.25em;
 }
 
-#content .sl-controls .sl-workflowChanger li {
+#content .simplelayout-content .sl-controls .sl-workflowChanger li {
     display:inline;
 }
 
@@ -180,13 +178,13 @@
 }
 
 
-.sl-controls .actionMenu .actionMenuContent {
+.simplelayout-content .sl-controls .actionMenu .actionMenuContent {
     top:1.5em;
     background-color:#DEE7EC;
     float:left;
 }
 
-.sl-controls .actionMenu .actionMenuContent ul {
+.simplelayout-content .sl-controls .actionMenu .actionMenuContent ul {
     background-color:transparent;
     border-color:#8CACBB;
 }
@@ -268,7 +266,7 @@ clear:both;
 
 /* IE float fix*/
 *+html .simplelayout-content,
-*+html .sl-controls {
+*+html .simplelayout-content .sl-controls {
     height:0.1%;
 }
 
@@ -312,4 +310,11 @@ clear:both;
 
 .sl-actions-wrapper {
     float:right;
+    position: fixed;
+    left: -1000px;
+}
+
+.showSimplelayoutControls {
+    position: relative;
+    left:0;
 }

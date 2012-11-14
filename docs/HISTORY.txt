@@ -5,6 +5,9 @@ Changelog
 3.0c2 (unreleased)
 ------------------
 
+- Fix sl-control toggler css.
+  [mathias.leimgruber]
+
 - Add tests for page and paragraph creation.
   [mathias.leimgruber]
 
