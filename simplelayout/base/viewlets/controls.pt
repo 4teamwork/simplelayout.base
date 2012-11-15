@@ -23,7 +23,7 @@
             </li>
 
             <!-- Add menu for folderish blocks -->
-            <li class="document-action-factory" tal:define="menu view/_get_factory_menu"
+            <li i18n:domain="plone" class="document-action-factory" tal:define="menu view/_get_factory_menu"
                 tal:condition="menu">
               <dl class="actionMenu deactivated"
                   tal:attributes="id menu/extra/id"
