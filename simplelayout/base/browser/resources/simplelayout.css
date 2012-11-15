@@ -96,8 +96,8 @@
 }
 
 
-#portal-columns .simplelayout-content .sl-controls .sl-obj-actions li,
-#portal-columns .simplelayout-content .sl-controls .sl-obj-layouts li{
+#portal-columns .simplelayout-content .sl-controls .sl-obj-actions > li,
+#portal-columns .simplelayout-content .sl-controls .sl-obj-layouts > li{
     display:block;
 	border: 1px solid #d3d3d3;
     background: #ededed; /*fallback for non-CSS3 browsers*/
@@ -195,7 +195,10 @@
     margin:0;
     padding:0;
     overflow: visible;
-    width:600px;
+    right:0;
+    top:1.8em;
+    background: #ededed;
+    border: 1px solid #d3d3d3;
 }
 
 #portal-columns .simplelayout-content .sl-controls .actionMenu .actionMenuContent ul {
@@ -204,6 +207,8 @@
 
 #portal-columns .simplelayout-content .sl-controls .actionMenu .actionMenuContent li {
     margin-bottom:0;
+    padding:0.3em;
+    list-style: none;
 }
 
 .simplelayout-content .sl-controls .actionMenu .actionMenuContent ul {
