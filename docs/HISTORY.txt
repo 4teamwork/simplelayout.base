@@ -5,6 +5,9 @@ Changelog
 3.0c2 (unreleased)
 ------------------
 
+- Fix CSS for factory menu.
+  [mathias.leimgruber]
+
 - Fix sl-control toggler css.
   [mathias.leimgruber]
 
