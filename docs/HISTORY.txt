@@ -5,6 +5,10 @@ Changelog
 3.0c2 (unreleased)
 ------------------
 
+- No longer change writing direction in block wrapper as this causes problems
+  with IE7.
+  [buchi]
+
 - Fix CSS for factory menu.
   [mathias.leimgruber]
 
