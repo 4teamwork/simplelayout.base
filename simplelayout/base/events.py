@@ -2,12 +2,14 @@ from Acquisition import aq_parent, aq_inner
 from DateTime import DateTime
 from Products.CMFCore.utils import getToolByName
 from simplelayout.base.config import INIT_INTERFACES_MAP
+from simplelayout.base.config import SLOT_INTERFACES_MAP
 from simplelayout.base.config import VIEW_INTERFACES_MAP
 from simplelayout.base.interfaces import IBlockConfig, ISlUtils
 from simplelayout.base.interfaces import ISimpleLayoutCapable
 from simplelayout.base.interfaces import ISimplelayoutView
 from simplelayout.base.utils import IBlockControl
 from zope.component import getUtility
+from zope.interface import noLongerProvides
 from zope.component.interfaces import ComponentLookupError
 from zope.interface import alsoProvides
 import logging
@@ -163,3 +165,14 @@ def reindexContainer(obj, event, parent=None):
 def blockMoved(obj, event):
     reindexContainer(obj, event, parent=event.oldParent)
     reindexContainer(obj, event, parent=event.newParent)
+
+    # remove slote interfaces
+    for key, iface in SLOT_INTERFACES_MAP.items():
+        if iface.providedBy(obj):
+            noLongerProvides(obj, iface)
+
+    # set current view config interfaces (slot and colum interface)
+    for name, iface in VIEW_INTERFACES_MAP.items():
+        if iface.providedBy(event.newParent):
+            alsoProvides(obj, INIT_INTERFACES_MAP.get(name))
+            break

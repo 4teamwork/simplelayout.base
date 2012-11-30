@@ -5,6 +5,9 @@ Changelog
 3.0c2 (unreleased)
 ------------------
 
+- Implemented interface cleanup while moving a block.
+  [phgross]
+
 - Fix CSS for factory menu.
   [mathias.leimgruber]
 
