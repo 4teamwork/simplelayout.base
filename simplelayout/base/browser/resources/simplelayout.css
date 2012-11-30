@@ -1,7 +1,6 @@
 .BlockOverallWrapper{
     width:auto;
     padding-bottom: 1px;
-    direction: rtl;
     position:relative;
 }
 
@@ -9,7 +8,6 @@
     margin: 0px !important;
     padding: 0px !important;
     width:auto;
-    direction:ltr;
 }
 
 .simplelayout-block-wrapper a {
