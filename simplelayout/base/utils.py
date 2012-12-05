@@ -9,6 +9,8 @@ from simplelayout.base.interfaces import IBlockConfig, IScaleImage
 from simplelayout.base.configlet.interfaces import ISimplelayoutConfiguration
 from zope.component import getUtility, queryUtility
 
+UNSUPPORTED_IMAGE_TYPES = ['image/x-ms-bmp', ]
+
 
 class SlUtils(object):
 
@@ -190,7 +192,8 @@ class ImageScaler(object):
             return dict(width=0, height=0)
 
         # jump out if img is empty or there's a bitmap
-        if img == '' or img is None or img.content_type == 'image/x-ms-bmp':
+        valid_type = img.content_type in UNSUPPORTED_IMAGE_TYPES
+        if len(img) == 0 or img is None or valid_type:
             return dict(width=0, height=0)
 
         orig_img_width = img.width
