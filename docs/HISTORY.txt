@@ -5,9 +5,12 @@ Changelog
 3.0c2 (unreleased)
 ------------------
 
-- Fix condition, which checks if there is a valid image in 
+- Implement emptymarker css klass.
+  [mathias.leimgruber]
+
+- Fix condition, which checks if there is a valid image in
   ImageScaler.
-  [mathias.leimgruber]  
+  [mathias.leimgruber]
 
 - No longer change writing direction in block wrapper as this causes problems
   with IE7.

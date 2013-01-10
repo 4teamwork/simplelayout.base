@@ -1,37 +1,39 @@
-<div class="simplelayout-content two-columns-design">
-    <div id="slotA" class="onecolumn" tal:define="results python:view.getSimpleLayoutContents(slotInterface='slotA')">
+<div class="simplelayout-content two-columns-design" tal:define="results python:view.getSimpleLayoutContents(slotInterface='slotA');
+                                                                 resultsleft python:view.getSimpleLayoutContents(slotInterface='slotB');
+                                                                 resultsright python:view.getSimpleLayoutContents(slotInterface='slotC')">
+    <div id="slotA" tal:attributes="class python:results and 'onecolumn' or 'onecolumn emptymarker">
 		<tal:repeat repeat="result results">
 			<div tal:define="specialCSS python: result.Type() in ['Image',] and ' leftFloatable ' or ' blockClear ';
 			                 wrapperCSS python:view.getWrapperCss(result)"
 			     tal:attributes="class python:'BlockOverallWrapper '+wrapperCSS+specialCSS;
 			                     id string:uid_${result/UID}"
-			     class="" 
+			     class=""
 			     tal:content="structure python:view.renderBlockProvider(result)">block</div>
 		</tal:repeat>
-        <span class="visualClear">&nbsp;</span>	
+        <span class="visualClear">&nbsp;</span>
      </div>
 
-    <div id="slotB" class="twocolumn left" tal:define="results python:view.getSimpleLayoutContents(slotInterface='slotB')">
-		<tal:repeat repeat="result results">
+    <div id="slotB" tal:attributes="class python:resultsleft and 'twocolumn left' or 'twocolumn left emptymarker">
+		<tal:repeat repeat="result resultsleft">
 			<div tal:define="specialCSS python: result.Type() in ['Image',] and ' leftFloatable ' or ' blockClear ';
 			                 wrapperCSS python:view.getWrapperCss(result)"
 			     tal:attributes="class python:'BlockOverallWrapper '+wrapperCSS+specialCSS;
 			                     id string:uid_${result/UID}"
-			     class="" 
+			     class=""
 			     tal:content="structure python:view.renderBlockProvider(result)">block</div>
 		</tal:repeat>
-        <span class="visualClear">&nbsp;</span>	
+        <span class="visualClear">&nbsp;</span>
      </div>
-     
-    <div id="slotC" class="twocolumn right" tal:define="results python:view.getSimpleLayoutContents(slotInterface='slotC')">
-		<tal:repeat repeat="result results">
+
+    <div id="slotC" class="twocolumn right" tal:attributes="class python:resultsright and 'twocolumn right' or 'twocolumn right emptymarker">
+		<tal:repeat repeat="result resultsright">
 			<div tal:define="specialCSS python: result.Type() in ['Image',] and ' leftFloatable ' or ' blockClear ';
 			                 wrapperCSS python:view.getWrapperCss(result)"
 			     tal:attributes="class python:'BlockOverallWrapper '+wrapperCSS+specialCSS;
 			                     id string:uid_${result/UID}"
-			     class="" 
+			     class=""
 			     tal:content="structure python:view.renderBlockProvider(result)">block</div>
 		</tal:repeat>
      </div>
-	<span class="visualClear">&nbsp;</span>	
+	<span class="visualClear">&nbsp;</span>
 </div>

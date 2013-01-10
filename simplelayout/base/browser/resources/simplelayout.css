@@ -63,10 +63,13 @@
 #region-content .simplelayout-block-wrapper h3 {
     margin-top:0.9em;
 }
-
 /*no image*/
 .sl-img-no-image .sl-img-wrapper{
 	display:none;
+}
+
+.simplelayout-content .emptymarker {
+    min-height: 10em;
 }
 
 .simplelayout-content .sl-controls{
