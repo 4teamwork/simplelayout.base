@@ -196,6 +196,12 @@ class SimpleLayoutControlsViewlet(ViewletBase):
         # Copied from factory menu tests
         if not getattr(self.context, 'isPrincipiaFolderish', False):
             return False
+        else:
+            # Also check for specific attribute
+            show = getattr(self.context, 'showAddMenu', True)
+            if callable(show):
+                return show()
+            return show
 
         menu = getUtility(
             IBrowserMenu, name='plone_contentmenu',

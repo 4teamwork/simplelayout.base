@@ -5,6 +5,9 @@ Changelog
 3.0c2 (unreleased)
 ------------------
 
+- Enable/Disable factory menu on folderish blocks.
+  [mathias.leimgruber]
+
 - Implement emptymarker css klass.
   [mathias.leimgruber]
 
