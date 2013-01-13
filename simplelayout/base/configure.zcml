@@ -13,6 +13,20 @@
 
     <include package=".configlet" />
 
+    <!-- register interfaces so that they can be toggled in manage_interfaces-->
+    <interface interface="simplelayout.base.interfaces.ISimpleLayoutCapable" />
+    <interface interface="simplelayout.base.interfaces.ISimplelayoutView" />
+    <interface interface="simplelayout.base.interfaces.ISimplelayoutTwoColumnView" />
+    <interface interface="simplelayout.base.interfaces.ISimplelayoutTwoColumnOneOnTopView" />
+    <interface interface="simplelayout.base.interfaces.IAdditionalListingEnabled" />
+    <interface interface="simplelayout.base.interfaces.ISlotA" />
+    <interface interface="simplelayout.base.interfaces.ISlotB" />
+    <interface interface="simplelayout.base.interfaces.ISlotC" />
+    <interface interface="simplelayout.base.interfaces.ISlotD" />
+    <interface interface="simplelayout.base.interfaces.IOneColumn" />
+    <interface interface="simplelayout.base.interfaces.ITwoColumn" />
+    <interface interface="simplelayout.base.interfaces.IThreeColumn" />
+
     <adapter factory=".indexer.SearchableText" name="SearchableText" />
 
     <!-- events for reindexing -->

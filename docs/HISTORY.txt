@@ -5,6 +5,9 @@ Changelog
 3.0c2 (unreleased)
 ------------------
 
+- Register interfaces so that they can be toggled in manage_interfaces.
+  [jone]
+
 - Enable/Disable factory menu on folderish blocks.
   [mathias.leimgruber]
 
