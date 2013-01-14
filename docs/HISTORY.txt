@@ -5,6 +5,10 @@ Changelog
 3.0c2 (unreleased)
 ------------------
 
+- Use more effective CSS statements, prefixed with #content so that it allows
+  a general styling of elements such as lists.
+  [jone]
+
 - Register interfaces so that they can be toggled in manage_interfaces.
   [jone]
 
