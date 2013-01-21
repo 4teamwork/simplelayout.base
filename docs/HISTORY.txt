@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-3.0c2 (unreleased)
+3.0c2 (2013-01-21)
 ------------------
 
 - Use more effective CSS statements, prefixed with #content so that it allows
