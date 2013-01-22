@@ -7,11 +7,11 @@
 	  i18n:domain="plone">
 	<body>
 		<div metal:fill-slot="main">
-			<metal:main-macro define-macro="main">      
+      <metal:main-macro define-macro="main">
 				<div tal:replace="structure provider:plone.abovecontenttitle" />
 				<h1 tal:content="here/Title" class="documentFirstHeading"/>
 				<div tal:replace="structure provider:plone.belowcontenttitle" />
-                <p class="documentDescription" tal:content="structure here/Description">Desc</p>
+                <p tal:condition="view/show_description" class="documentDescription" tal:content="structure here/Description">Desc</p>
 				<div tal:replace="structure provider:plone.abovecontentbody" />
 				<tal:block content="structure provider:simplelayout.base.listing" />
 				<div metal:use-macro="here/document_relateditems/macros/relatedItems"></div>

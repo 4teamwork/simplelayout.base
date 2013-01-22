@@ -38,6 +38,12 @@ class SimpleLayoutView(BrowserView):
         results = [result.getObject() for result in results]
         return results
 
+    def show_description(self):
+        show = getattr(self.context, 'show_description', True)
+        if callable(show):
+            return show()
+        return show
+
     def renderBlockProvider(self, context):
         name = u'zug.simplelayout.block'
         context = context
@@ -67,6 +73,7 @@ class SimpleLayoutView(BrowserView):
         contentFilter = {'portal_type': self.getContentTypes(),
                          'sort_on': 'sortable_title'}
         return self.context.getFolderContents(contentFilter)
+
 
     def toggle_align_to_grid(self, new_value='1'):
         """
