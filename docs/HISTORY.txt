@@ -5,8 +5,8 @@ Changelog
 3.0c3 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Fix CSS for emptymarker klass.
+  [mathias.leimgruber]
 
 3.0c2 (2013-01-21)
 ------------------
