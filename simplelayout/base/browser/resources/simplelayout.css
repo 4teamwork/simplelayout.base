@@ -68,7 +68,7 @@
 	display:none;
 }
 
-#content .simplelayout-content .emptymarker {
+.documentEditable #content .simplelayout-content .emptymarker {
     min-height: 10em;
 }
 
