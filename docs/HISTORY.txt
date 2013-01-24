@@ -5,6 +5,12 @@ Changelog
 3.0c3 (unreleased)
 ------------------
 
+- Add show_description function.
+  [ttschanz]
+
+- Fix templates.
+  [mathias.leimgruber]
+
 - Fix CSS for emptymarker klass.
   [mathias.leimgruber]
 
