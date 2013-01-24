@@ -343,3 +343,7 @@ content .sl-toggle-edit-bar-wrapper:hover {
     position: relative;
     left:0;
 }
+
+.simplelayout-content .right {
+    text-align: left;
+}
