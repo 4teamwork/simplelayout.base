@@ -1,7 +1,7 @@
 <div class="simplelayout-content two-columns-design" tal:define="results python:view.getSimpleLayoutContents(slotInterface='slotA');
                                                                  resultsleft python:view.getSimpleLayoutContents(slotInterface='slotB');
                                                                  resultsright python:view.getSimpleLayoutContents(slotInterface='slotC')">
-    <div id="slotA" tal:attributes="class python:results and 'onecolumn' or 'onecolumn emptymarker">
+    <div id="slotA" tal:attributes="class python:results and 'onecolumn' or 'onecolumn emptymarker'">
 		<tal:repeat repeat="result results">
 			<div tal:define="specialCSS python: result.Type() in ['Image',] and ' leftFloatable ' or ' blockClear ';
 			                 wrapperCSS python:view.getWrapperCss(result)"
@@ -13,7 +13,7 @@
         <span class="visualClear">&nbsp;</span>
      </div>
 
-    <div id="slotB" tal:attributes="class python:resultsleft and 'twocolumn left' or 'twocolumn left emptymarker">
+    <div id="slotB" tal:attributes="class python:resultsleft and 'twocolumn left' or 'twocolumn left emptymarker'">
 		<tal:repeat repeat="result resultsleft">
 			<div tal:define="specialCSS python: result.Type() in ['Image',] and ' leftFloatable ' or ' blockClear ';
 			                 wrapperCSS python:view.getWrapperCss(result)"
@@ -25,7 +25,7 @@
         <span class="visualClear">&nbsp;</span>
      </div>
 
-    <div id="slotC" class="twocolumn right" tal:attributes="class python:resultsright and 'twocolumn right' or 'twocolumn right emptymarker">
+    <div id="slotC" class="twocolumn right" tal:attributes="class python:resultsright and 'twocolumn right' or 'twocolumn right emptymarker'">
 		<tal:repeat repeat="result resultsright">
 			<div tal:define="specialCSS python: result.Type() in ['Image',] and ' leftFloatable ' or ' blockClear ';
 			                 wrapperCSS python:view.getWrapperCss(result)"
