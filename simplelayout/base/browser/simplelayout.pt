@@ -14,7 +14,6 @@
                 <p tal:condition="view/show_description" class="documentDescription" tal:content="structure here/Description">Desc</p>
 				<div tal:replace="structure provider:plone.abovecontentbody" />
 				<tal:block content="structure provider:simplelayout.base.listing" />
-				<div metal:use-macro="here/document_relateditems/macros/relatedItems"></div>
 				<div id="viewlet-below-content-body"
                      tal:content="structure provider:plone.belowcontentbody"
                      />
