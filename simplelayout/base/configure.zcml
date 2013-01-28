@@ -32,7 +32,7 @@
     <!-- events for reindexing -->
     <subscriber
         for="simplelayout.base.interfaces.ISimpleLayoutBlock
-             zope.app.container.interfaces.IObjectRemovedEvent"
+             zope.lifecycleevent.interfaces.IObjectRemovedEvent"
         handler=".events.reindexContainer"
         />
 
@@ -50,13 +50,13 @@
 
     <subscriber
         for="simplelayout.base.interfaces.ISimpleLayoutBlock
-             zope.app.container.interfaces.IObjectAddedEvent"
+             zope.lifecycleevent.interfaces.IObjectAddedEvent"
         handler=".events.reindexContainer"
         />
 
     <subscriber
         for="simplelayout.base.interfaces.ISimpleLayoutBlock
-             zope.app.container.interfaces.IObjectMovedEvent"
+             zope.lifecycleevent.interfaces.IObjectMovedEvent"
         handler=".events.blockMoved"
         />
 

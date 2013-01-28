@@ -5,11 +5,11 @@ from plone.app.contentmenu.interfaces import IContentMenuView
 from plone.app.contentmenu.view import ContentMenuProvider
 from plone.memoize.instance import memoize
 from simplelayout.base.interfaces import ISlUtils, ISimpleLayoutCapable
-from zope.app.component.hooks import getSite
-from zope.app.publisher.browser.menu import BrowserMenu
-from zope.app.publisher.browser.menu import BrowserSubMenuItem
-from zope.app.publisher.interfaces.browser import IBrowserMenu
-from zope.app.publisher.interfaces.browser import IBrowserSubMenuItem
+from zope.component.hooks import getSite
+from zope.browsermenu.menu import BrowserMenu
+from zope.browsermenu.menu import BrowserSubMenuItem
+from zope.browsermenu.interfaces import IBrowserMenu
+from zope.browsermenu.interfaces import IBrowserSubMenuItem
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.interface import implements

@@ -21,7 +21,7 @@ from zope.contentprovider.tales import addTALNamespaceData
 from zope.interface import implements
 import logging
 import zope.component
-from zope.app.publisher.interfaces.browser import IBrowserMenu
+from plone.app.contentmenu.interfaces import IBrowserMenu
 
 
 logger = logging.getLogger(__name__)
