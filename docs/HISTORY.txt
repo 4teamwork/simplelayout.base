@@ -5,7 +5,8 @@ Changelog
 3.0c4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fixed bug in function to get factory menu; return menu instead of True.
+  [Julian Infanger]
 
 
 3.0c3 (2013-01-24)
