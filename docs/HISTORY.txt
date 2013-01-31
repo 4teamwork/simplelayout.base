@@ -5,6 +5,9 @@ Changelog
 3.0c4 (unreleased)
 ------------------
 
+- Add control styles for dropzone portlet.
+  [mathias.leimgruber]
+
 - Do not reset block layout when copying / moving the container.
   [jone]
 
