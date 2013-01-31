@@ -103,7 +103,7 @@ class SimpleLayoutListingViewlet(ViewletBase):
 
     def UserHasPermission(self):
         portal_state = getMultiAdapter((self.context, self.request),
-                                            name=u'plone_portal_state')
+                                       name=u'plone_portal_state')
 
         member = portal_state.member()
         return member.has_permission('Add portal_content', self.context)
@@ -154,12 +154,12 @@ class SimpleLayoutControlsViewlet(ViewletBase):
                     continue
 
                 if not action['available']:
-                        continue
+                    continue
 
                 yield {
-                       'id': action['id'],
-                       'icon': action['icon'],
-                       'url': action['url']}
+                    'id': action['id'],
+                    'icon': action['icon'],
+                    'url': action['url']}
 
     def _check_permission(self, action):
         """Checks for the given permissions,
