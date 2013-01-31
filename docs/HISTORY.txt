@@ -5,6 +5,9 @@ Changelog
 3.0c4 (unreleased)
 ------------------
 
+- Do not reset block layout when copying / moving the container.
+  [jone]
+
 - Fixed bug in function to get factory menu; return menu instead of True.
   [Julian Infanger]
 

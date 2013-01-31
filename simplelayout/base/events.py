@@ -166,6 +166,10 @@ def blockMoved(obj, event):
     reindexContainer(obj, event, parent=event.oldParent)
     reindexContainer(obj, event, parent=event.newParent)
 
+    if obj != event.object:
+        # Moving the parent, so we do not reset the layout.
+        return
+
     # remove slote interfaces
     for key, iface in SLOT_INTERFACES_MAP.items():
         if iface.providedBy(obj):
