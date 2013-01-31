@@ -103,7 +103,7 @@ class SimpleLayoutListingViewlet(ViewletBase):
 
     def UserHasPermission(self):
         portal_state = getMultiAdapter((self.context, self.request),
-                                            name=u'plone_portal_state')
+                                       name=u'plone_portal_state')
 
         member = portal_state.member()
         return member.has_permission('Add portal_content', self.context)
@@ -154,12 +154,12 @@ class SimpleLayoutControlsViewlet(ViewletBase):
                     continue
 
                 if not action['available']:
-                        continue
+                    continue
 
                 yield {
-                       'id': action['id'],
-                       'icon': action['icon'],
-                       'url': action['url']}
+                    'id': action['id'],
+                    'icon': action['icon'],
+                    'url': action['url']}
 
     def _check_permission(self, action):
         """Checks for the given permissions,
@@ -198,20 +198,19 @@ class SimpleLayoutControlsViewlet(ViewletBase):
             return False
         else:
             # Also check for specific attribute
-            show = getattr(self.context, 'showAddMenu', True)
-            if callable(show):
-                return show()
-            return show
+            show = getattr(self.context, 'showAddMenu', lambda: True)
+            if show():
+                menu = getUtility(
+                    IBrowserMenu, name='plone_contentmenu',
+                    context=self.context)
+                items = menu.getMenuItems(self.context, self.request)
+                factory_menu = [
+                    i for i in items if
+                    i['extra']['id'] == 'plone-contentmenu-factories'][0]
+                factory_menu['extra']['id'] = 'sl-plone-contentmenu-factories'
+                return factory_menu
+            return False
 
-        menu = getUtility(
-            IBrowserMenu, name='plone_contentmenu',
-            context=self.context)
-        items = menu.getMenuItems(self.context, self.request)
-        factory_menu = [
-            i for i in items if
-            i['extra']['id'] == 'plone-contentmenu-factories'][0]
-        factory_menu['extra']['id'] = 'sl-plone-contentmenu-factories'
-        return factory_menu
 
 
 class SimpleLayoutContentViewlet(ViewletBase):
