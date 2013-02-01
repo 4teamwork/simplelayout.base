@@ -5,6 +5,9 @@ Changelog
 3.0c4 (unreleased)
 ------------------
 
+- Replace jq with $.
+  [mathias.leimgruber]
+
 - Add control styles for dropzone portlet.
   [mathias.leimgruber]
 
