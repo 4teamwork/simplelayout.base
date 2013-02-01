@@ -31,17 +31,23 @@ class TestHandlers(TestCase):
 
         self.folder = self.portal.get(
             self.portal.invokeFactory('Folder', 'testfolder'))
+        self.folder.processForm()
 
         self.subfolder = self.folder.get(
             self.folder.invokeFactory('Folder', 'subfolder'))
+        self.subfolder.processForm()
 
         self.page = self.folder.get(
             self.folder.invokeFactory('Page', 'page1'))
+        self.page.processForm()
+
         self.page2 = self.folder.get(
             self.folder.invokeFactory('Page', 'page2'))
+        self.page2.processForm()
 
         self.paragraph = self.page.get(
             self.page.invokeFactory('Paragraph', 'p1'))
+        self.paragraph.processForm()
 
     def tearDown(self):
         self.portal.manage_delObjects(['testfolder'])
