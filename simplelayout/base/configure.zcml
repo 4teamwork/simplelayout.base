@@ -180,7 +180,7 @@
         <!-- two columns listing -->
         <browser:viewlet
             for="simplelayout.base.interfaces.ISimplelayoutTwoColumnView"
-            name="simplelayout.base.listingTwoColumns.body"
+            name="simplelayout.base.listing.body"
             manager=".interfaces.ISimpleViewletListingProvider"
             class=".viewlets.SimpleLayoutListingTwoColumnsViewlet"
             permission="zope2.View"
@@ -188,7 +188,7 @@
         <!-- two columns and one on top listing -->
         <browser:viewlet
             for="simplelayout.base.interfaces.ISimplelayoutTwoColumnOneOnTopView"
-            name="simplelayout.base.listingTwoColumns.body"
+            name="simplelayout.base.listing.body"
             manager=".interfaces.ISimpleViewletListingProvider"
             class=".viewlets.SimpleLayoutListingTwoColumnsOneOnTopViewlet"
             permission="zope2.View"

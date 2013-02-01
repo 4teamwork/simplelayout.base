@@ -5,6 +5,9 @@ Changelog
 3.0c4 (unreleased)
 ------------------
 
+- Use same viewlet name for all three diffrent listing viewlets.
+  [mathias.leimgruber]
+
 - Do not reset block layout when copying / moving the container.
   [jone]
 
