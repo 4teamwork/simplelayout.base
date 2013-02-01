@@ -2,8 +2,8 @@
 simplelayout.alignBlockToGridAction = function(){
 
     var containers = $('.twocolumn');
-    var left = $('.BlockOverallWrapper',containers.get(0))
-    var right = $('.BlockOverallWrapper',containers.get(1))
+    var left = $('.BlockOverallWrapper',containers.get(0));
+    var right = $('.BlockOverallWrapper',containers.get(1));
     iterate = (left.length > right.length) ? left.length : right.length;
     var all_left_blocks = [];
     var all_right_blocks = [];
@@ -55,7 +55,7 @@ simplelayout.alignBlockToGridAction = function(){
     //reset all others (if block moved to onecolumn slot)
     $('.onecolumn .BlockOverallWrapper').css('height','');
     $.post(getBaseUrl()+'block_manipulation/setBlockHeights',{'uids:list':all_uids,'left:list':all_left_blocks, 'right:list':all_right_blocks}, function(data){});
-}
+};
 
 
 $(function(){
