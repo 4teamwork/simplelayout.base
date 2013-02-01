@@ -68,11 +68,13 @@
 	display:none;
 }
 
-.documentEditable #content .simplelayout-content .emptymarker {
+.documentEditable #content .simplelayout-content .emptymarker,
+.documentEditable .simplelayoutDropZonePortlet .simplelayout-content .emptymarker {
     min-height: 10em;
 }
 
-#content .simplelayout-content .sl-controls{
+#content .simplelayout-content .sl-controls,
+.simplelayoutDropZonePortlet .simplelayout-content .sl-controls{
     padding:0;
     padding-top:0.5em;
     display:none;
@@ -84,12 +86,14 @@
     direction:ltr;
 }
 
-#content .simplelayout-content .sl-controls img{
+#content .simplelayout-content .sl-controls img,
+.simplelayoutDropZonePortlet .simplelayout-content .sl-controls img{
     padding:0;
     display:inline;
 }
 
-#content .simplelayout-content .sl-controls .sl-obj-actions{
+#content .simplelayout-content .sl-controls .sl-obj-actions,
+.simplelayoutDropZonePortlet .simplelayout-content .sl-controls .sl-obj-actions{
     float:left;
 	font-weight:bold;
 	list-style-type:none;
@@ -98,7 +102,9 @@
 
 
 #content .simplelayout-content .sl-controls .sl-obj-actions > li,
-#content .simplelayout-content .sl-controls .sl-obj-layouts > li{
+#content .simplelayout-content .sl-controls .sl-obj-layouts > li,
+.simplelayoutDropZonePortlet .simplelayout-content .sl-controls .sl-obj-actions > li,
+.simplelayoutDropZonePortlet .simplelayout-content .sl-controls .sl-obj-layouts > li{
     display:block;
 	border: 1px solid #d3d3d3;
     background: #ededed; /*fallback for non-CSS3 browsers*/
@@ -112,12 +118,15 @@
     padding:0.5em;
 }
 
-#content .simplelayout-content .sl-controls .sl-actions-wrapper ul {
+#content .simplelayout-content .sl-controls .sl-actions-wrapper ul,
+.simplelayoutDropZonePortlet .simplelayout-content .sl-controls .sl-actions-wrapper ul {
     margin-top:0;
 }
 
 #content .simplelayout-content .sl-controls .sl-obj-actions li:hover,
-#content .simplelayout-content .sl-controls .sl-obj-layouts li:hover{
+#content .simplelayout-content .sl-controls .sl-obj-layouts li:hover,
+.simplelayoutDropZonePortlet .simplelayout-content .sl-controls .sl-obj-actions li:hover,
+.simplelayoutDropZonePortlet .simplelayout-content .sl-controls .sl-obj-layouts li:hover{
     background: #ededed; /*fallback for non-CSS3 browsers*/
     background: -webkit-gradient(linear, 0 0, 0 100%, from(#ededed) to(#f9f9f9)); /*old webkit*/
     background: -webkit-linear-gradient(#ededed, #f9f9f9); /*new webkit*/
@@ -128,18 +137,21 @@
     -pie-background: linear-gradient(#ededed, #f9f9f9); /*PIE*/
 }
 
-#content .simplelayout-content .sl-controls a{
+#content .simplelayout-content .sl-controls a,
+.simplelayoutDropZonePortlet .simplelayout-content .sl-controls a{
     border:none;
 }
 
-#content .simplelayout-content .sl-controls .sl-obj-layouts{
+#content .simplelayout-content .sl-controls .sl-obj-layouts,
+.simplelayoutDropZonePortlet .simplelayout-content .sl-controls .sl-obj-layouts{
     float:left;
 	display:inline;
 	list-style-type:none;
 	list-style-image: none;
 }
 
-#content .simplelayout-content .sl-controls .document-action-foldercontents a {
+#content .simplelayout-content .sl-controls .document-action-foldercontents a,
+.simplelayoutDropZonePortlet .simplelayout-content .sl-controls .document-action-foldercontents a {
   display: block;
   background-image: url(++resource++sl/icons/folder_icon.gif);
   background-repeat: no-repeat;
@@ -147,7 +159,8 @@
   height: 16px;
 }
 
-#content .simplelayout-content .sl-controls .document-action-dragme a {
+#content .simplelayout-content .sl-controls .document-action-dragme a,
+.simplelayoutDropZonePortlet .simplelayout-content .sl-controls .document-action-dragme a {
   display: block;
   background-image: url(++resource++sl/icons/icon_move.png);
   background-repeat: no-repeat;
@@ -156,7 +169,8 @@
 }
 
 
-#content .simplelayout-content .sl-controls .document-action-factory dt a {
+#content .simplelayout-content .sl-controls .document-action-factory dt a,
+.simplelayoutDropZonePortlet .simplelayout-content .sl-controls .document-action-factory dt a {
     display: block;
     background-image: url(++resource++sl/icons/icon_add.png);
     background-repeat: no-repeat;
@@ -164,34 +178,42 @@
     height: 16px;
 }
 
-#content .simplelayout-content .sl-controls dl {
+#content .simplelayout-content .sl-controls dl,
+.simplelayoutDropZonePortlet .simplelayout-content .sl-controls dl {
     margin-bottom:0;
 }
 
-#content .simplelayout-content .sl-controls dl.actionMenu {
+#content .simplelayout-content .sl-controls dl.actionMenu,
+.simplelayoutDropZonePortlet .simplelayout-content .sl-controls dl.actionMenu {
     margin-left:0;
 }
 
 #content .simplelayout-content .sl-controls dl.actionMenu.deactivated dt,
-#content .simplelayout-content .sl-controls dl.actionMenu.activated dt a {
+#content .simplelayout-content .sl-controls dl.actionMenu.activated dt a,
+.simplelayoutDropZonePortlet .simplelayout-content .sl-controls dl.actionMenu.deactivated dt,
+.simplelayoutDropZonePortlet .simplelayout-content .sl-controls dl.actionMenu.activated dt a {
     margin:0;
 }
 
-#content .simplelayout-content .sl-controls .sl-layout.active img{
+#content .simplelayout-content .sl-controls .sl-layout.active img,
+.simplelayoutDropZonePortlet .simplelayout-content .sl-controls .sl-layout.active img{
 	background-color:orange;
 	border:1px solid orange;
 }
 
-#content .simplelayout-content .sl-controls .sl-layout a:hover img{
+#content .simplelayout-content .sl-controls .sl-layout a:hover img,
+.simplelayoutDropZonePortlet .simplelayout-content .sl-controls .sl-layout a:hover img{
 	background-color:orange;
 	border:1px solid orange;
 }
-#content .simplelayout-content .sl-controls .sl-layout img{
+#content .simplelayout-content .sl-controls .sl-layout img,
+.simplelayoutDropZonePortlet .simplelayout-content .sl-controls .sl-layout img {
     border:1px solid grey;
 	padding:0px;
 }
 
-#content .simplelayout-content .sl-controls .actionMenu .actionMenuContent {
+#content .simplelayout-content .sl-controls .actionMenu .actionMenuContent,
+.simplelayoutDropZonePortlet .simplelayout-content .sl-controls .actionMenu .actionMenuContent {
     float:left;
     margin:0;
     padding:0;
@@ -202,17 +224,20 @@
     border: 1px solid #d3d3d3;
 }
 
-#content .simplelayout-content .sl-controls .actionMenu .actionMenuContent ul {
+#content .simplelayout-content .sl-controls .actionMenu .actionMenuContent ul,
+.simplelayoutDropZonePortlet .simplelayout-content .sl-controls .actionMenu .actionMenuContent ul {
     margin:0;
 }
 
-#content .simplelayout-content .sl-controls .actionMenu .actionMenuContent li {
+#content .simplelayout-content .sl-controls .actionMenu .actionMenuContent li,
+.simplelayoutDropZonePortlet .simplelayout-content .sl-controls .actionMenu .actionMenuContent li {
     margin-bottom:0;
     padding:0.3em;
     list-style: none;
 }
 
-#content .simplelayout-content .sl-controls .actionMenu .actionMenuContent ul {
+#content .simplelayout-content .sl-controls .actionMenu .actionMenuContent ul,
+.simplelayoutDropZonePortlet .simplelayout-content .sl-controls .actionMenu .actionMenuContent ul {
     background-color:transparent;
     border-color:#8CACBB;
 }
@@ -301,7 +326,9 @@ clear:both;
 }
 
 #content .sl-toggle-edit-bar-wrapper,
-content .sl-toggle-edit-bar-wrapper:hover {
+#content .sl-toggle-edit-bar-wrapper:hover,
+.simplelayoutDropZonePortlet .sl-toggle-edit-bar-wrapper,
+.simplelayoutDropZonePortlet .sl-toggle-edit-bar-wrapper:hover {
 	border: 1px solid #d3d3d3;
     background: #ededed; /*fallback for non-CSS3 browsers*/
     background: -webkit-gradient(linear, 0 0, 0 100%, from(#f9f9f9) to(#ededed)); /*old webkit*/
@@ -316,7 +343,8 @@ content .sl-toggle-edit-bar-wrapper:hover {
     float:right;
 }
 
-#content .sl-toggle-edit-bar-wrapper:hover {
+#content .sl-toggle-edit-bar-wrapper:hover,
+.simplelayoutDropZonePortlet .sl-toggle-edit-bar-wrapper:hover {
     background: #ededed; /*fallback for non-CSS3 browsers*/
     background: -webkit-gradient(linear, 0 0, 0 100%, from(#ededed) to(#f9f9f9)); /*old webkit*/
     background: -webkit-linear-gradient(#ededed, #f9f9f9); /*new webkit*/
@@ -327,19 +355,22 @@ content .sl-toggle-edit-bar-wrapper:hover {
     -pie-background: linear-gradient(#ededed, #f9f9f9); /*PIE*/
 }
 
-#content .sl-toggle-edit-bar {
+#content .sl-toggle-edit-bar,
+.simplelayoutDropZonePortlet .sl-toggle-edit-bar {
     left: -0.2em;
     top: 0.6em;
     position:relative;
 }
 
-#content .sl-actions-wrapper {
+#content .sl-actions-wrapper,
+.simplelayoutDropZonePortlet .sl-actions-wrapper {
     float:right;
     position: fixed;
     left: -1000px;
 }
 
-#content .showSimplelayoutControls {
+#content .showSimplelayoutControls,
+.simplelayoutDropZonePortlet .showSimplelayoutControls {
     position: relative;
     left:0;
 }

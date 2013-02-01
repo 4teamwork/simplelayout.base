@@ -5,6 +5,9 @@ Changelog
 3.0c4 (unreleased)
 ------------------
 
+- Add control styles for dropzone portlet.
+  [mathias.leimgruber]
+
 - Use same viewlet name for all three diffrent listing viewlets.
   [mathias.leimgruber]
 
