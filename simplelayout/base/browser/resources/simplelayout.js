@@ -1,4 +1,3 @@
-
 simplelayout.alignBlockToGridAction = function(){
 
     var containers = $('.twocolumn');
@@ -58,7 +57,7 @@ simplelayout.alignBlockToGridAction = function(){
 };
 
 
-$(function(){
+jQuery(function($){
     //$(".simplelayout-content").bind("actionsloaded",function(e){
         $('#alignallblocks').live('click',function(e){
         e.stopPropagation();
