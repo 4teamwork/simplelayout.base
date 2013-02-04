@@ -1,9 +1,8 @@
-
 simplelayout.alignBlockToGridAction = function(){
 
-    var containers = jq('.twocolumn');
-    var left = jq('.BlockOverallWrapper',containers.get(0))
-    var right = jq('.BlockOverallWrapper',containers.get(1))
+    var containers = $('.twocolumn');
+    var left = $('.BlockOverallWrapper',containers.get(0));
+    var right = $('.BlockOverallWrapper',containers.get(1));
     iterate = (left.length > right.length) ? left.length : right.length;
     var all_left_blocks = [];
     var all_right_blocks = [];
@@ -16,19 +15,19 @@ simplelayout.alignBlockToGridAction = function(){
         var right_height = 0;
 
         if (typeof(left_block) != 'undefined'){
-            var left_block_content = jq('.simplelayout-block-wrapper',left_block);
-            var left_block_controls = jq('.sl-controls',left_block);
+            var left_block_content = $('.simplelayout-block-wrapper',left_block);
+            var left_block_controls = $('.sl-controls',left_block);
             left_block_content.css('height','');
             // calc block height, to prevent problems with float, we take the overallblock height
             // includes the controls area, then overallblockheight - controlsheight
-            left_height = jq(left_block).height() - left_block_controls.height();
+            left_height = $(left_block).height() - left_block_controls.height();
         }
 
         if  (typeof(right_block) != 'undefined'){
-            var right_block_content = jq('.simplelayout-block-wrapper',right_block);
-            var right_block_controls = jq('.sl-controls',right_block);
+            var right_block_content = $('.simplelayout-block-wrapper',right_block);
+            var right_block_controls = $('.sl-controls',right_block);
             right_block_content.css('height','');
-            right_height = jq(right_block).height() - right_block_controls.height();
+            right_height = $(right_block).height() - right_block_controls.height();
         }
 
 
@@ -39,41 +38,41 @@ simplelayout.alignBlockToGridAction = function(){
 
 
                 left_block_content.css('height', master_height);
-                all_left_blocks[i] = [jq(left_block).attr('id'), master_height];
+                all_left_blocks[i] = [$(left_block).attr('id'), master_height];
 
                 right_block_content.css('height', master_height);
-                all_right_blocks[i] = [jq(right_block).attr('id'), master_height];
+                all_right_blocks[i] = [$(right_block).attr('id'), master_height];
 
             }
         }
     }
 
-    jq('.BlockOverallWrapper').each(function(i,o){
-        all_uids[i] = jq(o).attr('id');
+    $('.BlockOverallWrapper').each(function(i,o){
+        all_uids[i] = $(o).attr('id');
     });
 
     //reset all others (if block moved to onecolumn slot)
-    jq('.onecolumn .BlockOverallWrapper').css('height','');
-    jq.post(getBaseUrl()+'block_manipulation/setBlockHeights',{'uids:list':all_uids,'left:list':all_left_blocks, 'right:list':all_right_blocks}, function(data){});
-}
+    $('.onecolumn .BlockOverallWrapper').css('height','');
+    $.post(getBaseUrl()+'block_manipulation/setBlockHeights',{'uids:list':all_uids,'left:list':all_left_blocks, 'right:list':all_right_blocks}, function(data){});
+};
 
 
-jq(function(){
-    //jq(".simplelayout-content").bind("actionsloaded",function(e){
-        jq('#alignallblocks').live('click',function(e){
+jQuery(function($){
+    //$(".simplelayout-content").bind("actionsloaded",function(e){
+        $('#alignallblocks').live('click',function(e){
         e.stopPropagation();
         e.preventDefault();
 
         simplelayout.align_to_grid = parseInt(simplelayout.align_to_grid)==0 ? 1 : 0;
-        jq.get(getBaseUrl()+'simplelayout/toggle_align_to_grid',{'new_value':simplelayout.align_to_grid}, function(data){
-            jq('#alignallblocks').load(getBaseUrl()+'sl_controls/ToggleGridLayoutText');
+        $.get(getBaseUrl()+'simplelayout/toggle_align_to_grid',{'new_value':simplelayout.align_to_grid}, function(data){
+            $('#alignallblocks').load(getBaseUrl()+'sl_controls/ToggleGridLayoutText');
         });
 
         simplelayout.alignBlockToGridAction();
         });
     //});
 
-    //jq(".simplelayout-content").bind("afterReorder", alignBlockToGridAction);
+    //$(".simplelayout-content").bind("afterReorder", alignBlockToGridAction);
 
 });
 
