@@ -69,7 +69,7 @@
 }
 
 .documentEditable #content .simplelayout-content .emptymarker,
-.documentEditable .simplelayoutDropZonePortlet .simplelayout-content .emptymarker {
+.simplelayoutDropZonePortlet .simplelayout-content.editable .emptymarker {
     min-height: 10em;
 }
 

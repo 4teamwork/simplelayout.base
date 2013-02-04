@@ -5,6 +5,9 @@ Changelog
 3.0c4 (unreleased)
 ------------------
 
+- Fix css selector for empty dropzoneportlet.
+  [mathias.leimgruber]
+
 - Replace jq with $.
   [mathias.leimgruber]
 
