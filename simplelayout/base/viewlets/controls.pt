@@ -102,25 +102,24 @@
               <img src="" tal:attributes="src action/icon" alt="" />
             </a>
           </li>
-        </ul>
 
-        <ul class="sl-obj-layouts"
-            tal:condition="python:layouts or (actions and folderish)">
+          <tal:layout-actions condition="python:layouts or (actions and folderish)">
 
-          <tal:block
-              tal:condition="layouts"
-              tal:repeat="layout layouts">
-            <li class="sl-layout"
-                tal:define="layout_name python:layout['id'][3:]"
-                tal:attributes="class python: 'sl-layout '+ (current_layout == layout_name and 'active' or '')">
-              <a href="" i18n:attributes="title"
-                 tal:attributes="href layout/url;
-                                 id string:${here/UID}_${layout_name};
-                                 title string:sl_layout_${layout_name}">
-                <img tal:attributes="src string:${context/portal_url}${layout/icon}" src="#" alt=""/>
-              </a>
-            </li>
-          </tal:block>
+            <tal:block
+                tal:condition="layouts"
+                tal:repeat="layout layouts">
+              <li class="sl-layout"
+                  tal:define="layout_name python:layout['id'][3:]"
+                  tal:attributes="class python: 'sl-layout '+ (current_layout == layout_name and 'active' or '')">
+                <a href="" i18n:attributes="title"
+                   tal:attributes="href layout/url;
+                                   id string:${here/UID}_${layout_name};
+                                   title string:sl_layout_${layout_name}">
+                  <img tal:attributes="src string:${context/portal_url}${layout/icon}" src="#" alt=""/>
+                </a>
+              </li>
+            </tal:block>
+          </tal:layout-actions>
         </ul>
 
         <div class="sl-workflowChanger" tal:condition="view/isWorkflowEnabled">
