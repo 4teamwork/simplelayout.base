@@ -5,6 +5,9 @@ Changelog
 3.0c4 (unreleased)
 ------------------
 
+- Fix controls condition for all actions (layout + content actions).
+  [mathias.leimgruber]
+
 - Only set a min-height on empty slots if you are dragging a block.
   [Julian Infanger]
 
