@@ -68,8 +68,8 @@
 	display:none;
 }
 
-.documentEditable #content .simplelayout-content .emptymarker,
-.simplelayoutDropZonePortlet .simplelayout-content.editable .emptymarker {
+.documentEditable #content .simplelayout-content .emptymarker.highlightBorder,
+.simplelayoutDropZonePortlet .simplelayout-content.editable .emptymarker.highlightBorder {
     min-height: 10em;
 }
 
