@@ -5,6 +5,9 @@ Changelog
 3.0c4 (unreleased)
 ------------------
 
+- Removed all important statements from css.
+  [Julian Infanger]
+
 - Fix css selector for empty dropzoneportlet.
   [mathias.leimgruber]
 
