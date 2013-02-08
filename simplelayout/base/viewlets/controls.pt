@@ -2,133 +2,132 @@
         define="actions python:tuple(view.getActions());
                 layouts python:tuple(view.getLayouts())"
         i18n:domain="simplelayout">
-<div class="sl-controls" style="width:600px" tal:condition="python:actions or layouts">
+  <div class="sl-controls" style="width:600px" tal:condition="python:actions or layouts">
 
     <tal:b
-       tal:define="current_layout python: view.getCurrentLayout(here);
-                   folderish python:here.isPrincipiaFolderish">
+        tal:define="current_layout python: view.getCurrentLayout(here);
+                    folderish python:here.isPrincipiaFolderish">
       <div class="sl-toggle-edit-bar-wrapper"
            title="Toggle edit bar"
            i18n:attributes="title action_sl-toogle">
-          <div class="sl-toggle-edit-bar ui-icon ui-icon-triangle-1-e"></div>
+        <div class="sl-toggle-edit-bar ui-icon ui-icon-triangle-1-e"></div>
       </div>
       <div class="sl-actions-wrapper showSimplelayoutControls">
-          <ul class="sl-obj-actions"
-              tal:condition="actions">
+        <ul class="sl-obj-actions"
+            tal:condition="actions">
 
-            <li class="document-action-dragme">
-                <a href="#" title="Dragme" i18n:attributes="title action_sl-drag">
-                    <!-- iefix -->
+          <li class="document-action-dragme">
+            <a href="#" title="Dragme" i18n:attributes="title action_sl-drag">
+              <!-- iefix -->
+            </a>
+          </li>
+
+          <!-- Add menu for folderish blocks -->
+          <li i18n:domain="plone" class="document-action-factory" tal:define="menu view/_get_factory_menu"
+              tal:condition="menu">
+            <dl class="actionMenu deactivated"
+                tal:attributes="id menu/extra/id"
+                tal:define="submenu menu/submenu">
+              <dt class="actionMenuHeader">
+                <a href="#"
+                   tal:omit-tag="not:menu/action"
+                   tal:attributes="href menu/action;
+                                   title menu/description"
+                   i18n:attributes="title;">
                 </a>
-            </li>
+              </dt>
+              <dd class="actionMenuContent"
+                  tal:condition="not:menu/extra/hideChildren | not:submenu | nothing">
+                <ul>
+                  <tal:block repeat="subMenuItem submenu">
+                    <li tal:attributes="class subMenuItem/extra/separator">
+                      <a href="#"
+                         tal:condition="subMenuItem/action"
+                         tal:attributes="href subMenuItem/action;
+                                         title subMenuItem/description;
+                                         id subMenuItem/extra/id | nothing;
+                                         class subMenuItem/extra/class | nothing"
+                         i18n:attributes="title">
+                        <img width="16"
+                             height="16"
+                             alt=""
+                             tal:condition="subMenuItem/icon"
+                             tal:attributes="src subMenuItem/icon;
+                                             title subMenuItem/description;
+                                             width subMenuItem/width|string:16;
+                                             height subMenuItem/height|string:16;"
+                             i18n:attributes="alt;"/>
+                        <span tal:content="structure subMenuItem/title"
+                              i18n:translate=""
+                              class="subMenuTitle">
+                          Title
+                        </span>
+                      </a>
+                      <div tal:condition="not:subMenuItem/action"
+                           tal:attributes="id subMenuItem/extra/id | nothing;
+                                           class subMenuItem/extra/class | nothing">
+                        <img width="16"
+                             height="16"
+                             alt=""
+                             tal:condition="subMenuItem/icon"
+                             tal:attributes="src subMenuItem/icon;
+                                             title subMenuItem/description"
+                             i18n:attributes="alt;"/>
+                        <span tal:content="structure subMenuItem/title"
+                              i18n:translate=""
+                              class="subMenuTitle">
+                          Title
+                        </span>
+                      </div>
+                    </li>
+                  </tal:block>
+                </ul>
+              </dd>
+            </dl>
+          </li>
 
-            <!-- Add menu for folderish blocks -->
-            <li i18n:domain="plone" class="document-action-factory" tal:define="menu view/_get_factory_menu"
-                tal:condition="menu">
-              <dl class="actionMenu deactivated"
-                  tal:attributes="id menu/extra/id"
-                  tal:define="submenu menu/submenu">
-                  <dt class="actionMenuHeader">
-                    <a href="#"
-                      tal:omit-tag="not:menu/action"
-                      tal:attributes="href menu/action;
-                                      title menu/description"
-                      i18n:attributes="title;">
-                    </a>
-                  </dt>
-                  <dd class="actionMenuContent"
-                      tal:condition="not:menu/extra/hideChildren | not:submenu | nothing">
-                    <ul>
-                        <tal:block repeat="subMenuItem submenu">
-                          <li tal:attributes="class subMenuItem/extra/separator">
-                            <a href="#"
-                               tal:condition="subMenuItem/action"
-                               tal:attributes="href subMenuItem/action;
-                                               title subMenuItem/description;
-                                               id subMenuItem/extra/id | nothing;
-                                               class subMenuItem/extra/class | nothing"
-                               i18n:attributes="title">
-                                <img width="16"
-                                     height="16"
-                                     alt=""
-                                     tal:condition="subMenuItem/icon"
-                                     tal:attributes="src subMenuItem/icon;
-                                                     title subMenuItem/description;
-                                                     width subMenuItem/width|string:16;
-                                                     height subMenuItem/height|string:16;"
-                                     i18n:attributes="alt;"/>
-                                <span tal:content="structure subMenuItem/title"
-                                      i18n:translate=""
-                                      class="subMenuTitle">
-                                    Title
-                                </span>
-                            </a>
-                            <div tal:condition="not:subMenuItem/action"
-                                 tal:attributes="id subMenuItem/extra/id | nothing;
-                                                 class subMenuItem/extra/class | nothing">
-                                <img width="16"
-                                     height="16"
-                                     alt=""
-                                     tal:condition="subMenuItem/icon"
-                                     tal:attributes="src subMenuItem/icon;
-                                                     title subMenuItem/description"
-                                     i18n:attributes="alt;"/>
-                                <span tal:content="structure subMenuItem/title"
-                                      i18n:translate=""
-                                      class="subMenuTitle">
-                                    Title
-                                </span>
-                            </div>
-                          </li>
-                        </tal:block>
-                    </ul>
-                  </dd>
-              </dl>
-            </li>
-
-            <li tal:condition="python: getattr(context, 'isPrincipiaFolderish', False)" class="document-action-foldercontents">
-                <a href="#" tal:attributes="href string:${context/absolute_url}/folder_contents" title="Folder contents" i18n:attributes="title action_sl-folder_contents">
-                    <!-- iefix -->
-                </a>
-            </li>
+          <li tal:condition="python: getattr(context, 'isPrincipiaFolderish', False)" class="document-action-foldercontents">
+            <a href="#" tal:attributes="href string:${context/absolute_url}/folder_contents" title="Folder contents" i18n:attributes="title action_sl-folder_contents">
+              <!-- iefix -->
+            </a>
+          </li>
 
 
 
-            <li tal:repeat="action view/getActions">
-              <a href="" i18n:attributes="title"
-                         tal:attributes="href action/url;
-                                         title string:action_${action/id};
-                                         class string:${action/id}-action;">
-                <img src="" tal:attributes="src action/icon" alt="" />
-              </a>
-            </li>
-          </ul>
+          <li tal:repeat="action view/getActions">
+            <a href="" i18n:attributes="title"
+               tal:attributes="href action/url;
+                               title string:action_${action/id};
+                               class string:${action/id}-action;">
+              <img src="" tal:attributes="src action/icon" alt="" />
+            </a>
+          </li>
 
-          <ul class="sl-obj-layouts"
-              tal:condition="python:layouts or (actions and folderish)">
+          <tal:layout-actions condition="python:layouts or (actions and folderish)">
 
             <tal:block
-               tal:condition="layouts"
-               tal:repeat="layout layouts">
+                tal:condition="layouts"
+                tal:repeat="layout layouts">
               <li class="sl-layout"
                   tal:define="layout_name python:layout['id'][3:]"
                   tal:attributes="class python: 'sl-layout '+ (current_layout == layout_name and 'active' or '')">
                 <a href="" i18n:attributes="title"
-                           tal:attributes="href layout/url;
-                                           id string:${here/UID}_${layout_name};
-                                           title string:sl_layout_${layout_name}">
+                   tal:attributes="href layout/url;
+                                   id string:${here/UID}_${layout_name};
+                                   title string:sl_layout_${layout_name}">
                   <img tal:attributes="src string:${context/portal_url}${layout/icon}" src="#" alt=""/>
                 </a>
               </li>
             </tal:block>
-          </ul>
+          </tal:layout-actions>
+        </ul>
 
-          <div class="sl-workflowChanger" tal:condition="view/isWorkflowEnabled">
-            <div tal:replace="structure provider:simplelayout.base.workflowmenu" />
-          </div>
-    </div>
+        <div class="sl-workflowChanger" tal:condition="view/isWorkflowEnabled">
+          <div tal:replace="structure provider:simplelayout.base.workflowmenu" />
+        </div>
+      </div>
     </tal:b>
 
     <span class="visualClear">&nbsp;</span>
-</div>
+  </div>
 </tal:if>
