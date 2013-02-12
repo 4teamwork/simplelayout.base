@@ -278,11 +278,6 @@ div.documentActions ul.simplelayout{
     margin-right:0em;
 }
 
-.visualClear {
-    height:0;
-    line-height:0;
-    display:block;
-}
 .blockClear {
 clear:both;
 }
