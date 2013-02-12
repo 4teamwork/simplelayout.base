@@ -5,6 +5,9 @@ Changelog
 3.0c4 (unreleased)
 ------------------
 
+- Simplelayout should not change the styling of default plone classes.
+  [Julian Infanger]
+
 - Fix controls condition for all actions (layout + content actions).
   [mathias.leimgruber]
 

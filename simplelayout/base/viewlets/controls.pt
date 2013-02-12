@@ -128,6 +128,6 @@
       </div>
     </tal:b>
 
-    <span class="visualClear">&nbsp;</span>
+    <span class="visualClear"><!-- --></span>
   </div>
 </tal:if>

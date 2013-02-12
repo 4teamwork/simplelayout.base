@@ -10,4 +10,4 @@
 	<div tal:condition="text" class="sl-text-wrapper" tal:content="structure text"></div>
 
 </div>
-<span class="visualClear">&nbsp;</span>
+<span class="visualClear"><!-- --></span>
