@@ -14,6 +14,9 @@ Changelog
 - Only set a min-height on empty slots if you are dragging a block.
   [Julian Infanger]
 
+- Removed all important statements from css.
+  [Julian Infanger]
+
 - Fix css selector for empty dropzoneportlet.
   [mathias.leimgruber]
 

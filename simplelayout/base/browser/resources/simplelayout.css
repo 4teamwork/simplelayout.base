@@ -5,8 +5,8 @@
 }
 
 .simplelayout-block-wrapper{
-    margin: 0px !important;
-    padding: 0px !important;
+    margin: 0px;
+    padding: 0px;
     width:auto;
 }
 
@@ -244,7 +244,7 @@
 
 
 div.documentActions ul.simplelayout{
-    margin:0.5em !important;
+    margin:0.5em;
 }
 
 .simplelayout-file-block-wrapper .documentDescription {
@@ -266,7 +266,7 @@ div.documentActions ul.simplelayout{
 
 .highlightBorder {
     border:1px dotted #8CACBB;
-    padding: 0px !important;
+    padding: 0px;
 }
 
 
@@ -300,8 +300,8 @@ clear:both;
 }
 
 .fileTitle {
-    background-repeat:no-repeat !important;
-    padding-left:20px !important;
+    background-repeat:no-repeat;
+    padding-left:20px;
     display:block;
 }
 
