@@ -119,7 +119,7 @@
                 <a href="" i18n:attributes="title"
                    tal:attributes="href layout/url;
                                    id string:${here/UID}_${layout_name};
-                                   title string:sl_layout_${layout_name};
+                                   title layout/title;
                                    class string:layout_${layout_name}">
                   <span i18n:translate="" tal:content="string:sl_layout_${layout_name}"></span>
                 </a>
