@@ -26,7 +26,6 @@
           <li i18n:domain="plone" class="slAction" tal:define="menu view/_get_factory_menu"
               tal:condition="menu">
             <dl class="actionMenu deactivated"
-                tal:attributes="id menu/extra/id"
                 tal:define="submenu menu/submenu">
               <dt class="actionMenuHeader">
                 <a href="#"
@@ -46,7 +45,6 @@
                          tal:condition="subMenuItem/action"
                          tal:attributes="href subMenuItem/action;
                                          title subMenuItem/description;
-                                         id subMenuItem/extra/id | nothing;
                                          class subMenuItem/extra/class | nothing"
                          i18n:attributes="title">
                         <img width="16"
