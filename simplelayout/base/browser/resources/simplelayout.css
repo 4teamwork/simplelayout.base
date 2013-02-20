@@ -190,7 +190,7 @@
     margin:0;
     padding:0;
     overflow: visible;
-    right:0;
+    right: -0.7em;
     top:1.8em;
     background: #ededed;
     border: 1px solid #d3d3d3;
@@ -354,7 +354,8 @@ clear:both;
 
 /*actions*/
 li.document-action-dragme a,
-li.slAction a {
+li.slAction .actionMenuHeader > a,
+li.slAction > a {
   width: 18px;
   height: 18px;
   text-indent: -8000px;
@@ -409,4 +410,8 @@ li.slAction a.layout_dummy-dummy-dummy {
 }
 li.slAction a.layout_dummy-dummy-portlet {
   background-position: 0 -896px;
+}
+/* sl folder factory */
+#content .sl-controls li.slAction .actionMenuContent li {
+  float: none;
 }
