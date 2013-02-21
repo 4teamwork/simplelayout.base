@@ -375,4 +375,8 @@
 
     <include package=".upgrade" />
 
+    <include
+        zcml:condition="installed plone.app.dexterity"
+        file="dexterity.zcml" />
+
 </configure>
