@@ -115,7 +115,7 @@
                    tal:attributes="href layout/url;
                                    id string:${here/UID}_${layout_name};
                                    title string:sl_layout_${layout_name}">
-                  <img tal:attributes="src string:${context/portal_url}${layout/icon}" src="#" alt=""/>
+                  <img tal:attributes="src layout/icon" src="#" alt=""/>
                 </a>
               </li>
             </tal:block>
