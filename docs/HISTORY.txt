@@ -5,6 +5,9 @@ Changelog
 3.0c4 (unreleased)
 ------------------
 
+- Fix permission of simplelayout.base.actions.align.
+  [mathias.leimgruber]
+
 - Add simplelayout capable behavior for sl dexterity containers.
   [jone]
 
