@@ -165,7 +165,7 @@
             name="simplelayout.base.actions.align"
             manager=".interfaces.ISimpleViewletListingProvider"
             class=".viewlets.SimpleLayoutAlignActionViewlet"
-            permission="zope2.View"
+            permission="cmf.ModifyPortalContent"
             />
 
 
