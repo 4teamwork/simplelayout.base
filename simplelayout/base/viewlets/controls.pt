@@ -14,7 +14,7 @@
       </div>
       <div class="sl-actions-wrapper showSimplelayoutControls">
         <ul class="sl-obj-actions"
-            tal:condition="actions">
+            tal:condition="python:actions or layouts">
 
           <li class="document-action-dragme">
             <a href="#" title="Dragme" i18n:attributes="title action_sl-drag">
@@ -132,6 +132,6 @@
       </div>
     </tal:b>
 
-    <span class="visualClear">&nbsp;</span>
+    <span class="visualClear"><!-- --></span>
   </div>
 </tal:if>

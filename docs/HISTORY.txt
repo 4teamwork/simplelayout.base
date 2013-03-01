@@ -5,7 +5,16 @@ Changelog
 3.0c4 (unreleased)
 ------------------
 
+- Simplelayout should not change the styling of default plone classes.
+  [Julian Infanger]
+
+- Fix controls condition for all actions (layout + content actions).
+  [mathias.leimgruber]
+
 - Only set a min-height on empty slots if you are dragging a block.
+  [Julian Infanger]
+
+- Removed all important statements from css.
   [Julian Infanger]
 
 - Fix css selector for empty dropzoneportlet.
