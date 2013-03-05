@@ -150,34 +150,6 @@
 	list-style-image: none;
 }
 
-#content .simplelayout-content .sl-controls .document-action-foldercontents a,
-.simplelayoutDropZonePortlet .simplelayout-content .sl-controls .document-action-foldercontents a {
-  display: block;
-  background-image: url(++resource++sl/icons/folder_icon.gif);
-  background-repeat: no-repeat;
-  width: 16px;
-  height: 16px;
-}
-
-#content .simplelayout-content .sl-controls .document-action-dragme a,
-.simplelayoutDropZonePortlet .simplelayout-content .sl-controls .document-action-dragme a {
-  display: block;
-  background-image: url(++resource++sl/icons/icon_move.png);
-  background-repeat: no-repeat;
-  width: 16px;
-  height: 16px;
-}
-
-
-#content .simplelayout-content .sl-controls .document-action-factory dt a,
-.simplelayoutDropZonePortlet .simplelayout-content .sl-controls .document-action-factory dt a {
-    display: block;
-    background-image: url(++resource++sl/icons/icon_add.png);
-    background-repeat: no-repeat;
-    width: 16px;
-    height: 16px;
-}
-
 #content .simplelayout-content .sl-controls dl,
 .simplelayoutDropZonePortlet .simplelayout-content .sl-controls dl {
     margin-bottom:0;
@@ -195,8 +167,8 @@
     margin:0;
 }
 
-#content .simplelayout-content .sl-controls .sl-layout.active img,
-.simplelayoutDropZonePortlet .simplelayout-content .sl-controls .sl-layout.active img{
+#content .simplelayout-content .sl-controls .sl-layout.active,
+.simplelayoutDropZonePortlet .simplelayout-content .sl-controls .sl-layout.active {
 	background-color:orange;
 	border:1px solid orange;
 }
@@ -218,7 +190,7 @@
     margin:0;
     padding:0;
     overflow: visible;
-    right:0;
+    right: -0.7em;
     top:1.8em;
     background: #ededed;
     border: 1px solid #d3d3d3;
@@ -372,4 +344,69 @@ clear:both;
 
 .simplelayout-content .right {
     text-align: left;
+}
+
+
+/*actions*/
+li.document-action-dragme a,
+li.slAction .actionMenuHeader > a,
+li.slAction > a {
+  width: 18px;
+  height: 18px;
+  text-indent: -8000px;
+  display: block;
+  background: url(++resource++sl/icons/sl_actions_sprites.png) no-repeat 0 100px;
+}
+li.slAction a.sl-edit-action {
+  background-position: 0 0;
+}
+li.slAction a.sl-delete-action {
+  background-position: 0 -64px;
+}
+li.slAction a.sl-multiupload-action {
+  background-position: 0 -128px;
+}
+li.document-action-dragme a {
+  background-position: 0 -192px;
+  cursor: move;
+}
+li.slAction a.sl-foldercontents {
+  background-position: 0 -256px;
+}
+li.slAction a.sl-factorymenu {
+  background-position: 0 -320px;
+}
+li.slAction a.layout_small {
+  background-position: 0 -384px;
+}
+li.slAction a.layout_middle {
+  background-position: 0 -448px;
+}
+li.slAction a.layout_full {
+  background-position: 0 -512px;
+}
+li.slAction a.layout_no-image {
+  background-position: 0 -576px;
+}
+li.slAction a.layout_middle-right {
+  background-position: 0 -640px;
+}
+li.slAction a.layout_small-right {
+  background-position: 0 -704px;
+}
+li.slAction a.layout_dummy-dummy-gallery {
+  background-position: 0 -768px;
+}
+li.slAction a.layout_dummy-dummy-dummy {
+  background-position: 0 -832px;
+}
+.addressblock li.slAction a.layout_dummy-dummy-dummy {
+  background-position: 0 -640px;
+}
+li.slAction a.layout_dummy-dummy-portlet {
+  background-position: 0 -896px;
+}
+/* sl folder factory */
+#content .sl-controls li.slAction .actionMenuContent li {
+  float: none;
 }

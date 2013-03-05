@@ -159,6 +159,7 @@ class SimpleLayoutControlsViewlet(ViewletBase):
                 yield {
                     'id': action['id'],
                     'icon': action['icon'],
+                    'title': action['title'],
                     'url': action['url']}
 
     def _check_permission(self, action):
