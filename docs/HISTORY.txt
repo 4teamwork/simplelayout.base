@@ -5,6 +5,9 @@ Changelog
 3.0c4 (unreleased)
 ------------------
 
+- Added flowplayer icon to sl control sprites.
+  [Julian Infanger]
+
 - Fix permission of simplelayout.base.actions.align.
   [mathias.leimgruber]
 
