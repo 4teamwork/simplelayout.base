@@ -2,8 +2,8 @@ Changelog
 =========
 
 
-3.0c4 (unreleased)
-------------------
+3.0 (2013-03-29)
+----------------
 
 - Added flowplayer icon to sl control sprites.
   [Julian Infanger]
