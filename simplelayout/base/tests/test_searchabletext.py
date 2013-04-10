@@ -83,15 +83,3 @@ class TestSearchableText(TestCase):
         self.page1.reindexObject()
         self.assertEquals(self.search_for('\xc3\xa4'), 1)
         self.assertEquals(self.search_for('\xc3\xbc'), 1)
-
-    def test_same_workflow(self):
-        self.assertEqual(SearchableText(self.page1)(), 'page1 block1 ')
-        conf = getUtility(ISlUtils, name='simplelayout.utils')
-        ori_isBlockWorkflowEnabled = getattr(conf, 'isBlockWorkflowEnabled')
-        setattr(conf, 'isBlockWorkflowEnabled', lambda: True)
-        try:
-            self.page1.reindexObject()
-            self.assertEqual(SearchableText(self.page1)(), 'page1 ')
-        finally:
-            setattr(conf, 'isBlockWorkflowEnabled',
-                    ori_isBlockWorkflowEnabled)

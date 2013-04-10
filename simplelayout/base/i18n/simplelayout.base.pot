@@ -29,10 +29,6 @@ msgstr ""
 msgid "Changes saved."
 msgstr ""
 
-#: ./simplelayout/base/configlet/interfaces.py:15
-msgid "Decide if Paragraphs can have their own workflow"
-msgstr ""
-
 #: ./simplelayout/base/configlet/interfaces.py:35
 msgid "Full/big size"
 msgstr ""
@@ -52,10 +48,6 @@ msgstr ""
 #. Default: "Normal"
 #: ./simplelayout/base/profiles/default/actions.xml
 msgid "Normal"
-msgstr ""
-
-#: ./simplelayout/base/configlet/interfaces.py:14
-msgid "Paragraph has Workflow"
 msgstr ""
 
 #: ./simplelayout/base/configlet/view.py:97

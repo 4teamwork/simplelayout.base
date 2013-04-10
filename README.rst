@@ -159,8 +159,7 @@ This FAQ provides some technical information/answers.
 
     config.py::
 
-      SL_CONFIGURATION = {'same_workflow' : True,
-                          'show_design_tab' : True,
+      SL_CONFIGURATION = {'show_design_tab' : True,
                           'small_size' : 145,
                           'middle_size' : 302,
                           'full_size' : 614,

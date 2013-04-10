@@ -6,11 +6,6 @@ from zope.interface import Interface
 class ISimplelayoutConfiguration(Interface):
     """This interface defines the configlet with basic configuration."""
 
-    same_workflow = schema.Bool(
-        title=_(u'paragraph has workflow'),
-        description=_(u'Decide if Paragraphs can have their own workflow'),
-        default=False)
-
     show_design_tab = schema.Bool(
         title=_(u"Show Design"),
         description=_(u'If enabled it is possible to change between 2 or '

@@ -78,7 +78,6 @@ class SimpleLayoutConfiguration(Persistent):
         ISimplelayoutConfigurationOneColumn,
         ISimplelayoutConfigurationTwoColumn)
 
-    same_workflow = FieldProperty(ISimplelayoutConfiguration['same_workflow'])
     show_design_tab = FieldProperty(
         ISimplelayoutConfiguration['show_design_tab'])
     show_design_tab_roles = FieldProperty(

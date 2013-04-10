@@ -1,9 +1,7 @@
 from plone.indexer import indexer
 from simplelayout.base.config import BLOCK_INTERFACES
 from simplelayout.base.interfaces import ISimpleLayoutCapable
-from simplelayout.base.interfaces import ISlUtils
 from zope.component import adapts
-from zope.component import getUtility
 
 
 @indexer(ISimpleLayoutCapable)
@@ -15,19 +13,16 @@ def SearchableText(obj):
 
 def get_blocks_searchable_text(obj):
     searchable_text = ''
-    # only index sub-blocks if blockworkflow is not enabled
-    conf = getUtility(ISlUtils, name='simplelayout.utils')
-    if not conf.isBlockWorkflowEnabled():
-        contents = obj.getFolderContents(
-            {'object_provides': BLOCK_INTERFACES,
-             'sort_order': 'getObjPositionInParent'},
-            full_objects=True)
-        for content in contents:
-            # do not add SearchableText if content is a file
-            if content.portal_type != 'File':
-                searchable_text += content.SearchableText()
-        if isinstance(searchable_text, unicode):
-            searchable_text = searchable_text.encode('utf8')
+    contents = obj.getFolderContents(
+        {'object_provides': BLOCK_INTERFACES,
+         'sort_order': 'getObjPositionInParent'},
+        full_objects=True)
+    for content in contents:
+        # do not add SearchableText if content is a file
+        if content.portal_type != 'File':
+            searchable_text += content.SearchableText()
+    if isinstance(searchable_text, unicode):
+        searchable_text = searchable_text.encode('utf8')
     return searchable_text
 
 

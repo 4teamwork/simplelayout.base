@@ -1,8 +1,6 @@
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import PloneMessageFactory as _
 from Products.CMFPlone import utils
-from plone.app.contentmenu.interfaces import IContentMenuView
-from plone.app.contentmenu.view import ContentMenuProvider
 from plone.memoize.instance import memoize
 from simplelayout.base.interfaces import ISlUtils, ISimpleLayoutCapable
 from zope.component.hooks import getSite
@@ -96,24 +94,3 @@ class BlockDesignMenu(BrowserMenu):
                             })
 
         return results
-
-
-class BlockWorkflowMenu(ContentMenuProvider):
-    """Content menu provider for block workflow changes
-    """
-
-    implements(IContentMenuView)
-
-    def menu(self):
-        menu = getUtility(IBrowserMenu, name='plone_contentmenu')
-        items = menu.getMenuItems(self.context, self.request)
-
-        # copied from bernarticle.core.
-        items = [item for item in items if item['title'] == 'label_state']
-
-        for item in items:
-            extra = item.get('extra')
-            extra['id'] = '%s-%s' % (extra.get('id'), self.context.getId())
-            item['extra'] = extra
-
-        return items

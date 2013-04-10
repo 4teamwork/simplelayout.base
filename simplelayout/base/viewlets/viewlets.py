@@ -189,10 +189,6 @@ class SimpleLayoutControlsViewlet(ViewletBase):
 
         return None
 
-    def isWorkflowEnabled(self):
-        conf = getUtility(ISlUtils, name='simplelayout.utils')
-        return conf.isBlockWorkflowEnabled()
-
     def _get_factory_menu(self):
         # Copied from factory menu tests
         if not getattr(self.context, 'isPrincipiaFolderish', False):
