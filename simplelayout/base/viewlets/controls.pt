@@ -126,9 +126,6 @@
           </tal:layout-actions>
         </ul>
 
-        <div class="sl-workflowChanger" tal:condition="view/isWorkflowEnabled">
-          <div tal:replace="structure provider:simplelayout.base.workflowmenu" />
-        </div>
       </div>
     </tal:b>
 

@@ -14,10 +14,6 @@ UNSUPPORTED_IMAGE_TYPES = ['image/x-ms-bmp', ]
 
 class SlUtils(object):
 
-    def isBlockWorkflowEnabled(self):
-        conf = getUtility(ISimplelayoutConfiguration, name='sl-config')
-        return conf.same_workflow
-
     def getSizeAttributesByInterface(self, content, size):
         #XXX get infos by a given value or by request
         current_iface = None

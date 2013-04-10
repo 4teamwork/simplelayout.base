@@ -11,12 +11,6 @@ Set manager role for test user
     >>> setRoles(portal, TEST_USER_ID, ['Manager',])
     >>> transaction.commit()
 
-Make sure that the blocks dont have their own workflow
-     >>> from zope.component import getUtility
-     >>> from simplelayout.base.interfaces import ISlUtils
-     >>> conf = getUtility(ISlUtils, name='simplelayout.utils')
-     >>> transaction.commit()
-
 Create some content
     >>> if 'p1' in portal.objectIds():
     ...     portal.manage_delObjects(['p1'])

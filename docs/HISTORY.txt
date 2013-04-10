@@ -5,7 +5,9 @@ Changelog
 3.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Remove everything related to workflow manipulation
+  from simplaylout
+  [mathias.leimgruber]
 
 
 3.0 (2013-03-29)

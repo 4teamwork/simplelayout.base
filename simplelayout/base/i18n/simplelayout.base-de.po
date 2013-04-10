@@ -29,10 +29,6 @@ msgstr "Änderungen abgebrochen, Daten wurden nicht gespeichert"
 msgid "Changes saved."
 msgstr "Änderungen wurden gespeichert"
 
-#: ./simplelayout/base/configlet/interfaces.py:15
-msgid "Decide if Paragraphs can have their own workflow"
-msgstr "Können Inhaltsblöcke einen eigenen Workflow haben?"
-
 #: ./simplelayout/base/configlet/interfaces.py:35
 msgid "Full/big size"
 msgstr "Volle Grösse"
@@ -61,9 +57,6 @@ msgstr "Zwei Spalten"
 #: ./simplelayout/base/profiles/default/actions.xml
 msgid "Two columns one on top"
 msgstr "Zwei Spalten + Eine Spalte oben"
-
-msgid "paragraph has workflow"
-msgstr "Inhaltsblöcke haben ihren eigenen Workflow"
 
 #: ./simplelayout/base/configlet/view.py:97
 msgid "Recalculadted all Images."
