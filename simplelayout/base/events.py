@@ -19,10 +19,6 @@ LOG = logging.getLogger('simplelayout.base')
 
 def set_initial_layout(obj, event):
     content = event.object
-    parent = content.aq_parent
-
-    if not ISimpleLayoutCapable.providedBy(parent):
-        return
 
     blockconf = IBlockConfig(content)
 
