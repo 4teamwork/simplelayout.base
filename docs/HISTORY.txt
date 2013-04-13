@@ -5,6 +5,10 @@ Changelog
 3.0.1 (unreleased)
 ------------------
 
+- No longer restrict setting set_initial_layout on objects inside
+  a ISimplelayoutCapable container.
+  [mathias.leimgruber]
+
 - Remove everything related to workflow manipulation
   from simplaylout
   [mathias.leimgruber]
