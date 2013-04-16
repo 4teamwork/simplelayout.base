@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-3.0.1 (unreleased)
+3.0.1 (2013-04-16)
 ------------------
 
 - No longer restrict setting set_initial_layout on objects inside
