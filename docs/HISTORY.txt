@@ -5,7 +5,9 @@ Changelog
 3.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix tests - Fill text field with html.
+  Otherwise plone guesses the mimetyp wrong (text/plain).
+  [mathias.leimgruber]
 
 
 3.0.1 (2013-04-16)

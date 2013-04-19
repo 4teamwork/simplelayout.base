@@ -30,7 +30,7 @@ Login
 Create a new block and search for the page
     >>> browser.open(portal.p1.absolute_url() + '/createObject?type_name=Paragraph')
     >>> browser.getControl(name='title').value = 'block1'
-    >>> browser.getControl(name='text').value = 'loremipsum'
+    >>> browser.getControl(name='text').value = '<p>loremipsum</p>'
     >>> browser.getControl(name='form.button.save').click()
 
     >>> len(portal.portal_catalog(SearchableText='loremipsum', portal_type='Page'))

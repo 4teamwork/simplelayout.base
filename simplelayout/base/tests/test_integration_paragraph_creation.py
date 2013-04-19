@@ -48,7 +48,7 @@ class TestParagraphCreation(TestCase):
         self._auth()
         self.browser.open("%s/createObject?type_name=Paragraph" %
             self.page.absolute_url())
-        self.browser.getControl(name='text').value = 'DUMMY-TEXT'
+        self.browser.getControl(name='text').value = '<p>DUMMY-TEXT</p>'
         self.browser.getControl('Save').click()
         self.browser.open(self.page.absolute_url())
         self.assertIn('BlockOverallWrapper', self.browser.contents)
