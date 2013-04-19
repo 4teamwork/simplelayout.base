@@ -276,3 +276,7 @@ Copyright
 This package is copyright by `4teamwork <http://www.4teamwork.ch/>`_.
 
 ``simplelayout.base`` is licensed under GNU General Public License, version 2.
+
+.. image:: https://cruel-carlota.pagodabox.com/77a0517e0595df9710c1c8fc7fcc13e2
+   :alt: githalytics.com
+   :target: http://githalytics.com/4teamwork/simplelayout.base
