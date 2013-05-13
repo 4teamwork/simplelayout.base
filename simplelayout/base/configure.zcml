@@ -72,10 +72,10 @@
 
     <genericsetup:registerProfile
       name="v30b8"
-      title="simplelayout.base"
+      title="simplelayout.base: v30b8"
       directory="profiles/v30b8"
       description="Simplelayout"
-      provides="Products.GenericSetup.interfaces.EXTENSION"
+      provides="Products.GenericSetup.interfaces.BASE"
       />
 
     <browser:page
