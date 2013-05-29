@@ -5,6 +5,9 @@ Changelog
 3.0.2 (unreleased)
 ------------------
 
+- Use percentual padding for 2 column layout.
+  [tschanzt]
+
 - Fix tests - Fill text field with html.
   Otherwise plone guesses the mimetyp wrong (text/plain).
   [mathias.leimgruber]

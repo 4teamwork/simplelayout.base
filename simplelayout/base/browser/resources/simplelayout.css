@@ -233,7 +233,7 @@ div.documentActions ul.simplelayout{
 
 
 .simplelayout-content div[id*=slot] {
-  padding: 1px;
+  padding: 0 0.5%;
 }
 
 .highlightBorder {
@@ -288,7 +288,7 @@ clear:both;
 }
 
 #content .simplelayout-content.two-columns-design .twocolumn {
-    width:49.7%;
+    width:49%;
     float:left;
 }
 
