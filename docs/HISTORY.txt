@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-3.0.2 (unreleased)
+3.0.2 (2013-05-31)
 ------------------
 
 - Use percentual padding for 2 column layout.
