@@ -238,6 +238,7 @@ div.documentActions ul.simplelayout{
 
 .highlightBorder {
     border:1px dotted #8CACBB;
+    margin: -1px;
     padding: 0px;
 }
 
