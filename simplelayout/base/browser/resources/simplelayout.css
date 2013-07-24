@@ -84,6 +84,7 @@
     margin-bottom: -4em;
     z-index: 2;
     direction:ltr;
+    font-size: 12px;
 }
 
 #content .simplelayout-content .sl-controls img,
