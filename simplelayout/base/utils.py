@@ -114,10 +114,11 @@ class BlockLayout(BaseBlockControl):
 
         if not fieldname:
             fieldname = 'image'
-
-        blockconf.image_layout = layout
-        blockconf.viewname = viewname
-
+        if layout != '' and layout != 'dummy-dummy':
+            blockconf.image_layout = layout
+        if viewname != '' and viewname != 'dummy':
+            blockconf.viewname = viewname
+        return blockconf.viewname
 
 class ImageScaler(object):
     implements(IScaleImage)
