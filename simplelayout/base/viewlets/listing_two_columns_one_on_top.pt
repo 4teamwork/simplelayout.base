@@ -10,7 +10,7 @@
 			     class=""
 			     tal:content="structure python:view.renderBlockProvider(result)">block</div>
 		</tal:repeat>
-        <span class="visualClear"><!-- --></span>
+        <div class="visualClear"><!-- --></div>
      </div>
 
     <div id="slotB" tal:attributes="class python:resultsleft and 'twocolumn left' or 'twocolumn left emptymarker'">
@@ -22,7 +22,7 @@
 			     class=""
 			     tal:content="structure python:view.renderBlockProvider(result)">block</div>
 		</tal:repeat>
-        <span class="visualClear"><!-- --></span>
+        <div class="visualClear"><!-- --></div>
      </div>
 
     <div id="slotC" class="twocolumn right" tal:attributes="class python:resultsright and 'twocolumn right' or 'twocolumn right emptymarker'">
@@ -35,5 +35,5 @@
 			     tal:content="structure python:view.renderBlockProvider(result)">block</div>
 		</tal:repeat>
      </div>
-	<span class="visualClear"><!-- --></span>
+	<div class="visualClear"><!-- --></div>
 </div>
