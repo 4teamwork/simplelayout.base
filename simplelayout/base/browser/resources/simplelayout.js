@@ -20,16 +20,15 @@ simplelayout.alignBlockToGridAction = function(){
             left_block_content.css('height','');
             // calc block height, to prevent problems with float, we take the overallblock height
             // includes the controls area, then overallblockheight - controlsheight
-            left_height = $(left_block).height() - left_block_controls.height();
+            left_height = $(left_block).height();
         }
 
         if  (typeof(right_block) != 'undefined'){
             var right_block_content = $('.simplelayout-block-wrapper',right_block);
             var right_block_controls = $('.sl-controls',right_block);
             right_block_content.css('height','');
-            right_height = $(right_block).height() - right_block_controls.height();
+            right_height = $(right_block).height();
         }
-
 
 
         if ((left_height > 0 && right_height > 0) && (parseInt(simplelayout.align_to_grid)==1)) {
@@ -53,7 +52,7 @@ simplelayout.alignBlockToGridAction = function(){
 
     //reset all others (if block moved to onecolumn slot)
     $('.onecolumn .BlockOverallWrapper').css('height','');
-    $.post(getBaseUrl()+'block_manipulation/setBlockHeights',{'uids:list':all_uids,'left:list':all_left_blocks, 'right:list':all_right_blocks}, function(data){});
+    $.post(getBaseUrl()+'block_manipulation/setBlockHeights',{'uids:list':all_uids,'left:list':all_left_blocks, 'right:list':all_right_blocks});
 };
 
 

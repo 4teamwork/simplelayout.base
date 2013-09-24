@@ -5,6 +5,9 @@ Changelog
 3.0.3 (unreleased)
 ------------------
 
+- Fix dragndrop for two column layout.
+  [tschanzt]
+
 - The sizes in simplelayout controls should not be affected by font-size.
   [Julian Infanger]
 

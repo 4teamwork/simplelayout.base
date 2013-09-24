@@ -224,7 +224,7 @@ class BlockManipulation(BrowserView):
         # XXX:
         # Don't understand, why the varname:list, will shown as
         # varname:list[]
-        # I just make this work, but i need to be fixed
+        # I just make this work, but it needs to be fixed
 
         uids = self.request.get('uids:list[]', [])
         # In case if only one block is available
@@ -250,5 +250,4 @@ class BlockManipulation(BrowserView):
             else:
                 #remove heights
                 blockconf.block_height = None
-
         return 1
