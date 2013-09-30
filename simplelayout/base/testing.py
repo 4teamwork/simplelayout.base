@@ -5,11 +5,12 @@ from plone.app.testing import IntegrationTesting
 from plone.app.testing import FunctionalTesting
 from zope.configuration import xmlconfig
 from plone.testing.z2 import installProduct
-
+from ftw.builder.testing import BUILDER_LAYER
+from simplelayout.base.tests import builders
 
 class SimplelayoutBaseLayer(PloneSandboxLayer):
 
-    defaultBases = (PLONE_FIXTURE, )
+    defaultBases = (PLONE_FIXTURE, BUILDER_LAYER)
 
     def setUpZope(self, app, configurationContext):
         # Load ZCML
@@ -26,6 +27,7 @@ class SimplelayoutBaseLayer(PloneSandboxLayer):
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup
         applyProfile(portal, 'simplelayout.base:default')
+        applyProfile(portal, 'simplelayout.types.common:default')
 
 
 SL_BASE_FIXTURE = SimplelayoutBaseLayer()
