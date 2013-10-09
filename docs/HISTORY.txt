@@ -42,6 +42,9 @@ Changelog
 - Fix dragndrop for two column layout.
   [tschanzt]
 
+- Make layoutchanges possible on second view.
+  [tschanzt]
+
 - The sizes in simplelayout controls should not be affected by font-size.
   [Julian Infanger]
 
