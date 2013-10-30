@@ -99,10 +99,10 @@
           <li class="slAction" tal:repeat="action view/getActions">
             <a href="" i18n:attributes="title"
                tal:attributes="href action/url;
-                               title string:action_${action/id};
+                               title string:${action/title};
                                class string:${action/id}-action;">
               <span i18n:translate=""
-                    tal:content="string:action_${action/id}"
+                    tal:content="string:${action/title}"
                     />
             </a>
           </li>

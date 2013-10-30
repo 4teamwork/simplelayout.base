@@ -5,7 +5,7 @@ Changelog
 3.0.4 (unreleased)
 ------------------
 
-- Remove old i18n directory and translte everything from scratch.
+- Remove old i18n directory and translate everything from scratch.
   [mathias.leimgruber]
 
 
