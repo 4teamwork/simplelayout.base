@@ -119,7 +119,7 @@
                                    id string:${here/UID}_${layout_name};
                                    title layout/title;
                                    class string:layout_${layout_name}">
-                  <span i18n:translate="" tal:content="string:sl_layout_${layout_name}"></span>
+                  <span i18n:translate="" tal:content="string:${layout/title}"></span>
                 </a>
               </li>
             </tal:block>
