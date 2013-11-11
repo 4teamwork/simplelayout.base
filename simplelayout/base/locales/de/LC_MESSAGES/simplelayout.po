@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-10-30 12:45+0000\n"
+"POT-Creation-Date: 2013-11-11 08:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,6 +22,12 @@ msgstr "Änderungen abgebrochen, Daten wurden nicht gespeichert"
 #: ./simplelayout/base/configlet/view.py:54
 msgid "Changes saved."
 msgstr "Änderungen wurden gespeichert"
+
+msgid "Delete"
+msgstr "Löschen"
+
+msgid "Edit"
+msgstr "Bearbeiten"
 
 #: ./simplelayout/base/configlet/interfaces.py:17
 msgid "Enter roles which can change the designs. Ignores if nothing is specified. One per line."
@@ -113,18 +119,10 @@ msgstr "Zwei Spalten"
 msgid "Two columns one on top"
 msgstr "Zwei Spalten + Eine Spalte oben"
 
-#. Default: "Block löschen"
-msgid "action_sl-delete"
-msgstr "Block Löschen"
-
 #. Default: "Dragme"
 #: ./simplelayout/base/viewlets/controls.pt:20
 msgid "action_sl-drag"
 msgstr "Block verschieben"
-
-#. Default: "Block bearbeiten"
-msgid "action_sl-edit"
-msgstr "Block bearbeiten"
 
 #. Default: "Folder contents"
 #: ./simplelayout/base/viewlets/controls.pt:89

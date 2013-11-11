@@ -17,10 +17,10 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: simplelayout\n"
 
-msgid "action_sl-edit"
+msgid "Edit"
 msgstr ""
 
-msgid "action_sl-delete"
+msgid "Delete"
 msgstr ""
 
 msgid "Squarish"

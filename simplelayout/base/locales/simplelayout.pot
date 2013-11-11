@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-10-30 12:45+0000\n"
+"POT-Creation-Date: 2013-11-11 08:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,6 +27,12 @@ msgstr ""
 
 #: ./simplelayout/base/configlet/view.py:54
 msgid "Changes saved."
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Edit"
 msgstr ""
 
 #: ./simplelayout/base/configlet/interfaces.py:17
@@ -119,15 +125,9 @@ msgstr ""
 msgid "Two columns one on top"
 msgstr ""
 
-msgid "action_sl-delete"
-msgstr ""
-
 #. Default: "Dragme"
 #: ./simplelayout/base/viewlets/controls.pt:20
 msgid "action_sl-drag"
-msgstr ""
-
-msgid "action_sl-edit"
 msgstr ""
 
 #. Default: "Folder contents"
