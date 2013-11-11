@@ -5,6 +5,9 @@ Changelog
 3.0.4 (unreleased)
 ------------------
 
+- Update english translations
+  [mathias.leimgruber]
+
 - Update german translations
   [mathias.leimgruber]
 
