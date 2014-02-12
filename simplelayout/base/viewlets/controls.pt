@@ -2,7 +2,7 @@
         define="actions python:tuple(view.getActions());
                 layouts python:tuple(view.getLayouts())"
         i18n:domain="simplelayout">
-  <div class="sl-controls" style="width:600px" tal:condition="python:actions or layouts">
+  <div class="sl-controls" tal:condition="python:actions or layouts">
 
     <tal:b
         tal:define="current_layout python: view.getCurrentLayout(here);
@@ -10,13 +10,13 @@
       <div class="sl-toggle-edit-bar-wrapper"
            title="Toggle edit bar"
            i18n:attributes="title action_sl-toogle">
-        <div class="sl-toggle-edit-bar ui-icon ui-icon-triangle-1-e"></div>
+        <div class="sl-toggle-edit-bar ui-icon ui-icon-gear"></div>
       </div>
-      <div class="sl-actions-wrapper showSimplelayoutControls">
+      <div class="sl-actions-wrapper">
         <ul class="sl-obj-actions"
             tal:condition="python:actions or layouts">
 
-          <li class="document-action-dragme">
+          <li class="document-action-dragme first-sl-control">
             <a href="#" title="Dragme" i18n:attributes="title action_sl-drag">
               &nbsp;
             </a>

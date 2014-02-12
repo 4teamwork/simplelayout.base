@@ -5,7 +5,8 @@ Changelog
 3.0.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Rework sl-controls so they don't interfere with clicking on links.
+  [tschanzt]
 
 
 3.0.4 (2013-12-13)

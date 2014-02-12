@@ -85,6 +85,7 @@
     z-index: 2;
     direction:ltr;
     font-size: 12px;
+    margin-top: -38px;
 }
 
 #content .simplelayout-content .sl-controls img,
@@ -136,6 +137,12 @@
     background: -o-linear-gradient(#ededed, #f9f9f9); /*opera 11.10+*/
     background: linear-gradient(#ededed, #f9f9f9); /*future CSS3 browsers*/
     -pie-background: linear-gradient(#ededed, #f9f9f9); /*PIE*/
+}
+#content .simplelayout-content .sl-controls .sl-obj-actions .first-sl-control,
+#content .simplelayout-content .sl-controls .sl-obj-layouts .first-sl-control,
+.simplelayoutDropZonePortlet .simplelayout-content .sl-controls .sl-obj-actions .first-sl-control,
+.simplelayoutDropZonePortlet .simplelayout-content .sl-controls .sl-obj-layouts .first-sl-control {
+    border-top-left-radius: 5px;
 }
 
 #content .simplelayout-content .sl-controls a,
@@ -308,8 +315,13 @@ clear:both;
     background: linear-gradient(#f9f9f9, #ededed); /*future CSS3 browsers*/
     -pie-background: linear-gradient(#f9f9f9, #ededed); /*PIE*/
     height:2.5em;
-    width:1em;
+    width:2.5em;
     float:right;
+    border-radius: 5px 5px 0px 0px;
+}
+#content .sl-toggle-edit-bar-wrapper.controlsActive,
+.simplelayoutDropZonePortlet .sl-toggle-edit-bar-wrapper.controlsActive {
+    border-top-left-radius: 0px;
 }
 
 #content .sl-toggle-edit-bar-wrapper:hover,
