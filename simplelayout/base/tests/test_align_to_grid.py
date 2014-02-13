@@ -23,7 +23,7 @@ class TestPermission(TestCase):
         logout()
 
     def test_permission_reader(self):
-        setRoles(self.portal, TEST_USER_ID, ['reader'])
+        setRoles(self.portal, TEST_USER_ID, ['Reader'])
         login(self.portal, TEST_USER_NAME)
         viewlet = SimpleLayoutAlignActionViewlet(self.portal, self.portal.REQUEST, 'simplelayout')
         self.assertFalse(viewlet.has_permission())
