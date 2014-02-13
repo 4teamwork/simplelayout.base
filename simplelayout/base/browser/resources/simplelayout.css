@@ -101,7 +101,12 @@
 	list-style-type:none;
 	list-style-image: none;
 }
-
+.sl-toggle-edit-bar-wrapper .sl-toggle-edit-bar {
+  background: url(++resource++sl/icons/sl_actions_sprites.png) no-repeat 0 -1024px;
+}
+.sl-toggle-edit-bar-wrapper.controlsActive .sl-toggle-edit-bar {
+  background-position: 0 -1088px;
+}
 
 #content .simplelayout-content .sl-controls .sl-obj-actions > li,
 #content .simplelayout-content .sl-controls .sl-obj-layouts > li,
@@ -305,6 +310,7 @@ clear:both;
 #content .sl-toggle-edit-bar-wrapper:hover,
 .simplelayoutDropZonePortlet .sl-toggle-edit-bar-wrapper,
 .simplelayoutDropZonePortlet .sl-toggle-edit-bar-wrapper:hover {
+  cursor: pointer;
 	border: 1px solid #d3d3d3;
     background: #ededed; /*fallback for non-CSS3 browsers*/
     background: -webkit-gradient(linear, 0 0, 0 100%, from(#f9f9f9) to(#ededed)); /*old webkit*/
@@ -338,8 +344,8 @@ clear:both;
 
 #content .sl-toggle-edit-bar,
 .simplelayoutDropZonePortlet .sl-toggle-edit-bar {
-    left: -0.2em;
-    top: 0.6em;
+    left: 0.5em;
+    top: 0.5em;
     position:relative;
 }
 
