@@ -5,6 +5,9 @@ Changelog
 3.0.3 (unreleased)
 ------------------
 
+- Add Permission to align to grid action.
+  [tschanzt]
+
 - Fix dragndrop for two column layout.
   [tschanzt]
 
