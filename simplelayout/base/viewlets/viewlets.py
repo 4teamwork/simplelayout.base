@@ -21,7 +21,9 @@ from zope.contentprovider.tales import addTALNamespaceData
 from zope.interface import implements
 import logging
 import zope.component
+from AccessControl import getSecurityManager
 from plone.app.contentmenu.interfaces import IBrowserMenu
+from Products.CMFCore.permissions import ModifyPortalContent
 
 
 logger = logging.getLogger(__name__)
@@ -248,3 +250,7 @@ class SimpleLayoutAlignActionViewlet(ViewletBase):
         if ISimplelayoutTwoColumnOneOnTopView.providedBy(context):
             return True
         return False
+
+    def has_permission(self):
+        sm = getSecurityManager()
+        return sm.checkPermission(ModifyPortalContent, self.context)

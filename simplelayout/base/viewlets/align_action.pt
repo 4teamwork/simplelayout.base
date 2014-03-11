@@ -1,5 +1,5 @@
 <div class="slAlignBlocks"
-     tal:condition="view/isTwoColumnLayout">
+     tal:condition="python: view.isTwoColumnLayout() and view.has_permission()">
     Simplelayout:
     <a href="#"
        id="alignallblocks">

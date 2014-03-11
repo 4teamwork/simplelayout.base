@@ -6,6 +6,7 @@ version = '3.0.5.dev0'
 tests_require = [
     'plone.app.testing',
     'plone.mocktestcase',
+    'ftw.builder',
     ]
 
 setup(name='simplelayout.base',
