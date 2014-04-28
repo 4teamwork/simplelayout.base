@@ -8,11 +8,52 @@ These elements are implemented as addable and easily arrangeable "blocks".
 Because of the restricted dimensions of text, images and other content elements,
 the general result is content with a uniform look and feel throughout the site.
 
+.. WARNING::
+
+  ``simplelayout.base >= 4.0`` does no longer include and install the old
+  simplelayout types. If you still use them, also install
+  `simplelayout.types.common`_.
+  But we encourage you the newer implementation in `ftw.contentpage`_!
+
+
+Installing simplelayout
+=======================
+
+**New ftw.contentpage implementation**
+
+The package ``simplelayout.base`` nowadays does no longer contain the content
+type implementation. We encourage you to install `ftw.contentpage`_, which
+bases on ``simlelayout.base`` and provides a simplelayout content page type
+and the necessary block types.
+
+Please follow the installation instructions in the
+`readme of ftw.contentpage <https://github.com/4teamwork/ftw.contentpage#installing>`_.
+
+
+**Old simplelayout types**
+
+If you, however, want to install the old simplelayout types, you may want to
+install `simplelayout.types.common`_.
+
+You need to install both, ``simplelayout.base`` and ``simplelayout.types.common``::
+
+    [buildout]
+    ...
+
+    [instance]
+    eggs +=
+        simplelayout.base
+        simplelayout.types.common
+
+And install ``simplelayout.base`` and ``simplelayout.types.common`` generic
+setup profiles.
+
+
 
 How to use SimpleLayout
 =======================
 
-Check out our new video section on plone.org:
+Check out our video section on plone.org:
 http://plone.org/products/simplelayout.base/documentation
 
 1.) Add a new Page from the "Add new" dropdown.
@@ -277,6 +318,8 @@ This package is copyright by `4teamwork <http://www.4teamwork.ch/>`_.
 
 ``simplelayout.base`` is licensed under GNU General Public License, version 2.
 
+.. _ftw.contentpage: https://github.com/4teamwork/ftw.contentpage
+.. _simplelayout.types.common: https://github.com/4teamwork/simplelayout.types.common
 .. image:: https://cruel-carlota.pagodabox.com/77a0517e0595df9710c1c8fc7fcc13e2
    :alt: githalytics.com
    :target: http://githalytics.com/4teamwork/simplelayout.base

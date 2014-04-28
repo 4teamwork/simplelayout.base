@@ -2,10 +2,13 @@ Changelog
 =========
 
 
-3.0.5 (unreleased)
+4.0.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Drop simplelayout.types.common dependency.
+  If you still use simplelayout.types.common pages, you
+  need to verify that you still install it when upgrading!
+  [jone]
 
 
 3.0.4 (2013-12-13)

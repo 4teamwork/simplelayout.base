@@ -3,7 +3,6 @@
     <description>simplelayout</description>
     <version>3.0b8</version>
   <dependencies>
-    <dependency>profile-simplelayout.types.common:default</dependency>
     <dependency>profile-simplelayout.ui.base:default</dependency>
     <dependency>profile-simplelayout.ui.dragndrop:default</dependency>
   </dependencies>

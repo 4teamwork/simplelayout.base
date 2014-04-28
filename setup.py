@@ -1,11 +1,12 @@
 from setuptools import setup, find_packages
 import os
 
-version = '3.0.5.dev0'
+version = '4.0.0.dev0'
 
 tests_require = [
     'plone.app.testing',
     'plone.mocktestcase',
+    'simplelayout.types.common',
     'ftw.builder',
     ]
 
@@ -42,7 +43,6 @@ setup(name='simplelayout.base',
       install_requires=[
         'setuptools',
         'archetypes.schemaextender',
-        'simplelayout.types.common',
         'simplelayout.ui.base',
         'simplelayout.ui.dragndrop'
         ],
