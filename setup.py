@@ -4,10 +4,11 @@ import os
 version = '4.0.0.dev0'
 
 tests_require = [
+    'ftw.builder',
+    'ftw.testing',
     'plone.app.testing',
     'plone.mocktestcase',
     'simplelayout.types.common',
-    'ftw.builder',
     ]
 
 setup(name='simplelayout.base',

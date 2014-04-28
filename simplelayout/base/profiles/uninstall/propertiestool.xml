@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<object name="portal_properties" meta_type="Plone Properties Tool">
+
+    <object name="site_properties" meta_type="Plone Property Sheet">
+
+        <property name="default_page_types" type="lines" purge="False">
+            <element value="Page" remove="True" />
+        </property>
+
+        <property name="types_not_searched" type="lines" purge="False">
+            <element value="Paragraph" remove="True"/>
+        </property>
+
+    </object>
+
+</object>
