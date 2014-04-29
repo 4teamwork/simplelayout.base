@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<object name="portal_css" meta_type="Stylesheets Registry" autogroup="False">
+
+    <stylesheet remove="True" id="++resource++sl/simplelayout.css" />
+
+</object>

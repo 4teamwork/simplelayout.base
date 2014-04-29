@@ -74,6 +74,21 @@
       />
 
     <genericsetup:registerProfile
+      name="uninstall"
+      title="Uninstall simplelayout.base"
+      directory="profiles/uninstall"
+      description=""
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+    <genericsetup:importStep
+        name="simplelayout.base.various"
+        title="simplelayout.base custom import handlers"
+        description=""
+        handler="simplelayout.base.setuphandlers.import_various"
+        />
+
+    <genericsetup:registerProfile
       name="v30b8"
       title="simplelayout.base: v30b8"
       directory="profiles/v30b8"
