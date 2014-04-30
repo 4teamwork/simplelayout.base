@@ -10,6 +10,10 @@ from simplelayout.base.interfaces import ISlotD
 from simplelayout.base.interfaces import IThreeColumn
 from simplelayout.base.interfaces import ITwoColumn
 
+
+PROJECTNAME = 'simplelayout.base'
+
+
 BLOCK_INTERFACES = [
     'simplelayout.base.interfaces.ISimpleLayoutBlock',
     ]
