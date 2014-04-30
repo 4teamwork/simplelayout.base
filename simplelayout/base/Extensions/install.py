@@ -1,7 +1,5 @@
 from Products.CMFCore.utils import getToolByName
-
-
-PROJECTNAME = 'simplelayout.base'
+from simplelayout.base.config import PROJECTNAME
 
 
 def uninstall(self):
