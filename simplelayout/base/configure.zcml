@@ -79,6 +79,7 @@
       directory="profiles/uninstall"
       description=""
       provides="Products.GenericSetup.interfaces.EXTENSION"
+      for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
       />
 
     <genericsetup:importStep
