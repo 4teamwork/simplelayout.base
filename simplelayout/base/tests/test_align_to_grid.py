@@ -2,7 +2,7 @@ from plone.app.testing import TEST_USER_ID
 from plone.app.testing import TEST_USER_NAME
 from plone.app.testing import login, logout
 from plone.app.testing import setRoles
-from simplelayout.base.testing import SL_BASE_INTEGRATION_TESTING
+from simplelayout.base.testing import SL_TYPES_INTEGRATION_TESTING
 from simplelayout.base.viewlets.viewlets import SimpleLayoutAlignActionViewlet
 from unittest2 import TestCase
 from ftw.builder import Builder
@@ -10,7 +10,7 @@ from ftw.builder import create
 
 
 class TestPermission(TestCase):
-    layer = SL_BASE_INTEGRATION_TESTING
+    layer = SL_TYPES_INTEGRATION_TESTING
 
     def setUp(self):
         self.portal = self.layer['portal']

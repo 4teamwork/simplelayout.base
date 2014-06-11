@@ -1,7 +1,7 @@
 import unittest2 as unittest
 import doctest
 from plone.testing import layered
-from simplelayout.base.testing import SL_BASE_INTEGRATION_TESTING
+from simplelayout.base.testing import SL_TYPES_INTEGRATION_TESTING
 
 
 DOCTEST_FILES = [
@@ -15,6 +15,6 @@ def test_suite():
     for doctest_file in DOCTEST_FILES:
         suite.addTests([
             layered(doctest.DocFileSuite(doctest_file),
-                    layer=SL_BASE_INTEGRATION_TESTING),
+                    layer=SL_TYPES_INTEGRATION_TESTING),
         ])
     return suite

@@ -3,14 +3,14 @@ from plone.app.testing import TEST_USER_ID
 from plone.app.testing import TEST_USER_NAME, TEST_USER_PASSWORD
 from plone.testing.z2 import Browser
 from simplelayout.base.interfaces import ISimpleLayoutCapable
-from simplelayout.base.testing import SL_BASE_INTEGRATION_TESTING
+from simplelayout.base.testing import SL_TYPES_INTEGRATION_TESTING
 from unittest2 import TestCase
 import transaction
 
 
 class TestPageCreation(TestCase):
 
-    layer = SL_BASE_INTEGRATION_TESTING
+    layer = SL_TYPES_INTEGRATION_TESTING
 
     def setUp(self):
         super(TestPageCreation, self).setUp()
