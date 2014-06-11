@@ -9,7 +9,7 @@ from simplelayout.base.interfaces import ISimplelayoutView
 from simplelayout.base.interfaces import ISlotA
 from simplelayout.base.interfaces import ISlotB
 from simplelayout.base.interfaces import ISlotD
-from simplelayout.base.testing import SL_BASE_INTEGRATION_TESTING
+from simplelayout.base.testing import SL_TYPES_INTEGRATION_TESTING
 from unittest2 import TestCase
 from zope.event import notify
 from zope.interface import alsoProvides
@@ -19,7 +19,7 @@ from zope.lifecycleevent import ObjectMovedEvent
 
 class TestHandlers(TestCase):
 
-    layer = SL_BASE_INTEGRATION_TESTING
+    layer = SL_TYPES_INTEGRATION_TESTING
 
     def setUp(self):
         super(TestHandlers, self).setUp()

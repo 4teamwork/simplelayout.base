@@ -11,6 +11,7 @@ from zope.component.interfaces import ComponentLookupError
 from zope.contentprovider.tales import addTALNamespaceData
 from utils import IBlockControl
 from Acquisition import aq_inner
+from Acquisition import aq_parent
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 from simplelayout.base.interfaces import ISimplelayoutView, \
@@ -251,3 +252,13 @@ class BlockManipulation(BrowserView):
                 #remove heights
                 blockconf.block_height = None
         return 1
+
+
+class ParagraphView(BrowserView):
+    """A view for paragraphs / blocks, redirecting to the container (page).
+    """
+
+    def __call__(self):
+        parent = aq_parent(aq_inner(self.context))
+        url = '{0}/#{1}'.format(parent.absolute_url(), self.context.getId())
+        return self.context.REQUEST.RESPONSE.redirect(url)

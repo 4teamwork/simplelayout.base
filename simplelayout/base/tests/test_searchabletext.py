@@ -1,19 +1,17 @@
 import transaction
 from plone.app.testing import setRoles
-from zope.component import getUtility
-from simplelayout.base.interfaces import ISlUtils
 from plone.app.testing import TEST_USER_ID
 from Products.Archetypes.event import ObjectEditedEvent
 from Products.CMFCore.utils import getToolByName
 from simplelayout.base.indexer import SearchableText
-from simplelayout.base.testing import SL_BASE_FUNCTIONAL_TESTING
+from simplelayout.base.testing import SL_TYPES_FUNCTIONAL_TESTING
 from unittest2 import TestCase
 from zope import event
 
 
 class TestSearchableText(TestCase):
 
-    layer = SL_BASE_FUNCTIONAL_TESTING
+    layer = SL_TYPES_FUNCTIONAL_TESTING
 
     def setUp(self):
         super(TestSearchableText, self).setUp()

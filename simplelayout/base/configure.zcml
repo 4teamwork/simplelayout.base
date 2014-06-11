@@ -144,6 +144,12 @@
         allowed_attributes="setBlockHeights"
         />
 
+    <browser:page
+        name="paragraph_view"
+        for="simplelayout.base.interfaces.ISimpleLayoutBlock"
+        class=".views.ParagraphView"
+        permission="zope2.View"
+        />
 
 
 
