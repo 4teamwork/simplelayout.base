@@ -5,7 +5,8 @@ Changelog
 4.0.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Ensure backwards compatibility with multiview feature.
+  [tschanzt]
 
 
 4.0.2 (2014-07-08)

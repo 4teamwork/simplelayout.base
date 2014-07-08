@@ -114,10 +114,17 @@ class BlockLayout(BaseBlockControl):
 
         if not fieldname:
             fieldname = 'image'
+        
+        #This allows us to change the view without changing the imagelayout.
         if layout != '' and layout != 'dummy-dummy':
             blockconf.image_layout = layout
+        
+        #This allows us to change the imagelayout without reseting the view.
         if viewname != '' and viewname != 'dummy':
             blockconf.viewname = viewname
+        #This is a fallback for old actions which switch to the default view without defining a viewname.
+        elif (layout == '' or layout == 'dummy-dummy') and (viewname != '' and viewname == 'dummy'):
+            blockconf.viewname = 'block_view'
 
 class ImageScaler(object):
     implements(IScaleImage)
