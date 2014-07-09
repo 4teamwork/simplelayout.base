@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-4.0.3 (unreleased)
+4.0.3 (2014-07-09)
 ------------------
 
 - Ensure backwards compatibility with multiview feature.
