@@ -62,6 +62,20 @@ class SimpleLayoutListingViewlet(ViewletBase):
         else:
             return [self.context]
 
+    @property
+    def align_to_grid(self):
+        """
+        This method returns a boolean indicating if the "align to grid"
+        feature should kick in or not. This is used in the template to
+        render the appropriates classes.
+        """
+        context = aq_inner(self.context).aq_explicit
+
+        # Get the property as a string ('0' or '1').
+        align_to_grid = getattr(context, 'align_to_grid', '0')
+
+        return int(align_to_grid)
+
     #XXX enable caching ASAP
     #@ram.cache(_render_listing_cachkey)
     def renderBlockProvider(self, context):

@@ -1,5 +1,8 @@
-<div class="simplelayout-content two-columns-design" tal:define="resultsleft python:view.getSimpleLayoutContents(slotInterface='slotA');
-                                                                 resultsright python:view.getSimpleLayoutContents(slotInterface='slotB')">
+<div tal:define="resultsleft python:view.getSimpleLayoutContents(slotInterface='slotA');
+                 resultsright python:view.getSimpleLayoutContents(slotInterface='slotB');
+                 base_classes string: simplelayout-content two-columns-design;
+                 align_to_grid view/align_to_grid;"
+     tal:attributes="class python: align_to_grid and base_classes + ' align-to-grid' or base_classes">
     <div id="slotA" tal:attributes="class python:resultsleft and 'twocolumn left' or 'twocolumn left emptymarker'">
 		<tal:repeat repeat="result resultsleft">
 			<div tal:define="specialCSS python: result.Type() in ['Image',] and ' leftFloatable ' or ' blockClear ';
