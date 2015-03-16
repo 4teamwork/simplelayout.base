@@ -4,6 +4,10 @@
     position:relative;
 }
 
+.BlockOverallWrapper.image {
+    width: 100%;
+}
+
 .simplelayout-block-wrapper{
     margin: 0px;
     padding: 0px;
