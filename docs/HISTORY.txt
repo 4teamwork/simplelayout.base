@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-4.0.5 (unreleased)
+4.0.5 (2015-03-16)
 ------------------
 
 - Set image block width to full width.
