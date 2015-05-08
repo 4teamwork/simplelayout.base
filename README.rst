@@ -313,9 +313,9 @@ Make sure to uninstall the dependencies if you no longer use them.
 Links
 =====
 
-- Main github project repository: https://github.com/4teamwork/simplelayout.base
-- Issue tracker: https://github.com/4teamwork/simplelayout.base/issues
-- Package on pypi: http://pypi.python.org/pypi/simplelayout.base
+- Github: https://github.com/4teamwork/simplelayout.base
+- Issues: https://github.com/4teamwork/simplelayout.base/issues
+- Pypi: http://pypi.python.org/pypi/simplelayout.base
 - Continuous integration: https://jenkins.4teamwork.ch/search?q=simplelayout.base
 
 
