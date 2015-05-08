@@ -328,6 +328,3 @@ This package is copyright by `4teamwork <http://www.4teamwork.ch/>`_.
 
 .. _ftw.contentpage: https://github.com/4teamwork/ftw.contentpage
 .. _simplelayout.types.common: https://github.com/4teamwork/simplelayout.types.common
-.. image:: https://cruel-carlota.pagodabox.com/77a0517e0595df9710c1c8fc7fcc13e2
-   :alt: githalytics.com
-   :target: http://githalytics.com/4teamwork/simplelayout.base
