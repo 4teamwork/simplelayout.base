@@ -43,6 +43,7 @@ setup(name='simplelayout.base',
       zip_safe=False,
 
       install_requires=[
+        'Plone',
         'setuptools',
         'archetypes.schemaextender',
         'simplelayout.ui.base>=3.0.1',
