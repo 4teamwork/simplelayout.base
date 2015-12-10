@@ -5,7 +5,8 @@ Changelog
 4.0.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Align blocks to grid after images are fully loaded. use window.onload for this purpose.
+  [mathias.leimgruber]
 
 
 4.0.4 (2015-02-23)
