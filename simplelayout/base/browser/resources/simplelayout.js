@@ -77,10 +77,11 @@ jQuery(function($){
     Align to grid on page load if the viewlet has set a special class onto
     the simplelayout div in the template.
     */
-    if ($('.align-to-grid').length) {
-        simplelayout.align_to_grid = 1;
-        simplelayout.alignBlockToGridAction();
-    }
-
+    $(window).load(function(){
+      if ($('.align-to-grid').length) {
+          simplelayout.align_to_grid = 1;
+          simplelayout.alignBlockToGridAction();
+      }
+    });
 });
 
