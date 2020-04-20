@@ -7,9 +7,7 @@ tests_require = [
     'ftw.builder',
     'ftw.testbrowser',
     'ftw.testing',
-    'plone.app.testing',
-    'plone.mocktestcase',
-    'simplelayout.types.common',
+
     ]
 
 setup(name='simplelayout.base',
@@ -44,9 +42,6 @@ setup(name='simplelayout.base',
       install_requires=[
         'Plone',
         'setuptools',
-        'archetypes.schemaextender',
-        'simplelayout.ui.base>=3.0.1',
-        'simplelayout.ui.dragndrop'
         ],
       tests_require=tests_require,
       extras_require=dict(tests=tests_require),

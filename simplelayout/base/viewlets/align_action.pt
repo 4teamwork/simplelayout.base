@@ -1,8 +1,0 @@
-<div class="slAlignBlocks"
-     tal:condition="python: view.isTwoColumnLayout() and view.has_permission()">
-    Simplelayout:
-    <a href="#"
-       id="alignallblocks">
-           <span tal:replace="structure string:${view/text}">text</span>
-    </a>
-</div>

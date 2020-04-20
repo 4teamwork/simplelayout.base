@@ -1,4 +1,3 @@
-from simplelayout.base.configlet.interfaces import ISimplelayoutConfiguration
 from simplelayout.base.interfaces import IOneColumn
 from simplelayout.base.interfaces import ISimplelayoutTwoColumnOneOnTopView
 from simplelayout.base.interfaces import ISimplelayoutTwoColumnView
@@ -50,10 +49,4 @@ IMAGE_SIZE_MAP_PER_INTERFACE = {
     ITwoColumn: dict(small_size='small_size_two',
                      middle_size='middle_size_two',
                      full_size='full_size_two'),
-    }
-
-# take a look at componentregistry.xml
-# key = utility name, value = interface
-CONFIGLET_INTERFACE_MAP = {
-    'sl-config': ISimplelayoutConfiguration,
     }
