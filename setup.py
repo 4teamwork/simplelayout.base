@@ -35,7 +35,7 @@ setup(name='simplelayout.base',
       license='GPL2',
 
       packages=find_packages(exclude=['ez_setup']),
-      namespace_packages=['simplelayout'],
+      namespace_packages=['simplelayout', 'simplelayout.portlet'],
       include_package_data=True,
       zip_safe=False,
 
