@@ -14,3 +14,8 @@ class IVideo(IFlowPlayable):
 class IAudio(IFlowPlayable):
     """Marker interface for files that contain audio content
     """
+
+
+class IMediaInfo(Interface):
+    """Information about a video object
+    """
